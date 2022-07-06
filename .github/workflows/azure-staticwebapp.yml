@@ -51,7 +51,7 @@ jobs:
           npm install
           npm run build
         name: Build module
-        working-directory: react-static-web-apps-auth
+        working-directory: src
       - run: |
           npm install
           npm run build
