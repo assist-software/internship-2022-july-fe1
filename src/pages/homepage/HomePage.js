@@ -1,26 +1,23 @@
-import { HeaderElement, ContainerElement, DropdownElement, SearchElement, FavoriteBtnElement, LabelElement, UserElement} from './HomePageElements'
-import AssistLogo from '../../components/AssistLogo'
-import { ContentContainer, MainContainer } from '../LoginPage/LoginPageElements'
+import { useGlobalContext } from "../../Context/appContext";
 
-const HomePage = () => {
-  return(
-    <>
-   <HeaderElement className='column'>
-    <ContainerElement className='container'>
-      <AssistLogo className='headerLogo'/>
+function HomePage() {
+  const {data} = useGlobalContext()
 
-          <DropdownElement type='dropdown' text='asd'>       
-          </DropdownElement>
-              <SearchElement type='search' placeholder='Search'>
-              </SearchElement>
-              <FavoriteBtnElement/>
-              <UserElement/>
-          
-    </ContainerElement>
-  </HeaderElement>
-    </>
+  console.log(data)
+  return (
+    <div>
+      <h1>This is home page (good luck)</h1>
+
+      {data.map((item)=>{
+       return <div key={item.id}>
+          <h2>{item.name}</h2>
+          <h4>{item.description}</h4>
+          <h4>{item.location}</h4>
+          <h4>{item.priceg}</h4>
+       </div>
+      })}
+    </div>
   )
 }
-export default HomePage
 
-
+export default HomePage;
