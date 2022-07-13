@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 
 import HomePage from "./pages/homepage/HomePage";
-import LoginPage from './pages/LoginPage/LoginPage';
+import OnBoarding from './pages/OnBoarding/OnBoarding';
 import Profile from './pages/Profile/Profile';
 import ProtectedRoutes from './routes/ProtectedRoutes';
 
@@ -20,10 +20,9 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-
+        <GlobalStyle/>
         <Routes>
           <Route path='/' element={<HomePage />} />
-          <Route path="/login" element={<LoginPage />} />
 
 {/* ----------Protected Routed for authenticated user --------------- */}
           <Route element={<ProtectedRoutes />}>
@@ -43,6 +42,10 @@ function App() {
 
           </Route>
           
+          <Route path='/login' element={<OnBoarding pageName="logIn"/>}/>
+          <Route path='/sign-up' element={<OnBoarding pageName="createAccount"/>}/>
+          <Route path='/forgot-password' element={<OnBoarding pageName="forgotPassword"/>}/>
+          <Route path='/reset-password' element={<OnBoarding pageName="resetPassword"/>}/>
           <Route path="/*" element={<Navigate replace to='/' />} />
         </Routes>
       </BrowserRouter>
