@@ -8,6 +8,9 @@ const GlobalStyle = createGlobalStyle`
   *{
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    line-height: 22px;
+    font-weight: 600;
   }
 `
 
@@ -17,7 +20,7 @@ function App() {
       <BrowserRouter>
         <GlobalStyle />
         <Routes>
-          <Route path='/' element={<HomePage />} />
+          <Route path='/homepage' element={<HomePage />} />
           <Route path="/*" element={<Navigate replace to='/' />} />
           <Route path='/login' element={<LoginPage/>}/>
         </Routes>
