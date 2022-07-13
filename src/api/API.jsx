@@ -10,7 +10,7 @@ const useApi = (url) => {
 
     useEffect(() => {
         setData(cardsMock)
-        //delete when u  will use 
+        //delete when u  will use  setLoading and setError
         setLoading(true)
         setError(null)
     }, [])

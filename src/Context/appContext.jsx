@@ -11,7 +11,9 @@ export const AppProvider = ({ children }) => {
     // will be use later
     // const [state, dispatch] = useReducer(reducer, initialState)
 
-    const state = [...initialState]
+
+    // need to delete u will use reducer
+    const state = initialState
 
     return <AppContext.Provider
         value={{
