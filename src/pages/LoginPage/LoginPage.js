@@ -4,7 +4,7 @@ import ImageLogin from "../../assets/images/furniture.png";
 import AssistLogo from '../../components/AssistLogo';
 import FormTitle from '../../components/FormTitle';
 import FormLabel from '../../components/FormLabel';
-import {GoogleLogin} from 'react-google-login'
+// import {GoogleLogin} from 'react-google-login'
 
 const clientId = 'YOUR_CLIENT_ID.apps.googleeusearchcontent.com';
 
@@ -24,7 +24,7 @@ const LoginPage = () => {
             <LoginForm>
               <FormTitle text="Create account"/>
               <FormLabel text="Sign up for free and become a member."/>
-              <GoogleLogin
+              {/* <GoogleLogin
                 clientId={clientId}
                 buttonText="Sign up with Google"
                 onSuccess={onSuccess}
@@ -33,7 +33,7 @@ const LoginPage = () => {
                 
                 cookiePolicy={'single_host_origin'}
                 style={{textAlign: 'center'}}
-              />
+              /> */}
               <BreakLine>
                 <hr/>
                 <p>OR</p>
