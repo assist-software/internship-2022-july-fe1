@@ -1,14 +1,6 @@
 import styled from "styled-components"
 
-const LoginFormInput = () => {
-  return (
-    <Input/>
-  )
-}
-
-export default LoginFormInput
-
-const Input = styled.input`
+export const LoginFormInput = styled.input`
     width: 100%;
     height: 44px;
     border-radius: 8px;

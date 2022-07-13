@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import LoginFormInput from "./LoginFormInput"
+import {LoginFormInput} from "./LoginFormInput"
 import { FiEye, FiEyeOff } from "react-icons/fi";
 
 const PasswordInput = ({passwordVisibility,toogleVisibility,password,setPassword}) => {
@@ -8,8 +8,7 @@ const PasswordInput = ({passwordVisibility,toogleVisibility,password,setPassword
         <LoginFormInput
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        //type={passwordVisibility ? "password" : "text"}
-        type="password"
+        type={passwordVisibility ? "password" : "text"}
         id="password"
         placeholder="Password"/>
         <IconPass>

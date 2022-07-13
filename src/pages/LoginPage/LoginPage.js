@@ -6,7 +6,7 @@ import FormTitle from '../../components/FormTitle';
 import FormLabel from '../../components/FormLabel';
 import {GoogleLogin} from 'react-google-login'
 import InputLabel from '../../components/InputLabel';
-import LoginFormInput from '../../components/LoginFormInput';
+import {LoginFormInput} from '../../components/LoginFormInput';
 import PasswordInput from '../../components/PasswordInput';
 import FormButton from '../../components/FormButton';
 
@@ -54,10 +54,9 @@ const LoginPage = () => {
               <LoginFormInput
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              type={"text"}
+              type="email"
               id="email"
               placeholder="Email"/>
-              
               <InputLabel text="Password"/ >
               <PasswordInput passwordVisibility={passwordVisibility} toogleVisibility={toogleVisibility} password={password} setPassword={setPassword}/>
               <h2>At least 8 characters and one number.</h2>
