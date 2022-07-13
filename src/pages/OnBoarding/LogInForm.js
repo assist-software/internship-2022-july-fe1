@@ -2,15 +2,14 @@ import React,{useState} from 'react'
 import {LoginForm,Anchor } from './LoginPageElements';
 import FormTitle from '../../components/FormTitle';
 import FormLabel from '../../components/FormLabel';
-import {GoogleLogin} from 'react-google-login'
 import InputLabel from '../../components/InputLabel';
 import {LoginFormInput} from '../../components/LoginFormInput';
 import PasswordInput from '../../components/PasswordInput';
 import FormButton from '../../components/FormButton';
+import GoogleButton from '../../components/GoogleButton';
+import {Link} from 'react-router-dom';
 
-const clientId = 'YOUR_CLIENT_ID.apps.googleeusearchcontent.com';
-
-const LogInForm = ({currentPage}) => {
+const LogInForm = () => {
     const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [passwordVisibility, setPasswordVisibility] = useState(true);
@@ -19,12 +18,7 @@ const LogInForm = ({currentPage}) => {
     setPasswordVisibility(!passwordVisibility);
   };
 
-  const onSuccess = (res) => {
-    console.log('[Login Succes] currentUser:', res.profileObj);
-  }
-  const onFailure = (res) => {
-    console.log('[Login Failed] res',res);
-  }
+  
   return (
     <LoginForm>
               <FormTitle text="Log in"/>
@@ -39,21 +33,14 @@ const LogInForm = ({currentPage}) => {
               <InputLabel text="Password"/ >
               <PasswordInput passwordVisibility={passwordVisibility} toogleVisibility={toogleVisibility} password={password} setPassword={setPassword}/>
               <div className='checkbox'>
-                {/* <input type={"checkbox"}>Remember me</input> */}
-                <Anchor href=''>Forgot your password?</Anchor>
+                <div><input type={"checkbox"}/><span>Remember me</span></div>
+                <Link to="/forgot-password" style={{textDecoration: 'none',color: '#0356E8',fontSize: '14px',marginLeft: '5px'}}>Forgot your password?</Link>
               </div>
             <FormButton text="Log in"/>
-            <GoogleLogin
-                clientId={clientId}
-                buttonText="Sign up with Google"
-                onSuccess={onSuccess}
-                onFailure={onFailure}
-                className={"Google"}
-                cookiePolicy={'single_host_origin'}
-                style={{textAlign: 'center'}}
-              />
+            <GoogleButton text={"Log in with Google"}/>
             <div className='inline'>
-            <FormLabel text={`Don't have an account?`}/><Anchor href='' onClick={currentPage}>Sign up</Anchor>
+            <FormLabel text={`Don't have an account?`}/>
+            <Link to="/sign-up" style={{textDecoration: 'none',color: '#0356E8',fontSize: '14px',marginLeft: '5px'}}>Sign up</Link>
             </div>
             </LoginForm>
   )

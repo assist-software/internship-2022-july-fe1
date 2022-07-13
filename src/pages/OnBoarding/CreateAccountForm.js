@@ -2,13 +2,14 @@ import React,{useState} from 'react'
 import {LoginForm, BreakLine,Anchor } from './LoginPageElements';
 import FormTitle from '../../components/FormTitle';
 import FormLabel from '../../components/FormLabel';
-import {GoogleLogin} from 'react-google-login'
+
 import InputLabel from '../../components/InputLabel';
 import {LoginFormInput} from '../../components/LoginFormInput';
 import PasswordInput from '../../components/PasswordInput';
 import FormButton from '../../components/FormButton';
+import GoogleButton from '../../components/GoogleButton';
 
-const clientId = 'YOUR_CLIENT_ID.apps.googleeusearchcontent.com';
+import {Link} from 'react-router-dom';
 
 const CreateAccountForm = ({currentPage}) => {
   
@@ -20,24 +21,11 @@ const CreateAccountForm = ({currentPage}) => {
       setPasswordVisibility(!passwordVisibility);
     };
   
-    const onSuccess = (res) => {
-      console.log('[Login Succes] currentUser:', res.profileObj);
-    }
-    const onFailure = (res) => {
-      console.log('[Login Failed] res',res);
-    }
   return (
     <LoginForm>
               <FormTitle text="Create account"/>
               <FormLabel text="Sign up for free and become a member."/>
-              <GoogleLogin
-                clientId={clientId}
-                buttonText="Sign up with Google"
-                onSuccess={onSuccess}
-                onFailure={onFailure}
-                className={"Google"}
-                cookiePolicy={'single_host_origin'}
-                style={{textAlign: 'center'}}
+              <GoogleButton text={"Sign up with Google"}
               />
               <BreakLine>
                 <hr/>
@@ -55,7 +43,8 @@ const CreateAccountForm = ({currentPage}) => {
               <h2>At least 8 characters and one number.</h2>
             <FormButton text="Sign up"/>
             <div className='inline'>
-            <FormLabel text={'Already have an account?'}/><Anchor href='' onClick={currentPage}>Log in</Anchor>
+            <FormLabel text={'Already have an account?'}/>
+            <Link to="/login" style={{textDecoration: 'none',color: '#0356E8',fontSize: '14px',marginLeft: '5px'}}>Log in</Link>
             </div>
         </LoginForm>
   )

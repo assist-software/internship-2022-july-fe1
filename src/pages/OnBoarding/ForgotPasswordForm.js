@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
-import { LoginForm, Anchor } from './LoginPageElements';
+import { LoginForm } from './LoginPageElements';
+import {Link} from 'react-router-dom';
 
 import FormTitle from '../../components/FormTitle';
 import FormLabel from '../../components/FormLabel';
@@ -22,7 +23,7 @@ const ForgotPasswordForm = ({currentPage}) => {
     placeholder="Email"/>              
   <FormButton text="Send reset link"/>         
   <div className='inline'>
-  <Anchor href='' onClick={currentPage}>Back to Log in</Anchor>
+  <Link to="/login" style={{textDecoration: 'none',color: '#0356E8',fontSize: '14px',marginLeft: '5px'}}>Back to Log in</Link>
   </div>
   </LoginForm>
   )

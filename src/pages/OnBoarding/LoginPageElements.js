@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const MainContainer = styled.div`
@@ -19,7 +20,6 @@ export const LoginImage = styled.img`
 `
 export const ContentContainer = styled.div`
     min-width: 40%;
-    /* min-height: 60%; */
     display: flex;
     flex-direction: column;
 `
@@ -30,38 +30,6 @@ export const LoginForm = styled.form`
     display: flex;
     flex-direction: column;
     margin-top: 32px;
-
-    .Google{
-        display: flex!important;
-        justify-content: center;
-        align-items: center;
-        color: #0241AE!important;
-        
-        font-size: 14px!important;
-        border-radius: 8px!important;
-        border: 1px solid #0241AE!important;
-        box-shadow: none!important;
-    }
-
-    .Google span{
-        font-weight: bold!important;
-        padding-left: 35px!important;
-    }
-
-    .Google div{
-        position: relative;
-        left: 10%;
-        padding: 0!important;
-        margin-top: 5px;
-    }
-
-    .Google:hover, .Google:hover div{
-        background: #e2edff!important;
-    }
-
-    .Google:active, .Google:active div{
-        background: #b7d1fe!important;
-    }
 
     h2{
         font-size: 12px;
@@ -78,11 +46,24 @@ export const LoginForm = styled.form`
     .inline{
         display: flex;
         justify-content: center;
+        margin: 24px 0 0 0;
     }
 
+    .checkbox{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 38px;
+        color: #596274;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .checkbox span{
+        margin: 0 0 0 5px;
+    }
 `
 export const Anchor = styled.a`
-    text-decoration: none;
+        text-decoration: none;
         color: #0356E8;
         font-size: 14px;
         margin-left: 5px;
