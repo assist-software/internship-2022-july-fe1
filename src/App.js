@@ -1,9 +1,20 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { createGlobalStyle } from 'styled-components';
 
 import HomePage from "./pages/homepage/HomePage";
 import LoginPage from './pages/LoginPage/LoginPage';
 import Profile from './pages/Profile/Profile';
 import ProtectedRoutes from './routes/ProtectedRoutes';
+
+const GlobalStyle = createGlobalStyle`
+  *{
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    line-height: 22px;
+    font-weight: 600;
+  }
+`
 
 function App() {
   return (

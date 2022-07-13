@@ -15,8 +15,8 @@ export const Logo = styled.div `
     background-image: url(${LogoAssist}) ;
     background-size: cover;
 
-    .HeaderLogo{
-      position: relative;
-      left: 40px;
+    .headerLogo{
+        position: relative !important;
+        top: 12px !important;
     }
 `

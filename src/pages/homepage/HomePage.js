@@ -1,22 +1,28 @@
-import { useGlobalContext } from "../../Context/appContext";
+import { HeaderElement, ContainerElement, DropdownElement, SearchElement, FavoriteBtnElement, LabelElement, UserElement, SearchComponentElement} from './HomePageElements'
+import AssistLogo from '../../components/AssistLogo'
+import FormLabel from '../../components/FormLabel'
 
-function HomePage() {
-  const {data} = useGlobalContext()
 
-  console.log(data)
-  return (
-    <div>
-      <h1>This is home page (good luck)</h1>
-
-      {data.map((item)=>{
-       return <div key={item.id}>
-          <h2>{item.name}</h2>
-          <h4>{item.description}</h4>
-          <h4>{item.location}</h4>
-          <h4>{item.priceg}</h4>
-       </div>
-      })}
-    </div>
+const HomePage = () => {
+  return(
+    <>
+   <HeaderElement>
+    <ContainerElement className='container'>
+      <AssistLogo className={"headerLogo"}/>
+          <DropdownElement type='dropdown'>    
+            <FormLabel text='Category' style={{color:"#0241AE"}} />
+          </DropdownElement>
+              <SearchElement type='search' placeholder='Search'/>  
+              <FavoriteBtnElement>
+                <FormLabel text={"Favourites"}></FormLabel>
+              </FavoriteBtnElement>
+              <UserElement>
+              <FormLabel text={"User"}></FormLabel>
+              </UserElement>
+          
+    </ContainerElement>
+  </HeaderElement>
+    </>
   )
 }
 
