@@ -1,26 +1,29 @@
-import { HeaderElement, ContainerElement, DropdownElement, SearchElement, FavoriteBtnElement, LabelElement, UserElement} from './HomePageElements'
+import { HeaderElement, ContainerElement, DropdownElement, SearchElement, FavoriteBtnElement, LabelElement, UserElement, SearchComponentElement} from './HomePageElements'
 import AssistLogo from '../../components/AssistLogo'
-import { ContentContainer, MainContainer } from '../OnBoarding/LoginPageElements'
+import FormLabel from '../../components/FormLabel'
+
 
 const HomePage = () => {
   return(
     <>
-   <HeaderElement className='column'>
+   <HeaderElement>
     <ContainerElement className='container'>
-      <AssistLogo className='headerLogo'/>
-
-          <DropdownElement type='dropdown' text='asd'>       
+      <AssistLogo className={"headerLogo"}/>
+          <DropdownElement type='dropdown'>    
+            <FormLabel text='Category' style={{color:"#0241AE"}} />
           </DropdownElement>
-              <SearchElement type='search' placeholder='Search'>
-              </SearchElement>
-              <FavoriteBtnElement/>
-              <UserElement/>
+              <SearchElement type='search' placeholder='Search'/>  
+              <FavoriteBtnElement>
+                <FormLabel text={"Favourites"}></FormLabel>
+              </FavoriteBtnElement>
+              <UserElement>
+              <FormLabel text={"User"}></FormLabel>
+              </UserElement>
           
     </ContainerElement>
   </HeaderElement>
     </>
   )
 }
-export default HomePage
 
-
+export default HomePage;

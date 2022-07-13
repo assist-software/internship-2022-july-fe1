@@ -16,7 +16,12 @@ export const Logo = styled.div`
     background-size: cover;
 
     .headerLogo{
+<<<<<<< HEAD
       position: relative;
       left: 40px;
+=======
+        position: relative !important;
+        top: 12px !important;
+>>>>>>> ff0dbe532e23f37f66a72146d7bd4fa84aa7c53d
     }
 `
