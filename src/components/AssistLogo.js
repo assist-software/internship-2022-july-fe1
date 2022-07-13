@@ -10,7 +10,7 @@ const AssistLogo = () => {
 export default AssistLogo
 
 export const Logo = styled.div`
-    height: 45px;
+    height: 35px;
     width: 110px;
     background-image: url(${LogoAssist}) ;
     background-size: cover;

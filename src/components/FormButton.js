@@ -18,4 +18,12 @@ const Button = styled.button`
     font-size: 14px;
     cursor: pointer;
     margin: 40px 0 20px 0;
+
+    &:hover{
+        background: #0241ae;
+    }
+
+    &:active{
+        background: #012b74;
+    }
 `

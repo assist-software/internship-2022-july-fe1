@@ -1,6 +1,6 @@
 import { HeaderElement, ContainerElement, DropdownElement, SearchElement, FavoriteBtnElement, LabelElement, UserElement} from './HomePageElements'
 import AssistLogo from '../../components/AssistLogo'
-import { ContentContainer, MainContainer } from '../LoginPage/LoginPageElements'
+import { ContentContainer, MainContainer } from '../OnBoarding/LoginPageElements'
 
 const HomePage = () => {
   return(

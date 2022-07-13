@@ -2,7 +2,8 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { createGlobalStyle } from "styled-components";
 
 import HomePage from "./pages/homepage/HomePage";
-import LoginPage from './pages/LoginPage/LoginPage';
+import OnBoarding from './pages/OnBoarding/OnBoarding';
+
 
 const GlobalStyle = createGlobalStyle`
   *{
@@ -22,7 +23,10 @@ function App() {
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path="/*" element={<Navigate replace to='/' />} />
-          <Route path='/login' element={<LoginPage/>}/>
+          <Route path='/login' element={<OnBoarding pageName="logIn"/>}/>
+          <Route path='/sign-up' element={<OnBoarding pageName="createAccount"/>}/>
+          <Route path='/forgot-password' element={<OnBoarding pageName="forgotPassword"/>}/>
+          <Route path='/reset-password' element={<OnBoarding pageName="resetPassword"/>}/>
         </Routes>
       </BrowserRouter>
     </div>

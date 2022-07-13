@@ -14,12 +14,12 @@ export const LeftSide = styled.div`
 `
 
 export const LoginImage = styled.img`
-    heigth: auto;
+    height: auto;
     width: 50vw;
 `
 export const ContentContainer = styled.div`
-    width: 40%;
-    height: 60%;
+    min-width: 40%;
+    /* min-height: 60%; */
     display: flex;
     flex-direction: column;
 `
@@ -59,7 +59,7 @@ export const LoginForm = styled.form`
         background: #e2edff!important;
     }
 
-    .Google:focus, .Google:focus div{
+    .Google:active, .Google:active div{
         background: #b7d1fe!important;
     }
 
@@ -80,13 +80,12 @@ export const LoginForm = styled.form`
         justify-content: center;
     }
 
-    a{
-        text-decoration: none;
+`
+export const Anchor = styled.a`
+    text-decoration: none;
         color: #0356E8;
         font-size: 14px;
         margin-left: 5px;
-    }
-
 `
 
 export const BreakLine = styled.div`
