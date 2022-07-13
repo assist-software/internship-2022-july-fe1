@@ -13,7 +13,7 @@ const useApi = (url) => {
         //delete when u  will use 
         setLoading(true)
         setError(null)
-    })
+    }, [])
 
     // useEffect(() => {
     //   const abortCont = new AbortController();

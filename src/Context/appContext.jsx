@@ -1,4 +1,4 @@
-import React, { useContext, createContext, useReducer } from 'react';
+import React, { useContext, createContext } from 'react';
 
 // import { reducer } from '../reducer';
 import { API } from '../api/API';
