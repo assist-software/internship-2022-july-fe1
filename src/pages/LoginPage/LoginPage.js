@@ -1,5 +1,5 @@
 import React from 'react'
-import { LeftSide, MainContainer, LoginImage, ContentContainer, LoginForm, FormTitle } from './LoginPageElements';
+import { LeftSide, MainContainer, LoginImage, ContentContainer } from './LoginPageElements';
 import ImageLogin from "../../assets/images/furniture.png";
 import AssistLogo from '../../components/AssistLogo';
 

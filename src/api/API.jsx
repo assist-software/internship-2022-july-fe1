@@ -1,51 +1,19 @@
-import React, { useEffect, useState } from "react";
-import axios from 'axios'
+import { useEffect, useState } from "react";
+// import axios from 'axios'
+
+import { cardsMock } from './ApiMocks'
 
 const useApi = (url) => {
-    const [data, setData] = useState([
-        {
-            id: 1,
-            name: 'name 1',
-            price: 123.12,
-            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptates ex facilis laboriosam. Architecto odio fugit corporis, commodi vero molestiae quos delectus reiciendis. Repellat nostrum laboriosam placeat error nobis aut.',
-            location: 'Suceava',
-            img: 'url',
-        },
-        {
-            id: 2,
-            name: 'name 2',
-            price: 123.12,
-            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptates ex facilis laboriosam. Architecto odio fugit corporis, commodi vero molestiae quos delectus reiciendis. Repellat nostrum laboriosam placeat error nobis aut.',
-            location: 'Bucuresti',
-            img: 'url',
-        },
-        {
-            id: 3,
-            name: 'name 3',
-            price: 123.12,
-            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptates ex facilis laboriosam. Architecto odio fugit corporis, commodi vero molestiae quos delectus reiciendis. Repellat nostrum laboriosam placeat error nobis aut.',
-            location: 'Cluj',
-            img: 'url',
-        },
-        {
-            id: 4,
-            name: 'name 4',
-            price: 123.12,
-            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptates ex facilis laboriosam. Architecto odio fugit corporis, commodi vero molestiae quos delectus reiciendis. Repellat nostrum laboriosam placeat error nobis aut.',
-            location: 'Timisoara',
-            img: 'url',
-        },
-        {
-            id: 5,
-            name: 'name 5',
-            price: 123.12,
-            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptates ex facilis laboriosam. Architecto odio fugit corporis, commodi vero molestiae quos delectus reiciendis. Repellat nostrum laboriosam placeat error nobis aut.',
-            location: 'Iasi',
-            img: 'url',
-        },
-    ]);
+    const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+
+    useEffect(() => {
+        setData(cardsMock)
+        //delete when u  will use 
+        setLoading(true)
+        setError(null)
+    })
 
     // useEffect(() => {
     //   const abortCont = new AbortController();

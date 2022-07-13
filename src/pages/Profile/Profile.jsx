@@ -3,7 +3,7 @@ import React from 'react'
 import { useGlobalAuthContext } from '../../Context/authContext'
 
 const Profile = () => {
-    const { user, logout } = useGlobalAuthContext()
+    const { user } = useGlobalAuthContext()
     return (
         <>
             <h1>PROFILE PAGE</h1>

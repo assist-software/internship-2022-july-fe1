@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import LogoAssist from '../../assets/images/assistLogo.png';
 
 export const MainContainer = styled.div`
     height: 100vh;
