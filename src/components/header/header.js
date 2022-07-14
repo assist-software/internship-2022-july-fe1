@@ -4,8 +4,8 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import 'bootstrap/dist/css/bootstrap.css';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/esm/Button';
-import {FiHeart, FiUser, FiSearch } from 'react-icons/fi'
-
+import {FiHeart, FiUser, FiSearch} from 'react-icons/fi'
+import {Link} from 'react-router-dom'
 
 const Header = () => {
     return ( 
@@ -14,11 +14,11 @@ const Header = () => {
             <img src={img} alt="Assist Logo" className='headerLogo'/>
             <Form className='searchForm'>
             <Dropdown   className='dropDownBtn' title='Category'>
-            <Dropdown.Toggle variant="default"><a className='aColorTextCategory'>Category</a>  </Dropdown.Toggle>
+            <Dropdown.Toggle variant="default"><span className='textCategory'>Category </span></Dropdown.Toggle>
                 <Dropdown.Menu>
-                    <Dropdown.Item href="/latest">Latest</Dropdown.Item>
-                    <Dropdown.Item href="/bighouses">Big houses</Dropdown.Item>
-                    <Dropdown.Item href="/smallhouses">Small houses</Dropdown.Item>
+                    <Dropdown.Item href="#">Latest</Dropdown.Item>
+                    <Dropdown.Item href="#">Big houses</Dropdown.Item>
+                    <Dropdown.Item href="#">Small houses</Dropdown.Item>
                 </Dropdown.Menu>    
             </Dropdown>
             <Form.Control 
@@ -27,17 +27,17 @@ const Header = () => {
               placeholder="Search"
               aria-label="Search"
             />
-            <Button variant="outline" className='faSearchIcon'>
-                <FiSearch></FiSearch>
+            <Button variant="outline" className='btnSearchIcon'>
+                <FiSearch className='searchIcon'></FiSearch>
             </Button>
             <Button variant="outline" className='favouritesBtn'>
                 <FiHeart id='headerIcons'></FiHeart>
-                <a className='aColorText'>Favourites</a>
+                <Link to={"/favourites"} className='ColorText' >Favourites</Link>
             </Button>
-            <Button variant="outline" className='userBtn' href="/login">
+            <Button variant="outline" className='userBtn'>
                 <FiUser id='headerIcons'></FiUser>
-                <a className='aColorTextd'> My account</a>
-            </Button>
+                <Link to={"/login"} className='ColorTextd'>My account</Link>
+            </Button>        
           </Form>   
         </div>
     </div>
