@@ -1,22 +1,20 @@
 import styled from 'styled-components'
 import LogoAssist from '../assets/images/assistLogo.png';
 
-const AssistLogo = () => {
-    return ( 
-        <Logo/>
+const AssistLogoHeader = () => {
+    return ( <
+        Logo / >
     )
 }
 
-export default AssistLogo
+export default AssistLogoHeader
 
 export const Logo = styled.div `
     height: 45px;
-    width: 110px;
+    width: 120px;
     background-image: url(${LogoAssist}) ;
     background-size: cover;
-
-    .headerLogo{
-        position: relative !important;
-        top: 12px !important;
-    }
+    position: relative !important;
+    top: 12px !important;
+    left: 30px;
 `

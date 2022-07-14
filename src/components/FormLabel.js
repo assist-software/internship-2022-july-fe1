@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 const FormLabel = ({ text }) => {
     return ( 
-      <Label> { text } </Label>
+    <Label > { text } </Label>
     )
 }
 

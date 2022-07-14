@@ -1,9 +1,11 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { createGlobalStyle } from "styled-components";
 
+
 import HomePage from "./pages/homepage/HomePage";
 import LoginPage from './pages/LoginPage/LoginPage';
 
+import '../src/components/App.css'
 const GlobalStyle = createGlobalStyle`
   *{
     margin: 0;
