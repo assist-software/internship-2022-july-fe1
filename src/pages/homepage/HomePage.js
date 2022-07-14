@@ -6,8 +6,8 @@ import {
   FavoriteBtnElement,
   UserElement,
 } from "./HomePageElements";
-import AssistLogo from "../../components/AssistLogo";
-import FormLabel from "../../components/FormLabel";
+import AssistLogo from "../../components/AssistLogo/AssistLogo";
+import FormLabel from "../../components/FormLabel/FormLabel";
 
 const HomePage = () => {
   return (

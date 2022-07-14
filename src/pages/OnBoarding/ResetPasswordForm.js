@@ -1,13 +1,13 @@
-import React,{useState} from 'react'
-import {LoginForm } from './LoginPageElements';
-import FormTitle from '../../components/FormTitle';
-import FormLabel from '../../components/FormLabel';
-import InputLabel from '../../components/InputLabel';
-import PasswordInput from '../../components/PasswordInput';
-import FormButton from '../../components/FormButton';
+import React, { useState } from "react";
+import { StyledLoginForm } from "./LoginPageElements";
+import StyledFormTitle from "../../components/FormTitle/FormTitle";
+import StyledFormLabel from "../../components/FormLabel/FormLabel";
+import StyledInputLabel from "../../components/InputLabel/InputLabel";
+import StyledPasswordInput from "../../components/PasswordInput/PasswordInput";
+import StyledFormButton from "../../components/FormButton/FormButton";
 
 const ResetPasswordForm = () => {
-    const [password, setPassword] = useState("");
+  const [password, setPassword] = useState("");
   const [passwordVisibility, setPasswordVisibility] = useState(true);
 
   const toogleVisibility = () => {
@@ -15,17 +15,27 @@ const ResetPasswordForm = () => {
   };
 
   return (
-    <LoginForm>
-              <FormTitle text="Reset password"/>
-              <FormLabel text="Create a new password for your account."/>
-              <InputLabel text="Password"/ >
-              <PasswordInput passwordVisibility={passwordVisibility} toogleVisibility={toogleVisibility} password={password} setPassword={setPassword}/>
-              <h2>At least 8 characters and one number.</h2>
-              <InputLabel text="Confirm password"/ >
-              <PasswordInput passwordVisibility={passwordVisibility} toogleVisibility={toogleVisibility} password={password} setPassword={setPassword}/>            
-            <FormButton text="Confirm password"/>         
-            </LoginForm>
-  )
-}
+    <StyledLoginForm>
+      <StyledFormTitle text="Reset password" />
+      <StyledFormLabel text="Create a new password for your account." />
+      <StyledInputLabel text="Password" />
+      <StyledPasswordInput
+        passwordVisibility={passwordVisibility}
+        toogleVisibility={toogleVisibility}
+        password={password}
+        setPassword={setPassword}
+      />
+      <h2>At least 8 characters and one number.</h2>
+      <StyledInputLabel text="Confirm password" />
+      <StyledPasswordInput
+        passwordVisibility={passwordVisibility}
+        toogleVisibility={toogleVisibility}
+        password={password}
+        setPassword={setPassword}
+      />
+      <StyledFormButton text="Confirm password" />
+    </StyledLoginForm>
+  );
+};
 
-export default ResetPasswordForm
+export default ResetPasswordForm;
