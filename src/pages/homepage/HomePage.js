@@ -1,11 +1,12 @@
 import Header from "../../components/header/header";
+import AddNewPage from "../AddNewPage/AddNewPage";
 
 const HomePage = () => {
   return (
-    <Header />
-
-    // when test uncomment
-    // <Card onClick={() => console.log('tste')} isFavorite={true} />
+    <>
+      <Header />
+      <AddNewPage />
+    </>
   );
 };
 export default HomePage;
