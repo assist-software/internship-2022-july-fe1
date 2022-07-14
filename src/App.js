@@ -7,11 +7,7 @@ import OnBoarding from './pages/OnBoarding/OnBoarding';
 import Profile from './pages/Profile/Profile';
 import ProtectedRoutes from './routes/ProtectedRoutes';
 
-<<<<<<< HEAD
-
-=======
-import '../src/components/App.css'
->>>>>>> bacb1d29e1f92d89f2086fbb9aa3870d9e14a6c0
+import "./components/App.css"
 const GlobalStyle = createGlobalStyle`
   *{
     margin: 0;
@@ -26,11 +22,11 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <GlobalStyle/>
+        <GlobalStyle />
         <Routes>
           <Route path='/' element={<HomePage />} />
 
-{/* ----------Protected Routed for authenticated user --------------- */}
+          {/* ----------Protected Routed for authenticated user --------------- */}
           <Route element={<ProtectedRoutes />}>
 
             <Route path="/favorites" element={<HomePage />} />
@@ -47,11 +43,11 @@ function App() {
             <Route path="/myprofile/message" element={<Profile />} />
 
           </Route>
-          
-          <Route path='/login' element={<OnBoarding pageName="logIn"/>}/>
-          <Route path='/sign-up' element={<OnBoarding pageName="createAccount"/>}/>
-          <Route path='/forgot-password' element={<OnBoarding pageName="forgotPassword"/>}/>
-          <Route path='/reset-password' element={<OnBoarding pageName="resetPassword"/>}/>
+
+          <Route path='/login' element={<OnBoarding pageName="logIn" />} />
+          <Route path='/sign-up' element={<OnBoarding pageName="createAccount" />} />
+          <Route path='/forgot-password' element={<OnBoarding pageName="forgotPassword" />} />
+          <Route path='/reset-password' element={<OnBoarding pageName="resetPassword" />} />
           <Route path="/*" element={<Navigate replace to='/' />} />
         </Routes>
       </BrowserRouter>
