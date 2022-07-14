@@ -1,12 +1,12 @@
 import React from "react";
 import {
-  LeftSide,
-  MainContainer,
-  LoginImage,
-  ContentContainer,
+  StyledLeftSide,
+  StyledMainContainer,
+  StyledLoginImage,
+  StyledContentContainer,
 } from "./LoginPageElements";
 import ImageLogin from "../../assets/images/furniture.png";
-import AssistLogo from "../../components/AssistLogo";
+import StyledAssistLogo from "../../components/AssistLogo/AssistLogo";
 import CreateAccountForm from "./CreateAccountForm";
 import LogInForm from "./LogInForm";
 import ForgotPasswordForm from "./ForgotPasswordForm";
@@ -14,10 +14,10 @@ import ResetPasswordForm from "./ResetPasswordForm";
 
 const OnBoarding = ({ pageName }) => {
   return (
-    <MainContainer>
-      <LeftSide>
-        <ContentContainer>
-          <AssistLogo />
+    <StyledMainContainer>
+      <StyledLeftSide>
+        <StyledContentContainer>
+          <StyledAssistLogo />
           {/* Create account */}
           {pageName === "createAccount" && <CreateAccountForm />}
           {/* Log in */}
@@ -26,10 +26,10 @@ const OnBoarding = ({ pageName }) => {
           {pageName === "forgotPassword" && <ForgotPasswordForm />}
           {/* Reset password */}
           {pageName === "resetPassword" && <ResetPasswordForm />}
-        </ContentContainer>
-      </LeftSide>
-      <LoginImage src={ImageLogin} alt="Login image" />
-    </MainContainer>
+        </StyledContentContainer>
+      </StyledLeftSide>
+      <StyledLoginImage src={ImageLogin} alt="Login image" />
+    </StyledMainContainer>
   );
 };
 

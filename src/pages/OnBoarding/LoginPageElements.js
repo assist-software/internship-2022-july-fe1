@@ -1,29 +1,42 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-export const MainContainer = styled.div`
+export const StyledMainContainer = styled.div`
   height: 100vh;
   width: 100vw;
   display: flex;
 `;
-export const LeftSide = styled.div`
+export const StyledLeftSide = styled.div`
   height: 100%;
   width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media screen and (max-width: 1000px) {
+    width: 100%;
+  }
 `;
 
-export const LoginImage = styled.img`
+export const StyledLoginImage = styled.img`
   height: auto;
   width: 50vw;
+
+  @media screen and (max-width: 1000px) {
+    display: none;
+  }
 `;
-export const ContentContainer = styled.div`
-  min-width: 40%;
+export const StyledContentContainer = styled.div`
+  min-width: 50%;
   display: flex;
   flex-direction: column;
+
+  @media screen and (max-width: 480px) {
+    width: 90%;
+  }
 `;
 
-export const LoginForm = styled.form`
+export const StyledLoginForm = styled.form`
   width: 100%;
   height: 100%;
   display: flex;
@@ -62,7 +75,7 @@ export const LoginForm = styled.form`
   }
 `;
 
-export const BreakLine = styled.div`
+export const StyledBreakLine = styled.div`
   margin: 25px 0 0 0;
 
   p {
@@ -79,4 +92,11 @@ export const BreakLine = styled.div`
   hr {
     background: #d0d0d0;
   }
+`;
+
+export const StyledAnchor = styled(Link)`
+  text-decoration: none;
+  color: #0356e8;
+  font-size: 14px;
+  margin-left: 5px;
 `;

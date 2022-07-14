@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import { LoginForm} from "./LoginPageElements";
-import FormTitle from "../../components/FormTitle";
-import FormLabel from "../../components/FormLabel";
-import InputLabel from "../../components/InputLabel";
-import { LoginFormInput } from "../../components/LoginFormInput";
-import PasswordInput from "../../components/PasswordInput";
-import FormButton from "../../components/FormButton";
-import GoogleButton from "../../components/GoogleButton";
-import { Link } from "react-router-dom";
+import { StyledLoginForm, StyledAnchor } from "./LoginPageElements";
+import StyledFormTitle from "../../components/FormTitle/FormTitle";
+import StyledFormLabel from "../../components/FormLabel/FormLabel";
+import StyledInputLabel from "../../components/InputLabel/InputLabel";
+import { StyledLoginFormInput } from "../../components/LoginFormInput";
+import StyledPasswordInput from "../../components/PasswordInput/PasswordInput";
+import StyledFormButton from "../../components/FormButton/FormButton";
+import StyledGoogleButton from "../../components/GoogleButton/GoogleButton";
 
 const LogInForm = () => {
   const [password, setPassword] = useState("");
@@ -19,21 +18,19 @@ const LogInForm = () => {
   };
 
   return (
-    <LoginForm>
-      <FormTitle text="Log in" />
-       
-        <FormLabel text="Enter your account details below." />
-      <InputLabel text="Email" />
-      <LoginFormInput
-
+    <StyledLoginForm>
+      <StyledFormTitle text="Log in" />
+      <StyledFormLabel text="Enter your account details below." />
+      <StyledInputLabel text="Email" />
+      <StyledLoginFormInput
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         type="email"
         id="email"
         placeholder="Email"
       />
-      <InputLabel text="Password" />
-      <PasswordInput
+      <StyledInputLabel text="Password" />
+      <StyledPasswordInput
         passwordVisibility={passwordVisibility}
         toogleVisibility={toogleVisibility}
         password={password}
@@ -44,35 +41,15 @@ const LogInForm = () => {
           <input type={"checkbox"} />
           <span>Remember me</span>
         </div>
-        <Link
-          to="/forgot-password"
-          style={{
-            textDecoration: "none",
-            color: "#0356E8",
-            fontSize: "14px",
-            marginLeft: "5px",
-          }}
-        >
-          Forgot your password?
-        </Link>
+        <StyledAnchor to="/forgot-password">Forgot your password?</StyledAnchor>
       </div>
-      <FormButton text="Log in" />
-      <GoogleButton text={"Log in with Google"} />
+      <StyledFormButton text="Log in" />
+      <StyledGoogleButton text={"Log in with Google"} />
       <div className="inline">
-        <FormLabel text={`Don't have an account?`} />
-        <Link
-          to="/sign-up"
-          style={{
-            textDecoration: "none",
-            color: "#0356E8",
-            fontSize: "14px",
-            marginLeft: "5px",
-          }}
-        >
-          Sign up
-        </Link>
+        <StyledFormLabel text={`Don't have an account?`} />
+        <StyledAnchor to="/sign-up">Sign up</StyledAnchor>
       </div>
-    </LoginForm>
+    </StyledLoginForm>
   );
 };
 
