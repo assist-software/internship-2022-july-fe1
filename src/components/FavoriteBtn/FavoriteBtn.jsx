@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import styles from './FavoriteBtn.module.css'
 import VectorfavIcon from "../../assets/images/VectorfavIcon.png"
 import VectorFavRedIcon from "../../assets/images/VectorFavRedIcon.png"

@@ -1,14 +1,10 @@
-import { HeaderElement, ContainerElement, DropdownElement, SearchElement, FavoriteBtnElement, LabelElement, UserElement, SearchComponentElement } from './HomePageElements'
+import { HeaderElement, ContainerElement, DropdownElement, SearchElement, FavoriteBtnElement, UserElement, } from './HomePageElements'
 
 import AssistLogo from '../../components/AssistLogo'
 import FormLabel from '../../components/FormLabel'
-import FavoriteBtn from '../../components/FavoriteBtn/FavoriteBtn'
 import Card from '../../components/Card/Card'
 
-import { useGlobalAuthContext } from '../../Context/authContext'
-
 const HomePage = () => {
-  const { cardsMock } = useGlobalAuthContext()
 
 
   return (

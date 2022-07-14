@@ -1,12 +1,17 @@
 import React from 'react'
-import PropTypes from 'prop-types';
 import styles from './Card.module.css'
 
 import FavoriteBtn from '../FavoriteBtn/FavoriteBtn'
 import ImageLogin from "../../assets/images/furniture.png"
 
 
-const Card = ({ onClick, urlImage, title, subtitle, price = 121212121, isFavorite }) => {
+const Card = ({ onClick,
+
+  // when u will use uncommnet the props
+  urlImage,
+  title,
+  subtitle,
+  price = 121212121, isFavorite }) => {
 
   return (
     <div onClick={() => onClick()} className={styles.cardContainer}>
