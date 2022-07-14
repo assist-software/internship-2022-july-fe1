@@ -1,34 +1,17 @@
-import { HeaderElement, ContainerElement, DropdownElement, SearchElement, FavoriteBtnElement, UserElement, } from './HomePageElements'
-
+import { HeaderElement, ContainerElement, DropdownElement, SearchElement, FavoriteBtnElement, LabelElement, UserElement, SearchComponentElement, FavouritesIcon } from './HomePageElements'
 import AssistLogo from '../../components/AssistLogo'
 import FormLabel from '../../components/FormLabel'
-import Card from '../../components/Card/Card'
+import AssistLogoHeader from '../../components/AssistLogoHeader'
+import { FiChevronDown, FiHeart, FiUser, FiSearch } from 'react-icons/fi'
+import { TxtLabel } from '../../components/TxtLabel'
+import Header from '../../components/header/header'
 
 const HomePage = () => {
-
-
   return (
-    <>
-      <HeaderElement>
-        <ContainerElement className='container'>
-          <AssistLogo className={"headerLogo"} />
-          <DropdownElement type='dropdown'>
-            <FormLabel text='Category' style={{ color: "#0241AE" }} />
-          </DropdownElement>
-          <SearchElement type='search' placeholder='Search' onChange={(e) => console.log(e)} />
-          <FavoriteBtnElement>
-            <FormLabel text={"Favourites"}></FormLabel>
-          </FavoriteBtnElement>
-          <UserElement>
-            <FormLabel text={"User"}></FormLabel>
-          </UserElement>
-        </ContainerElement>
-      </HeaderElement>
+    <Header />
 
-
-      <Card onClick={() => console.log('tste')} isFavorite={true} />
-    </>
+    // when test uncomment 
+    // <Card onClick={() => console.log('tste')} isFavorite={true} />
   )
 }
-
 export default HomePage;
