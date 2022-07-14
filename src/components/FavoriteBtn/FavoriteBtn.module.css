@@ -1,0 +1,24 @@
+.favoriteBtn {
+    width: 28px;
+    height: 28px;
+    background: transparent;
+}
+
+.favoriteBtnCircle {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.20);
+    display: flex;
+    justify-content: center;
+}
+
+.favoriteBtn :hover {
+    cursor: pointer;
+}
+
+.centralIcon {
+    margin-top: 7px;
+    height: 14.7px;
+    width: 16.6px;
+}

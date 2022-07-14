@@ -6,6 +6,7 @@ import OnBoarding from "./pages/OnBoarding/OnBoarding";
 import Profile from "./pages/Profile/Profile";
 import ProtectedRoutes from "./routes/ProtectedRoutes";
 
+import "./components/App.css";
 const GlobalStyle = createGlobalStyle`
   *{
     margin: 0;
