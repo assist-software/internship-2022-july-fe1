@@ -16,9 +16,9 @@ const Header = () => {
             <Dropdown   className='dropDownBtn' title='Category'>
             <Dropdown.Toggle variant="default"><a className='aColorTextCategory'>Category</a>  </Dropdown.Toggle>
                 <Dropdown.Menu>
-                    <Dropdown.Item href="#">Latest</Dropdown.Item>
-                    <Dropdown.Item href="#">Big houses</Dropdown.Item>
-                    <Dropdown.Item href="#">Small houses</Dropdown.Item>
+                    <Dropdown.Item href="/latest">Latest</Dropdown.Item>
+                    <Dropdown.Item href="/bighouses">Big houses</Dropdown.Item>
+                    <Dropdown.Item href="/smallhouses">Small houses</Dropdown.Item>
                 </Dropdown.Menu>    
             </Dropdown>
             <Form.Control 
@@ -32,7 +32,7 @@ const Header = () => {
             </Button>
             <Button variant="outline" className='favouritesBtn'>
                 <FiHeart id='headerIcons'></FiHeart>
-                <a className='aColorText'>  Favourites</a>
+                <a className='aColorText'>Favourites</a>
             </Button>
             <Button variant="outline" className='userBtn' href="/login">
                 <FiUser id='headerIcons'></FiUser>
