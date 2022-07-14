@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-export const MainContainer = styled.div `
+export const MainContainer = styled.div`
     height: 100vh;
     width: 100vw;
     display: flex;
 `
-export const LeftSide = styled.div `
+export const LeftSide = styled.div`
     height: 100%;
     width: 50%;
     display: flex;
@@ -13,18 +13,18 @@ export const LeftSide = styled.div `
     align-items: center;
 `
 
-export const LoginImage = styled.img `
+export const LoginImage = styled.img`
     height: auto;
     width: 50vw;
 `
-export const ContentContainer = styled.div `
+export const ContentContainer = styled.div`
     width: 40%;
     height: 60%;
     display: flex;
     flex-direction: column;
 `
 
-export const LoginForm = styled.form `
+export const LoginForm = styled.form`
     width: 100%;
     height: 100%;
     display: flex;
@@ -89,7 +89,7 @@ export const LoginForm = styled.form `
 
 `
 
-export const BreakLine = styled.div `
+export const BreakLine = styled.div`
     margin: 25px 0 0 0;
 
     p{

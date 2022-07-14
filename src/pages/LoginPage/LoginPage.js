@@ -11,9 +11,17 @@ import PasswordInput from '../../components/PasswordInput';
 import FormButton from '../../components/FormButton';
 
 
-const clientId = 'YOUR_CLIENT_ID.apps.googleeusearchcontent.com';
+// const clientId = 'YOUR_CLIENT_ID.apps.googleeusearchcontent.com';
 
 const LoginPage = () => {
+<<<<<<< HEAD
+  // const onSuccess = (res) => {
+  //   alert('[Login Succes] currentUser:', res.profileObj);
+  // }
+  // const onFailure = (res) => {
+  //   alert('[Login Failed] res',res);
+  // }
+=======
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [passwordVisibility, setPasswordVisibility] = useState(true);
@@ -28,6 +36,7 @@ const LoginPage = () => {
   const onFailure = (res) => {
     console.log('[Login Failed] res',res);
   }
+>>>>>>> bacb1d29e1f92d89f2086fbb9aa3870d9e14a6c0
 
   return (
     <MainContainer>
