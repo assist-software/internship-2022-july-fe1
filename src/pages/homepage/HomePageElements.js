@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 
 export const HeaderElement = styled.div `
-
     width: 100%;
     margin: 10px;
     height: 80px;  
