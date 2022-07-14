@@ -6,15 +6,15 @@ import FormTitle from '../../components/FormTitle';
 import FormLabel from '../../components/FormLabel';
 // import {GoogleLogin} from 'react-google-login'
 
-const clientId = 'YOUR_CLIENT_ID.apps.googleeusearchcontent.com';
+// const clientId = 'YOUR_CLIENT_ID.apps.googleeusearchcontent.com';
 
 const LoginPage = () => {
-  const onSuccess = (res) => {
-    alert('[Login Succes] currentUser:', res.profileObj);
-  }
-  const onFailure = (res) => {
-    alert('[Login Failed] res',res);
-  }
+  // const onSuccess = (res) => {
+  //   alert('[Login Succes] currentUser:', res.profileObj);
+  // }
+  // const onFailure = (res) => {
+  //   alert('[Login Failed] res',res);
+  // }
 
   return (
     <MainContainer>

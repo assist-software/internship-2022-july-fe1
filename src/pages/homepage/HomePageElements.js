@@ -3,12 +3,10 @@ import styled from 'styled-components'
 
 
 export const HeaderElement = styled.div `
-
     width: 100%;
 `
 
 export const ContainerElement = styled.form `
-
     width:90%;
     text-align: center;
     position: relative;

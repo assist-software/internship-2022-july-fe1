@@ -6,6 +6,7 @@ import LoginPage from './pages/LoginPage/LoginPage';
 import Profile from './pages/Profile/Profile';
 import ProtectedRoutes from './routes/ProtectedRoutes';
 
+
 const GlobalStyle = createGlobalStyle`
   *{
     margin: 0;
