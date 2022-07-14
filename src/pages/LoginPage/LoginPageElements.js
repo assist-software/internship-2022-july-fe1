@@ -14,7 +14,7 @@ export const LeftSide = styled.div`
 `
 
 export const LoginImage = styled.img`
-    heigth: auto;
+    height: auto;
     width: 50vw;
 `
 export const ContentContainer = styled.div`
