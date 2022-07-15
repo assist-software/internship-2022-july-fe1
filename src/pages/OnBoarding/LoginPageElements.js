@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const StyledMainContainer = styled.div`
   height: 100vh;
@@ -43,11 +43,11 @@ export const StyledLoginForm = styled.form`
   flex-direction: column;
   margin-top: 32px;
 
-  h2 {
+  p {
     font-size: 12px;
     font-weight: 400;
     color: #596274;
-    margin: 10px 0 0 0;
+    margin: 15px 0 0 0;
   }
 
   h4 {
@@ -72,6 +72,7 @@ export const StyledLoginForm = styled.form`
 
   .checkbox span {
     margin: 0 0 0 5px;
+    user-select: none;
   }
 `;
 

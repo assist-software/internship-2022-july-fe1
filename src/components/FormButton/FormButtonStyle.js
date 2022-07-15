@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Button = styled.button`
   width: 100%;
@@ -8,6 +8,7 @@ export const Button = styled.button`
   border: none;
   color: #fff;
   font-size: 14px;
+  font-weight: 600;
   cursor: pointer;
   margin: 40px 0 8px 0;
 

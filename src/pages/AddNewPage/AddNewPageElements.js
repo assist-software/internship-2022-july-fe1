@@ -20,5 +20,5 @@ export const StyledData = styled.div`
 `;
 
 export const StyledRightContent = styled.div`
-  width: 65%;
+  width: 70%;
 `;

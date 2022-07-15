@@ -41,8 +41,6 @@ const AddNewPage = () => {
           />
           <StyledRightContent>
             <ImagePicker />
-            <ImagePicker />
-            <ImagePicker />
           </StyledRightContent>
         </StyledData>
         {/* Description */}
