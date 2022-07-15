@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledPageContainer = styled.div`
   width: 100%;
@@ -20,5 +20,5 @@ export const StyledData = styled.div`
 `;
 
 export const StyledRightContent = styled.div`
-  width: 65%;
+  width: 70%;
 `;
