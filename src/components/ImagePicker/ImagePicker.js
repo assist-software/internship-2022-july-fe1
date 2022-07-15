@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
-import { useDropzone } from 'react-dropzone';
-import { Section } from './ImagePickerStyle';
-import { BsPlusLg } from 'react-icons/bs';
+import React, { useState } from "react";
+import { useDropzone } from "react-dropzone";
+import { Section } from "./ImagePickerStyle";
+import { BsPlusLg } from "react-icons/bs";
+import { BiTrash } from "react-icons/bi";
 
 const ImagePicker = () => {
   const [files, setFiles] = useState([]);
   const { getRootProps, getInputProps } = useDropzone({
-    accept: 'image/*',
+    accept: "image/*",
     onDrop: (acceptedFiles) => {
       setFiles(
         acceptedFiles.map((file) =>
@@ -19,14 +20,18 @@ const ImagePicker = () => {
   });
 
   const thumbs = files.map((file) => (
-    <div class='selectedImage' key={file.path}>
+    <div class="selectedImage" key={file.path}>
       <img src={file.preview} alt={file.path} />
+      <div className="delete"></div>
+      <div className="circle">
+        <BiTrash />
+      </div>
     </div>
   ));
 
   return (
-    <Section className='container'>
-      <div {...getRootProps({ className: 'dropzone ' })}>
+    <Section className="container">
+      <div {...getRootProps({ className: "dropzone " })}>
         <input {...getInputProps()} />
         <BsPlusLg />
       </div>
