@@ -7,9 +7,9 @@ const FitlterMultiSelect = (props) => {
 
   const [location, setLocation] = useState('Location');
   const testLocation = [
-    { label: 'Location', value: 'fruit', checked: false },
-    { label: 'Vegetable', value: 'vegetaable', checked: false },
-    { label: 'Meat', value: 'meat', checked: false },
+    { label: 'Suceava', value: 'fruit', checked: false },
+    { label: 'Bucuresti', value: 'vegetaable', checked: false },
+    { label: 'Cluj', value: 'meat', checked: false },
   ];
 
   const [locations, setLocations] = useState(testLocation);

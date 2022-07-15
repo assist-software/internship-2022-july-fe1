@@ -1,19 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './FilterSingleSelect.module.css';
 import Dropdown from 'react-bootstrap/Dropdown';
 
 const FilterSingleSelect = (props) => {
-  const { name } = props;
+  const { name, valueOrder } = props;
 
-  const [location, setLocation] = useState('Location');
-  const testLocation = [
-    { label: 'Location', value: 'fruit', checked: false },
-    { label: 'Vegetable', value: 'vegetaable', checked: false },
-    { label: 'Meat', value: 'meat', checked: false },
-  ];
+  const [valueForDrop, setValueForDrop] = useState([
+    { price: '0 - 10.000', value: '0 - 10000' },
+    { price: '10.000 - 50.0000', value: '10.0002 - 50.0000' },
+    { price: '50.000 - 100.000', value: '50.000 - 100.000' },
+  ]);
 
-  const handleChangeValue = (event) => {
-    setLocation(event.target.value);
+  useEffect(() => {
+    valueOrder && setValueForDrop(valueOrder);
+  }, []);
+
+  const handleChangeValue = (price) => {
+    console.log(price);
   };
 
   return (
@@ -26,15 +29,16 @@ const FilterSingleSelect = (props) => {
         </Dropdown.Toggle>
         <Dropdown.Menu className="shadow-none">
           <Dropdown.ItemText className={styles.name}>{name}</Dropdown.ItemText>
-          {locations.map((item, index) => (
+          {valueForDrop.map((item, index) => (
             <Dropdown.Item
               key={index}
               as="button"
+              value={item.price}
               onClick={() => {
-                handleChangeValue(index);
+                handleChangeValue(item.price);
               }}
             >
-              {item.label}
+              {item.price}
             </Dropdown.Item>
           ))}
         </Dropdown.Menu>
