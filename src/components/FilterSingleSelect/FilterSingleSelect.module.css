@@ -1,0 +1,18 @@
+.dropDown {
+    box-shadow: 0;
+}
+
+.textCategory,
+.textCategory:focus-visible {
+    text-decoration: none;
+    box-shadow: 0;
+}
+
+.customControlInput {
+    margin-right: 11px;
+}
+
+.btn:focus {
+    outline: 0;
+    box-shadow: 0;
+}

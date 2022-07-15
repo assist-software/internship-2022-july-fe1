@@ -8,12 +8,12 @@ const useApi = (url) => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    useEffect(() => {
-        setData(cardsMock)
-        //delete when u  will use  setLoading and setError
-        setLoading(true)
-        setError(null)
-    }, [])
+    // useEffect(() => {
+    //     setData(cardsMock)
+    //     //delete when u  will use  setLoading and setError
+    //     setLoading(true)
+    //     setError(null)
+    // }, [])
 
     // useEffect(() => {
     //   const abortCont = new AbortController();
