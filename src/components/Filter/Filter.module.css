@@ -1,44 +1,42 @@
 .filterContainer {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 21px;
-    /* border: 1px solid red; */
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 21px;
+  /* border: 1px solid red; */
+  align-items: center;
 }
 
 .inRow {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .filterGrayText {
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 22px;
-    color: #667085;
-    margin-right: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 22px;
+  color: #667085;
+  margin-right: 20px;
 }
 
 .icon {
-    /* width: 7.4px;
+  /* width: 7.4px;
     height: 4.4px; */
-    color: #667085;
-    margin-left: 12px;
-    margin-right: 24px;
+  color: #667085;
+  margin-left: 12px;
+  margin-right: 24px;
 }
 
 .select {
-    border: none;
-    outline: none;
+  border: none;
+  outline: none;
 }
 
 .name::first-letter {
-    text-transform: capitalize;
+  text-transform: capitalize;
 }
 
-
-
 .selectOption {
-    border: none;
-    outline: none;
+  border: none;
+  outline: none;
 }

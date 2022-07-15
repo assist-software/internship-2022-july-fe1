@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import styles from './Filter.module.css'
+import React, { useState } from 'react';
+import styles from './Filter.module.css';
 
 import { RiArrowDropDownLine } from 'react-icons/ri';
 import StyledHamburgerMenu from '../../components/HamburgerMenu/HamburgerMenu';
@@ -11,11 +11,7 @@ import FitlterMultiSelect from '../FilterMultiSelect/FitlterMultiSelect';
 import FilterSingleselect from '../FilterSingleSelect/FilterSingleSelect';
 import FilterOrderSelect from '../FilterOrderSelect/FilterOrderSelect';
 
-
 const Filter = () => {
-
-
-
   // FOR PRICE
   const [price, setPrice] = useState('Price');
   const testPrice = [
@@ -42,9 +38,9 @@ const Filter = () => {
           <FilterOrderSelect name={'Most Popular'} />
           <StyledHamburgerMenu />
         </div>
-      </div >
-    </div >
-  )
-}
+      </div>
+    </div>
+  );
+};
 
-export default Filter
+export default Filter;
