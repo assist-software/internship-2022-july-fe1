@@ -5,11 +5,13 @@ import FavoriteBtn from '../FavoriteBtn/FavoriteBtn';
 import ImageLogin from '../../assets/images/furniture.png';
 
 const Card = ({
+  displayWide,
   onClick,
   // when u will use uncommnet the props
   urlImage,
   title,
   subtitle,
+  details,
   price = 121212121,
   isFavorite,
 }) => {
