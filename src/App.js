@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
 
-import HomePage from "./pages/homepage/HomePage";
+import HomePage from "./pages/Homepage/HomePage";
 import OnBoarding from "./pages/OnBoarding/OnBoarding";
 import Profile from "./pages/Profile/Profile";
 import ProtectedRoutes from "./routes/ProtectedRoutes";

@@ -96,3 +96,16 @@
         margin-bottom: 3px;
         margin-right: 5px;
     }
+    /* ------------------- Carousel styles ----------------------- */
+    
+    .latest {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    
+    .buttonSeeEverything {
+        background-color: white;
+        color: #0241AE;
+        border: 0px;
+    }
