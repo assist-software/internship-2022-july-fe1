@@ -2,7 +2,12 @@ import React from "react";
 import StyledAddPageLabels from "../../components/AddPageLabels/AddPageLabels";
 import ImagePicker from "../../components/ImagePicker/ImagePicker";
 import StyledInputLabel from "../../components/InputLabel/InputLabel";
-import { StyledLoginFormInput } from "../../components/LoginFormInput";
+import {
+  StyledLoginFormInput,
+  StyledSmallFormInput,
+} from "../../components/LoginFormInput";
+import LongDropdown from "../../components/LongDropdown/LongDropdown";
+import StyledPageButton from "../../components/PageButton/PageButton";
 import StyledPageTitle from "../../components/PageTitle/PageTitle";
 import StyledTextarea from "../../components/Textarea/Textarea";
 import {
@@ -28,9 +33,10 @@ const AddNewPage = () => {
             <StyledInputLabel text="Title" />
             <StyledLoginFormInput />
             <StyledInputLabel text="Category" />
-            <StyledLoginFormInput />
+            <LongDropdown />
             <StyledInputLabel text="Price" />
-            <StyledLoginFormInput />
+            <StyledSmallFormInput />
+            <span>lei</span>
           </StyledRightContent>
         </StyledData>
         {/* Photo & videos */}
@@ -64,9 +70,15 @@ const AddNewPage = () => {
             <StyledInputLabel text="Location" />
             <StyledLoginFormInput />
             <StyledInputLabel text="Phone number" />
-            <StyledLoginFormInput />
+            <StyledSmallFormInput />
           </StyledRightContent>
         </StyledData>
+        <div className="data">
+          <div className="row">
+            <StyledPageButton text={"Preview"} color={false} />
+            <StyledPageButton text={"Publish"} color={true} />
+          </div>
+        </div>
       </StyledPageContent>
     </StyledPageContainer>
   );

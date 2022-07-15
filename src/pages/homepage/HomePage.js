@@ -5,7 +5,6 @@ const HomePage = () => {
   return (
     <>
       <Header />
-      <AddNewPage />
     </>
   );
 };
