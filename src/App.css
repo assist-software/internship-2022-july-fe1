@@ -1,26 +1,21 @@
     .headerComponent {
         height: 92px;
         width: 100%;
-        margin: 0px;
         border-bottom: 1px solid #D0D5DD;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
+        align-items: center;
+        /* align-content: center; */
     }
     
     .headerLogo {
         width: 130px;
         height: 50px;
-        position: relative;
-        top: 20px;
-        cursor: pointer;
     }
     
     .dropDownBtn {
         width: 162px;
         height: 44px;
-        position: relative;
-        left: 140px;
-        top: 38px;
         border: 1px solid #D0D5DD;
         border-radius: 8px 0px 0px 8px;
         border-right: 0px;
@@ -34,34 +29,18 @@
     }
     /* search component */
     
-    .searchForm {
-        position: relative;
-        margin-top: -60px;
-    }
-    
     .searchInput {
         width: 460px;
         height: 44px;
-        position: relative;
-        margin-left: 300px;
-        margin-top: -6px;
         border-right: 0px;
         border-radius: 0px 0px 0px 0px;
     }
     
-    .btnSearchIcon {
-        position: relative;
-        margin-top: -84px;
-        margin-left: 750px;
+    .searchIcon {
         height: 44px;
         border: 1px solid #D0D5DD;
         border-left: 0px;
         border-radius: 0px 8px 8px 0px;
-    }
-    
-    .searchIcon {
-        position: relative;
-        margin-bottom: 5px;
     }
     /* favourites button */
     
@@ -71,18 +50,12 @@
     }
     
     .favouritesBtn {
-        position: relative;
-        width: 130px;
+        width: 150px;
         height: 44px;
-        bottom: 37px;
-        margin-top: -5px;
-        left: 35px;
     }
     
     .userBtn {
-        position: relative;
-        margin-top: -82px;
-        margin-left: 40px;
+        width: 150px;
         height: 44px;
     }
     
@@ -96,16 +69,31 @@
         margin-bottom: 3px;
         margin-right: 5px;
     }
+    
+    #navbarScroll {
+        justify-content: space-around;
+    }
     /* ------------------- Carousel styles ----------------------- */
     
-    .latest {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 20px;
+    .carousel {
+        border: 1px solid red;
     }
     
-    .buttonSeeEverything {
-        background-color: white;
-        color: #0241AE;
-        border: 0px;
+    .cds {
+        justify-content: space-between;
+    }
+    
+    .seeEverythingBtn {
+        justify-content: center;
+        display: flex;
+        align-items: center;
+    }
+    
+    .cardContainer {
+        width: 262.5px;
+        height: 252px;
+        border: 1px solid #E4E7EC;
+        border-radius: 12px 12px 12px 12px;
+        display: flex;
+        justify-content: center;
     }

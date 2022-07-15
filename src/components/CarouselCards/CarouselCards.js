@@ -1,34 +1,25 @@
-import React from "react";
+import React from 'react';
 
-import Carousel from "react-grid-carousel";
-import Card from "../Card/Card";
+import Carousel from 'react-bootstrap/Carousel';
+import CardGroup from 'react-bootstrap/CardGroup';
+import Card from '../Card/Card';
+import CardSeeEverything from '../CarouselCards/CardSeeEverything';
 
 const CarouselCards = (props) => {
-
   return (
-    <div className="container">
-      <div className="carouselComp">
-        <Carousel cols={4} rows={1} gap={1} loop>
-          <Carousel.Item>
-          <Card />
-          </Carousel.Item>
-          <Carousel.Item>
-            <Card />
-          </Carousel.Item>
-          <Carousel.Item>
-            <Card />
-          </Carousel.Item>
-          <Carousel.Item>
-            <Card />
-          </Carousel.Item>
-          <Carousel.Item>
-            <Card />
-          </Carousel.Item>
-          <Carousel.Item>
-            <Card />
-          </Carousel.Item>
-        </Carousel>
-      </div>
+    <div className='container'>
+      <Carousel className='carousel'>
+        <Carousel.Item>
+          <CardGroup className='cds'>
+            <Card /> <Card /> <Card /> <Card />
+          </CardGroup>
+        </Carousel.Item>
+        <Carousel.Item>
+          <CardGroup className='cds'>
+            <Card /> <Card /> <Card /> <CardSeeEverything />
+          </CardGroup>
+        </Carousel.Item>
+      </Carousel>
     </div>
   );
 };
