@@ -7,7 +7,7 @@ export const StyledPageContainer = styled.div`
   justify-content: center;
 `;
 
-export const StyledPageContent = styled.div`
+export const StyledPageContent = styled.form`
   height: 100%;
   width: 847px;
   margin: 32px 0 40px 0;
