@@ -23,11 +23,58 @@ export const StyledMyAccountContent = styled.div`
   display: flex;
   flex-direction: column;
 `;
+export const StyledColumnDiv = styled.div`
+  display: flex;
+  flex-direction: column;
 
+  input {
+    margin: 20px 0;
+  }
+`;
 export const ProfileContainer = styled.div`
   display: flex;
   width: 100%;
   flex-direction: column;
+
+  input[type='date'] {
+    height: 44px;
+    border-radius: 8px;
+    padding: 0 10px;
+    margin: 20px 0;
+    border: 1px solid #d0d5dd;
+  }
+
+  .select-placeholder-text {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #d0d5dd;
+  }
+
+  .longInput {
+    width: 48%;
+  }
+  .updateName {
+    display: ${(props) => (props.userData.name.isOpened ? 'flex' : 'none')};
+  }
+
+  .updateGender {
+    display: ${(props) => (props.userData.gender.isOpened ? 'flex' : 'none')};
+  }
+  .updateDateOfBirth {
+    display: ${(props) =>
+      props.userData.dateOfBirth.isOpened ? 'flex' : 'none'};
+  }
+  .updateEmail {
+    display: ${(props) => (props.userData.email.isOpened ? 'flex' : 'none')};
+  }
+  .updatePhoneNumber {
+    display: ${(props) =>
+      props.userData.phoneNumber.isOpened ? 'flex' : 'none'};
+  }
+  .updateAddress {
+    display: ${(props) => (props.userData.address.isOpened ? 'flex' : 'none')};
+  }
 `;
 
 export const StyledRowDiv = styled.div`

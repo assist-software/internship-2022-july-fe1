@@ -27,7 +27,7 @@ const UploadImage = () => {
         );
       })}
       {/* Convert file input into icon */}
-      <label for='file-input'>
+      <label htmlFor='file-input'>
         <EditProfileImageButton>
           <HiPencil />
         </EditProfileImageButton>
