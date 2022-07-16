@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import styles from './Filter.module.css';
 
-import { RiArrowDropDownLine } from 'react-icons/ri';
 import StyledHamburgerMenu from '../../components/HamburgerMenu/HamburgerMenu';
-// import VectorDropDownIcon from '../../assets/images/VectorDropDownIcon.png'
-
-// TESTING
-import Dropdown from 'react-bootstrap/Dropdown';
 import FitlterMultiSelect from '../FilterMultiSelect/FitlterMultiSelect';
 import FilterSingleselect from '../FilterSingleSelect/FilterSingleSelect';
 import FilterOrderSelect from '../FilterOrderSelect/FilterOrderSelect';
 
+import { useGlobalContext } from '../../Context/appContext';
+
 const Filter = () => {
-  // FOR PRICE
+  const { singleElement, state } = useGlobalContext();
+
+  // console.log(state);
+
+  // console.log('singleElement(location)', singleElement('location'));
 
   return (
     <div>

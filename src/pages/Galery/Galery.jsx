@@ -18,7 +18,16 @@ const Galery = (props) => {
         </div>
         <Filter />
         <section className="">
-          <Card onClick={() => console.log('tste')} isFavorite={true} />
+          <Card
+            onClick={() => console.log('tste')}
+            isFavorite={true}
+            displayWide={false}
+          />
+          {/* <Card
+            onClick={() => console.log('tste')}
+            isFavorite={true}
+            displayWide={false}
+          /> */}
         </section>
       </div>
     </>

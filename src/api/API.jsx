@@ -1,52 +1,53 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 // import axios from 'axios'
 
-import { cardsMock } from './ApiMocks'
+import { cardsMock } from './ApiMocks';
 
 const useApi = (url) => {
-    const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-    // useEffect(() => {
-    //     setData(cardsMock)
-    //     //delete when u  will use  setLoading and setError
-    //     setLoading(true)
-    //     setError(null)
-    // }, [])
+  // useEffect(() => {
+  //     setData(cardsMock)
+  //     //delete when u  will use  setLoading and setError
+  //     setLoading(true)
+  //     setError(null)
+  // }, [])
 
-    // useEffect(() => {
-    //   const abortCont = new AbortController();
+  // useEffect(() => {
+  //   const abortCont = new AbortController();
 
-    //   setLoading(true);
-    //   fetch(url, { signal: abortCont.signal })
-    //     .then((res) => {
-    //       if (!res.ok) {
-    //         throw Error("could not fetch that data");
-    //       }
-    //       res.json();
-    //     })
-    //     .then((data) => {
-    //       setData(data);
-    //       setLoading(false);
-    //     })
-    //     .catch((err) => {
-    //       if (err.name === "AbortError") {
-    //         console.log("fetch aborted");
-    //       } else {
-    //         setLoading(false);
-    //         setError(err.message);
-    //       }
-    //     });
+  //   setLoading(true);
+  //   fetch(url, { signal: abortCont.signal })
+  //     .then((res) => {
+  //       if (!res.ok) {
+  //         throw Error("could not fetch that data");
+  //       }
+  //       res.json();
+  //     })
+  //     .then((data) => {
+  //       setData(data);
+  //       setLoading(false);
+  //     })
+  //     .catch((err) => {
+  //       if (err.name === "AbortError") {
+  //         console.log("fetch aborted");
+  //       } else {
+  //         setLoading(false);
+  //         setError(err.message);
+  //       }
+  //     });
 
-    //   return () => abortCont.abort();
-    // }, [url]);
+  //   return () => abortCont.abort();
+  // }, [url]);
 
-    return { data, loading, error };
+  return { data, loading, error };
 };
 
 export const API = {
-    useApi,
+  cardsMock,
+  useApi,
 };
 
 // VARIANTA DE fetch cu promise (async, await)
@@ -77,7 +78,6 @@ export const API = {
 //     }
 // }
 
-
 // O METODA DE POST
 
 // const handleSubmit = (e) => {
@@ -101,4 +101,3 @@ export const API = {
 // }).then(()=>{
 
 // })
-

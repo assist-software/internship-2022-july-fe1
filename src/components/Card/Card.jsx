@@ -11,17 +11,24 @@ const Card = ({
   urlImage,
   title,
   subtitle,
-  details,
   price = 121212121,
   isFavorite,
 }) => {
+  // console.log('displayWide', displayWide);
   return (
-    <div onClick={() => onClick()} className={styles.cardContainer}>
+    <div
+      onClick={() => onClick()}
+      className={displayWide ? styles.cardWide : styles.cardContainer}
+    >
       <FavoriteBtn
         isActive={isFavorite}
         className={styles.favoriteBtnPosition}
       />
-      <img className={styles.cardImg} src={ImageLogin} alt="" />
+      <img
+        className={displayWide ? styles.cardImgWide : styles.cardImg}
+        src={ImageLogin}
+        alt=""
+      />
       <div className={styles.cardTitle}>
         Dreamy Treehouse Above Park City asdsa
       </div>

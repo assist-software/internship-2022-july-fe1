@@ -16,7 +16,7 @@ const FilterOrderSelect = (props) => {
     valueOrder && setValueForOrder(valueOrder);
   }, []);
 
-  console.log('order', order);
+  // console.log('order', order);
 
   return (
     <>
