@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledPageContent = styled.div`
   display: flex;
@@ -10,29 +10,6 @@ export const StyledProfileMenu = styled.div`
   flex-direction: column;
 `;
 
-export const StyledProfileImage = styled.img`
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-  object-fit: cover;
-`;
-
-export const EditProfileImageButton = styled.div`
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background-color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #0356eb;
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.16);
-  position: relative;
-  left: 78px;
-  top: -32px;
-  cursor: pointer;
-`;
-
 export const LineBreak = styled.hr`
   width: 100%;
   margin: 0 0 10px 0;
@@ -40,7 +17,8 @@ export const LineBreak = styled.hr`
 `;
 
 export const StyledMyAccountContent = styled.div`
-  width: 652px;
+  /* width: 652px; */
+  width: 45vw;
   margin: 0 0 0 100px;
   display: flex;
   flex-direction: column;

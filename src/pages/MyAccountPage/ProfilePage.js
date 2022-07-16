@@ -1,56 +1,66 @@
-import React from "react";
-import StyledInputLabel from "../../components/InputLabel/InputLabel";
+import { useState } from 'react';
+import StyledInputLabel from '../../components/InputLabel/InputLabel';
 import {
   LineBreak,
   ProfileContainer,
   StyledRowDiv,
   StyledText,
-} from "./MyAccountPageElements";
+} from './MyAccountPageElements';
 
 const ProfilePage = () => {
+  const [userData, setUserData] = useState({
+    firstName: '',
+    lastName: '',
+    gender: '',
+    dateOfBirth: '',
+    email: '',
+    phoneNumber: '',
+    address: '',
+  });
+
   return (
     <ProfileContainer>
       {/* Full name */}
       <StyledRowDiv>
-        <StyledInputLabel text="Full name" />
+        <StyledInputLabel text='Full name' />
         <button>Edit</button>
       </StyledRowDiv>
-      <StyledText>Mama</StyledText>
+      <StyledText>{userData.firstName + ' ' + userData.lastName}</StyledText>
       <LineBreak />
       {/* Gender */}
       <StyledRowDiv>
-        <StyledInputLabel text="Gender" />
+        <StyledInputLabel text='Gender' />
         <button>Edit</button>
       </StyledRowDiv>
-      <StyledText>Mama</StyledText>
+      <StyledText>{userData.gender}</StyledText>
       <LineBreak />
       {/* Date of birth */}
       <StyledRowDiv>
-        <StyledInputLabel text="Date of birth" />
+        <StyledInputLabel text='Date of birth' />
         <button>Edit</button>
       </StyledRowDiv>
-      <StyledText>Mama</StyledText>
+      <StyledText>{userData.dateOfBirth}</StyledText>
       <LineBreak />
       {/* Email address */}
       <StyledRowDiv>
-        <StyledInputLabel text="Email address" />
+        <StyledInputLabel text='Email address' />
         <button>Edit</button>
       </StyledRowDiv>
-      <StyledText>Mama</StyledText>
+      <StyledText>{userData.email}</StyledText>
       <LineBreak />
       {/* Phone number */}
       <StyledRowDiv>
-        <StyledInputLabel text="Phone number" />
+        <StyledInputLabel text='Phone number' />
         <button>Edit</button>
       </StyledRowDiv>
-      <StyledText>Mama</StyledText>
+      <StyledText>{userData.phoneNumber}</StyledText>
       <LineBreak />
       {/* Address */}
       <StyledRowDiv>
-        <StyledInputLabel text="Address" />
+        <StyledInputLabel text='Address' />
         <button>Edit</button>
       </StyledRowDiv>
-      <StyledText>Mama</StyledText>
+      <StyledText>{userData.address}</StyledText>
       <LineBreak />
     </ProfileContainer>
   );
