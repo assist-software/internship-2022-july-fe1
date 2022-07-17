@@ -27,13 +27,8 @@ const FitlterMultiSelect = (props) => {
   };
 
   useEffect(() => {
-    // console.log('selectedLocation', selectedLocation);
     handleLocationFilter(selectedLocation);
   }, [selectedLocation]);
-
-  const handleCheckdBox = () => {
-    console.log('in handleCheckdBox', 'aaa');
-  };
 
   return (
     <>
@@ -62,7 +57,7 @@ const FitlterMultiSelect = (props) => {
                       className={styles.customControlInput}
                       id="defaultUnchecked"
                       checked={locatio.checked}
-                      onChange={() => handleCheckdBox()}
+                      onChange={() => {}}
                     />
                     {locatio.location}
                   </div>

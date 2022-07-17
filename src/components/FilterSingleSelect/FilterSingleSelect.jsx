@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styles from './FilterSingleSelect.module.css';
 import Dropdown from 'react-bootstrap/Dropdown';
 
@@ -47,7 +47,6 @@ const FilterSingleSelect = (props) => {
                   className={`${styles.pointer} form-check-input`}
                   type="radio"
                   name="radioForPrice"
-                  // id={`radioForPrice${index}`}
                   checked={selectId === index}
                   onChange={() => {}}
                 />
