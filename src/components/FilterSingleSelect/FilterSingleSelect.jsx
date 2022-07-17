@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './FilterSingleSelect.module.css';
 import Dropdown from 'react-bootstrap/Dropdown';
 
@@ -7,6 +7,12 @@ import { useGlobalContext } from '../../Context/appContext';
 const FilterSingleSelect = (props) => {
   const { name } = props;
   const { handlePriceFilter } = useGlobalContext();
+  const [selectId, setSelectId] = useState({});
+
+  const clickHandler = (item, index) => {
+    setSelectId(index);
+    handlePriceFilter(item);
+  };
 
   const valueForDropDown = [
     '0 - 10.000',
@@ -33,7 +39,7 @@ const FilterSingleSelect = (props) => {
               as="button"
               value={item}
               onClick={() => {
-                handlePriceFilter(item);
+                clickHandler(item, index);
               }}
             >
               <div className={`${styles.pointer} form-check`}>
@@ -41,7 +47,9 @@ const FilterSingleSelect = (props) => {
                   className={`${styles.pointer} form-check-input`}
                   type="radio"
                   name="radioForPrice"
-                  id={`radioForPrice${index}`}
+                  // id={`radioForPrice${index}`}
+                  checked={selectId === index}
+                  onChange={() => {}}
                 />
                 <label
                   className={`${styles.pointer} form-check-label`}

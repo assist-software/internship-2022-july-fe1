@@ -1,15 +1,28 @@
 import styles from './FavoriteBtn.module.css';
-import VectorfavIcon from '../../assets/images/VectorfavIcon.png';
-import VectorFavRedIcon from '../../assets/images/VectorFavRedIcon.png';
+import { FaRegHeart, FaHeart } from 'react-icons/fa';
 
-const FavoriteBtn = ({ className, isActive, onClick }) => {
+const FavoriteBtn = ({ className, isActive, isSmallCard, onClick }) => {
   return (
     <div className={`${className} ${styles.favoriteBtn}`}>
-      <div onClick={() => onClick()} className={styles.favoriteBtnCircle}>
+      <div
+        onClick={(e) => onClick(e)}
+        className={`${styles.favoriteBtnCircle} ${
+          isActive && styles.whiteBackground
+        }
+         ${isSmallCard && !isActive && styles.backgroundSmallCard}
+         ${!isSmallCard && !isActive && styles.backgroundWideCard}
+        `}
+      >
         {isActive ? (
-          <img className={styles.centralIcon} src={VectorFavRedIcon} alt="" />
+          <FaHeart
+            className={`${styles.centralIcon} ${styles.activeFavIcon}`}
+          />
         ) : (
-          <img className={styles.centralIcon} src={VectorfavIcon} alt="" />
+          <FaRegHeart
+            className={`${styles.centralIcon} ${styles.favIcon} ${
+              !isSmallCard && styles.greyIcon
+            }`}
+          />
         )}
       </div>
     </div>

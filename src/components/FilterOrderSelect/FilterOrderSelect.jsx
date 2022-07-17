@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './FilterOrderSelect.module.css';
 import Dropdown from 'react-bootstrap/Dropdown';
 
@@ -7,12 +7,12 @@ import { useGlobalContext } from '../../Context/appContext';
 const FilterOrderSelect = (props) => {
   const { name } = props;
   const { handleOrderFilter } = useGlobalContext();
-  // const [valueForDropDownOrder, setValueForDropDownOrder] = useState([
-  //   'Most popular',
-  //   'Price: Low to High',
-  //   'Price: High to Low',
-  //   'Featured',
-  // ]);
+  const [selectedId, setSelectedId] = useState({});
+
+  const clickHandler = (item, index) => {
+    setSelectedId(index);
+    handleOrderFilter(item);
+  };
 
   const valueForDropDownOrder = [
     'Most popular',
@@ -33,12 +33,12 @@ const FilterOrderSelect = (props) => {
           <Dropdown.ItemText className={styles.name}>
             Order by
           </Dropdown.ItemText>
-          {valueForDropDownOrder.map((orde, index) => (
+          {valueForDropDownOrder.map((item, index) => (
             <Dropdown.Item
               key={index}
               as="button"
               onClick={() => {
-                handleOrderFilter(orde);
+                clickHandler(item, index);
               }}
             >
               <div className={`${styles.pointer} form-check`}>
@@ -46,13 +46,14 @@ const FilterOrderSelect = (props) => {
                   className={`${styles.pointer} form-check-input`}
                   type="radio"
                   name="radioForOrder"
-                  id={`radioForOrder${index}`}
+                  checked={selectedId === index}
+                  onChange={() => {}}
                 />
                 <label
                   className={`${styles.pointer} form-check-label`}
                   htmlFor={`radioForOrder${index}`}
                 >
-                  {orde}
+                  {item}
                 </label>
               </div>
             </Dropdown.Item>

@@ -9,7 +9,7 @@ const ContentContainer = () => {
   const { state, displayWide } = useGlobalContext();
 
   return (
-    <section className={styles.contentContainer}>
+    <section className={!displayWide ? styles.contentContainer : null}>
       {state.map((item) => {
         return (
           <Card
@@ -17,7 +17,8 @@ const ContentContainer = () => {
             title={item.title}
             price={item.price}
             location={item.location}
-            onClick={() => console.log('tste')}
+            onCardClick={() => console.log('card clicked')}
+            onFavoriteClick={() => console.log('fav button clicked')}
             isFavorite={item.isFavorite}
             displayWide={displayWide}
           />
