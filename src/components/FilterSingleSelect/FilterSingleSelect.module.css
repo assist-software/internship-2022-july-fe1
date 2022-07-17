@@ -16,3 +16,7 @@
   outline: 0;
   box-shadow: 0;
 }
+
+.pointer:hover {
+  cursor: pointer;
+}

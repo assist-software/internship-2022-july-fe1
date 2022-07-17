@@ -2,8 +2,8 @@ import React from 'react';
 import styles from './Galery.module.css';
 
 import StyledFormTitle from '../../components/FormTitle/FormTitle';
-import Card from '../../components/Card/Card';
 import Filter from '../../components/Filter/Filter';
+import ContentContainer from '../../components/ContentContainer/ContentContainer';
 
 const Galery = (props) => {
   // props care vor fi nevoie APROXIMATIV
@@ -13,22 +13,9 @@ const Galery = (props) => {
   return (
     <>
       <div className="container">
-        <div className={styles.subtitle}>
-          <StyledFormTitle text={'Latest'}></StyledFormTitle>
-        </div>
-        <Filter />
-        <section className="">
-          <Card
-            onClick={() => console.log('tste')}
-            isFavorite={true}
-            displayWide={false}
-          />
-          {/* <Card
-            onClick={() => console.log('tste')}
-            isFavorite={true}
-            displayWide={false}
-          /> */}
-        </section>
+        <StyledFormTitle text={'Latest'}></StyledFormTitle>
+        <Filter location={true} price={true} order={true} />
+        <ContentContainer />
       </div>
     </>
   );

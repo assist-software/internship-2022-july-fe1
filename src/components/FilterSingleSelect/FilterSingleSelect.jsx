@@ -2,22 +2,24 @@ import React, { useEffect, useState } from 'react';
 import styles from './FilterSingleSelect.module.css';
 import Dropdown from 'react-bootstrap/Dropdown';
 
-const FilterSingleSelect = (props) => {
-  const { name, valueOrder } = props;
+import { useGlobalContext } from '../../Context/appContext';
 
-  const [valueForDrop, setValueForDrop] = useState([
-    { price: '0 - 10.000', value: '0 - 10000' },
-    { price: '10.000 - 50.0000', value: '10.0002 - 50.0000' },
-    { price: '50.000 - 100.000', value: '50.000 - 100.000' },
+const FilterSingleSelect = (props) => {
+  const { name } = props;
+  const { handlePriceFilter } = useGlobalContext();
+
+  const [valueForDropDown, setValueForDropDown] = useState([
+    '0 - 10.000',
+    '10.000 - 50.0000',
+    '50.000 - 100.000',
+    '100.000 - 300.000',
+    '300.000 - 700.000',
+    '700.000 - 1.000.000',
   ]);
 
-  useEffect(() => {
-    valueOrder && setValueForDrop(valueOrder);
-  }, []);
-
-  const handleChangeValue = (price) => {
-    console.log(price);
-  };
+  // const handleChangeValue = (price) => {
+  //   handlePriceFilter(price);
+  // };
 
   return (
     <>
@@ -29,16 +31,29 @@ const FilterSingleSelect = (props) => {
         </Dropdown.Toggle>
         <Dropdown.Menu className="shadow-none">
           <Dropdown.ItemText className={styles.name}>{name}</Dropdown.ItemText>
-          {valueForDrop.map((item, index) => (
+          {valueForDropDown.map((item, index) => (
             <Dropdown.Item
               key={index}
               as="button"
-              value={item.price}
+              value={item}
               onClick={() => {
-                handleChangeValue(item.price);
+                handlePriceFilter(item);
               }}
             >
-              {item.price}
+              <div className={`${styles.pointer} form-check`}>
+                <input
+                  className={`${styles.pointer} form-check-input`}
+                  type="radio"
+                  name="radioForPrice"
+                  id={`radioForPrice${index}`}
+                />
+                <label
+                  className={`${styles.pointer} form-check-label`}
+                  htmlFor={`radioForPrice${index}`}
+                >
+                  {item}
+                </label>
+              </div>
             </Dropdown.Item>
           ))}
         </Dropdown.Menu>

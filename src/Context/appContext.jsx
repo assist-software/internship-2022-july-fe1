@@ -1,4 +1,4 @@
-import React, { useContext, createContext, useEffect } from 'react';
+import React, { useContext, createContext, useState } from 'react';
 
 import { appReducer } from '../Reducers/appReducer';
 import { API } from '../api/API';
@@ -8,6 +8,7 @@ const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
   const initialState = API.cardsMock;
+  const [displayWide, setDisplayWide] = useState(false);
 
   //   console.log('initialState', initialState);
 
@@ -16,6 +17,21 @@ export const AppProvider = ({ children }) => {
 
   // will delete when start use reducer
   const state = initialState;
+
+  //FILTER FOR ORDER
+  const handleOrderFilter = (order) => {
+    console.log(order);
+  };
+
+  //FILTER FOR PRICE
+  const handlePriceFilter = (price) => {
+    console.log(price);
+  };
+
+  //FILTER FOR LOCATION
+  const handleLocationFilter = (location) => {
+    console.log(location);
+  };
 
   // BRINGS VALUE TO THE PROPS ITEM OF ALL OBJECTS
   const singleElement = (element) => {
@@ -37,14 +53,17 @@ export const AppProvider = ({ children }) => {
     }
   };
 
-  // console.log(singleElement('location'));
-
   return (
     <AppContext.Provider
       value={{
         ...state,
         state,
+        displayWide,
+        setDisplayWide,
         singleElement,
+        handleLocationFilter,
+        handlePriceFilter,
+        handleOrderFilter,
       }}
     >
       {children}

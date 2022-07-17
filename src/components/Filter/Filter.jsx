@@ -8,24 +8,20 @@ import FilterOrderSelect from '../FilterOrderSelect/FilterOrderSelect';
 
 import { useGlobalContext } from '../../Context/appContext';
 
-const Filter = () => {
-  const { singleElement, state } = useGlobalContext();
-
-  // console.log(state);
-
-  // console.log('singleElement(location)', singleElement('location'));
-
+const Filter = ({ location, price, order }) => {
   return (
     <div>
       <div className={styles.filterContainer}>
         <div className={styles.inRow}>
-          <div className={styles.filterGrayText}>Filter By:</div>
-          <FitlterMultiSelect name={'Location'} />
-          <FilterSingleselect name={'Price'} valueOrder={null} />
+          {!location & !price ? null : (
+            <div className={styles.filterGrayText}>Filter By:</div>
+          )}
+          {location && <FitlterMultiSelect name={'Location'} />}
+          {price && <FilterSingleselect name={'Price'} />}
         </div>
         <div className={styles.inRow}>
           <div className={styles.filterGrayText}>Order By:</div>
-          <FilterOrderSelect name={'Most Popular'} />
+          {order && <FilterOrderSelect name={'Most Popular'} />}
           <StyledHamburgerMenu />
         </div>
       </div>

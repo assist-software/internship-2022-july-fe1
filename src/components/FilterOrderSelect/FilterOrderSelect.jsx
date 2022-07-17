@@ -2,19 +2,25 @@ import React, { useEffect, useState } from 'react';
 import styles from './FilterOrderSelect.module.css';
 import Dropdown from 'react-bootstrap/Dropdown';
 
+import { useGlobalContext } from '../../Context/appContext';
+
 const FilterOrderSelect = (props) => {
-  const { name, valueOrder } = props;
+  const { name } = props;
+  const { handleOrderFilter } = useGlobalContext();
   const [order, setOrder] = useState('Most popular');
-  const [valueForOrder, setValueForOrder] = useState([
+  const [valueForDropDownOrder, setValueForDropDownOrder] = useState([
     'Most popular',
     'Price: Low to High',
     'Price: High to Low',
     'Featured',
   ]);
 
-  useEffect(() => {
-    valueOrder && setValueForOrder(valueOrder);
-  }, []);
+  // const valueForDropDownOrder = [
+  //   'Most popular',
+  //   'Price: Low to High',
+  //   'Price: High to Low',
+  //   'Featured',
+  // ];
 
   // console.log('order', order);
 
@@ -30,15 +36,28 @@ const FilterOrderSelect = (props) => {
           <Dropdown.ItemText className={styles.name}>
             Order by
           </Dropdown.ItemText>
-          {valueForOrder.map((orde, index) => (
+          {valueForDropDownOrder.map((orde, index) => (
             <Dropdown.Item
               key={index}
               as="button"
               onClick={() => {
-                setOrder(orde);
+                handleOrderFilter(orde);
               }}
             >
-              {orde}
+              <div className={`${styles.pointer} form-check`}>
+                <input
+                  className={`${styles.pointer} form-check-input`}
+                  type="radio"
+                  name="radioForOrder"
+                  id={`radioForOrder${index}`}
+                />
+                <label
+                  className={`${styles.pointer} form-check-label`}
+                  htmlFor={`radioForOrder${index}`}
+                >
+                  {orde}
+                </label>
+              </div>
             </Dropdown.Item>
           ))}
         </Dropdown.Menu>

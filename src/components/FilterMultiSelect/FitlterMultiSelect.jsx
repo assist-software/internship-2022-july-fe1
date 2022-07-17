@@ -5,35 +5,18 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import { useGlobalContext } from '../../Context/appContext';
 
 const FitlterMultiSelect = (props) => {
-  const { name, locationProp } = props;
-  const { state, singleElement, id } = useGlobalContext();
-  const [selectedLocation, setSelectedLocation] = useState([]);
+  const { name } = props;
+  const { state, handleLocationFilter } = useGlobalContext();
   let chekingIfLocationExist = [];
+  const [selectedLocation, setSelectedLocation] = useState([]);
 
-  const testLocation = state;
-
-  let incercare = singleElement('location');
-
-  incercare = incercare.map((item) => {});
-
-  // [
-  //   { location: 'Suceava', value: 'fruit', checked: false },
-  //   { location: 'Bucuresti', value: 'vegetaable', checked: false },
-  //   { location: 'Bucuresti', value: 'vegetaable', checked: false },
-  //   { location: 'Bucuresti', value: 'vegetaable', checked: false },
-  //   { location: 'Bucuresti', value: 'vegetaable', checked: false },
-  //   { location: 'Cluj', value: 'meat', checked: false },
-  // ];
-
-  const [locations, setLocations] = useState(testLocation);
+  const [locations, setLocations] = useState(state);
 
   const handleLocationClick = (locationIndex, loc) => {
     const locationClone = [...locations];
     locationClone[locationIndex].checked =
       !locationClone[locationIndex].checked;
     setLocations(locationClone);
-
-    console.log(loc);
 
     if (selectedLocation.includes(loc)) {
       const temLocation = selectedLocation.filter((item) => item !== loc);
@@ -44,7 +27,8 @@ const FitlterMultiSelect = (props) => {
   };
 
   useEffect(() => {
-    console.log('selectedLocation', selectedLocation);
+    // console.log('selectedLocation', selectedLocation);
+    handleLocationFilter(selectedLocation);
   }, [selectedLocation]);
 
   const handleCheckdBox = () => {

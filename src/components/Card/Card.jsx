@@ -10,9 +10,9 @@ const Card = ({
   // when u will use uncommnet the props
   urlImage,
   title,
-  subtitle,
-  price = 121212121,
-  isFavorite,
+  location,
+  price,
+  isFavorite = false,
 }) => {
   // console.log('displayWide', displayWide);
   return (
@@ -29,10 +29,8 @@ const Card = ({
         src={ImageLogin}
         alt=""
       />
-      <div className={styles.cardTitle}>
-        Dreamy Treehouse Above Park City asdsa
-      </div>
-      <div className={styles.cardSubTitle}>Suceava, Romania</div>
+      <div className={styles.cardTitle}>{title}</div>
+      <div className={styles.cardSubTitle}>{location}, Romania</div>
       <div className={styles.cardTitle}>{`${price} lei`}</div>
     </div>
   );

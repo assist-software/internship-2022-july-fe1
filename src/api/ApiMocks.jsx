@@ -13,8 +13,34 @@ export const cardsMock = [
     checked: false,
   },
   {
-    id: 1,
-    title: 'name 1',
+    id: 2,
+    title: 'name 2',
+    price: 123.12,
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptates ex facilis laboriosam. Architecto odio fugit corporis, commodi vero molestiae quos delectus reiciendis. Repellat nostrum laboriosam placeat error nobis aut.',
+    location: 'Suceava',
+    urlImage: 'url',
+    isFavorite: true,
+    displayWide: false,
+    cretedBy: 'anndy',
+    checked: false,
+  },
+  {
+    id: 3,
+    title: 'name 3',
+    price: 123.122,
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptates ex facilis laboriosam. Architecto odio fugit corporis, commodi vero molestiae quos delectus reiciendis. Repellat nostrum laboriosam placeat error nobis aut.',
+    location: 'Suceava',
+    urlImage: 'url',
+    isFavorite: false,
+    displayWide: false,
+    cretedBy: 'anndy',
+    checked: false,
+  },
+  {
+    id: 4,
+    title: 'name 5',
     price: 123.12,
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptates ex facilis laboriosam. Architecto odio fugit corporis, commodi vero molestiae quos delectus reiciendis. Repellat nostrum laboriosam placeat error nobis aut.',
@@ -26,34 +52,8 @@ export const cardsMock = [
     checked: false,
   },
   {
-    id: 1,
-    title: 'name 1',
-    price: 123.12,
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptates ex facilis laboriosam. Architecto odio fugit corporis, commodi vero molestiae quos delectus reiciendis. Repellat nostrum laboriosam placeat error nobis aut.',
-    location: 'Suceava',
-    urlImage: 'url',
-    isFavorite: false,
-    displayWide: false,
-    cretedBy: 'anndy',
-    checked: false,
-  },
-  {
-    id: 1,
-    title: 'name 1',
-    price: 123.12,
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptates ex facilis laboriosam. Architecto odio fugit corporis, commodi vero molestiae quos delectus reiciendis. Repellat nostrum laboriosam placeat error nobis aut.',
-    location: 'Suceava',
-    urlImage: 'url',
-    isFavorite: false,
-    displayWide: false,
-    cretedBy: 'anndy',
-    checked: false,
-  },
-  {
-    id: 1,
-    title: 'name 1',
+    id: 6,
+    title: 'name 6',
     price: 123.12,
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptates ex facilis laboriosam. Architecto odio fugit corporis, commodi vero molestiae quos delectus reiciendis. Repellat nostrum laboriosam placeat error nobis aut.',
@@ -65,8 +65,34 @@ export const cardsMock = [
     checked: false,
   },
   {
-    id: 1,
-    title: 'name 1',
+    id: 7,
+    title: 'name 7',
+    price: 123.127,
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptates ex facilis laboriosam. Architecto odio fugit corporis, commodi vero molestiae quos delectus reiciendis. Repellat nostrum laboriosam placeat error nobis aut.',
+    location: 'Suceava',
+    urlImage: 'url',
+    isFavorite: false,
+    displayWide: false,
+    cretedBy: 'anndy',
+    checked: false,
+  },
+  {
+    id: 8,
+    title: 'name 81',
+    price: 123.182,
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptates ex facilis laboriosam. Architecto odio fugit corporis, commodi vero molestiae quos delectus reiciendis. Repellat nostrum laboriosam placeat error nobis aut.',
+    location: 'Constanta',
+    urlImage: 'url',
+    isFavorite: false,
+    displayWide: false,
+    cretedBy: 'anndy',
+    checked: false,
+  },
+  {
+    id: 9,
+    title: 'name 19',
     price: 123.12,
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptates ex facilis laboriosam. Architecto odio fugit corporis, commodi vero molestiae quos delectus reiciendis. Repellat nostrum laboriosam placeat error nobis aut.',
@@ -78,8 +104,8 @@ export const cardsMock = [
     checked: false,
   },
   {
-    id: 1,
-    title: 'name 1',
+    id: 10,
+    title: 'name 01',
     price: 123.12,
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptates ex facilis laboriosam. Architecto odio fugit corporis, commodi vero molestiae quos delectus reiciendis. Repellat nostrum laboriosam placeat error nobis aut.',
@@ -91,9 +117,9 @@ export const cardsMock = [
     checked: false,
   },
   {
-    id: 1,
-    title: 'name 1',
-    price: 123.12,
+    id: 11,
+    title: 'name 11',
+    price: 123.121,
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptates ex facilis laboriosam. Architecto odio fugit corporis, commodi vero molestiae quos delectus reiciendis. Repellat nostrum laboriosam placeat error nobis aut.',
     location: 'Suceava',
@@ -104,22 +130,9 @@ export const cardsMock = [
     checked: false,
   },
   {
-    id: 1,
-    title: 'name 1',
-    price: 123.12,
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptates ex facilis laboriosam. Architecto odio fugit corporis, commodi vero molestiae quos delectus reiciendis. Repellat nostrum laboriosam placeat error nobis aut.',
-    location: 'Constanta',
-    urlImage: 'url',
-    isFavorite: false,
-    displayWide: false,
-    cretedBy: 'anndy',
-    checked: false,
-  },
-  {
-    id: 1,
-    title: 'name 1',
-    price: 123.12,
+    id: 12,
+    title: 'name2 1',
+    price: 123.212,
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptates ex facilis laboriosam. Architecto odio fugit corporis, commodi vero molestiae quos delectus reiciendis. Repellat nostrum laboriosam placeat error nobis aut.',
     location: 'Suceava',
@@ -130,21 +143,8 @@ export const cardsMock = [
     checked: false,
   },
   {
-    id: 1,
-    title: 'name 1',
-    price: 123.12,
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptates ex facilis laboriosam. Architecto odio fugit corporis, commodi vero molestiae quos delectus reiciendis. Repellat nostrum laboriosam placeat error nobis aut.',
-    location: 'Suceava',
-    urlImage: 'url',
-    isFavorite: false,
-    displayWide: false,
-    cretedBy: 'anndy',
-    checked: false,
-  },
-  {
-    id: 1,
-    title: 'name 1',
+    id: 13,
+    title: 'name3 1',
     price: 123.12,
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptates ex facilis laboriosam. Architecto odio fugit corporis, commodi vero molestiae quos delectus reiciendis. Repellat nostrum laboriosam placeat error nobis aut.',
@@ -156,9 +156,9 @@ export const cardsMock = [
     checked: false,
   },
   {
-    id: 1,
-    title: 'name 1',
-    price: 123.12,
+    id: 14,
+    title: 'name 41',
+    price: 123.124,
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptates ex facilis laboriosam. Architecto odio fugit corporis, commodi vero molestiae quos delectus reiciendis. Repellat nostrum laboriosam placeat error nobis aut.',
     location: 'Suceava',
@@ -169,8 +169,8 @@ export const cardsMock = [
     checked: false,
   },
   {
-    id: 1,
-    title: 'name 1',
+    id: 15,
+    title: 'name 15',
     price: 123.12,
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptates ex facilis laboriosam. Architecto odio fugit corporis, commodi vero molestiae quos delectus reiciendis. Repellat nostrum laboriosam placeat error nobis aut.',
@@ -182,8 +182,21 @@ export const cardsMock = [
     checked: false,
   },
   {
-    id: 1,
-    title: 'name 1',
+    id: 16,
+    title: 'name6 1',
+    price: 123.612,
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptates ex facilis laboriosam. Architecto odio fugit corporis, commodi vero molestiae quos delectus reiciendis. Repellat nostrum laboriosam placeat error nobis aut.',
+    location: 'Suceava',
+    urlImage: 'url',
+    isFavorite: false,
+    displayWide: false,
+    cretedBy: 'anndy',
+    checked: false,
+  },
+  {
+    id: 17,
+    title: 'name 17',
     price: 123.12,
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptates ex facilis laboriosam. Architecto odio fugit corporis, commodi vero molestiae quos delectus reiciendis. Repellat nostrum laboriosam placeat error nobis aut.',
@@ -195,22 +208,9 @@ export const cardsMock = [
     checked: false,
   },
   {
-    id: 1,
-    title: 'name 1',
-    price: 123.12,
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptates ex facilis laboriosam. Architecto odio fugit corporis, commodi vero molestiae quos delectus reiciendis. Repellat nostrum laboriosam placeat error nobis aut.',
-    location: 'Suceava',
-    urlImage: 'url',
-    isFavorite: false,
-    displayWide: false,
-    cretedBy: 'anndy',
-    checked: false,
-  },
-  {
-    id: 1,
-    title: 'name 1',
-    price: 123.12,
+    id: 18,
+    title: 'name 18',
+    price: 823.128,
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptates ex facilis laboriosam. Architecto odio fugit corporis, commodi vero molestiae quos delectus reiciendis. Repellat nostrum laboriosam placeat error nobis aut.',
     location: 'Cluj',
@@ -221,9 +221,9 @@ export const cardsMock = [
     checked: false,
   },
   {
-    id: 1,
-    title: 'name 1',
-    price: 123.12,
+    id: 19,
+    title: 'na9me 1',
+    price: 923.192,
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptates ex facilis laboriosam. Architecto odio fugit corporis, commodi vero molestiae quos delectus reiciendis. Repellat nostrum laboriosam placeat error nobis aut.',
     location: 'Suceava',
@@ -234,9 +234,9 @@ export const cardsMock = [
     checked: false,
   },
   {
-    id: 1,
-    title: 'name 1',
-    price: 123.12,
+    id: 20,
+    title: 'nam0e 1',
+    price: 223.122,
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptates ex facilis laboriosam. Architecto odio fugit corporis, commodi vero molestiae quos delectus reiciendis. Repellat nostrum laboriosam placeat error nobis aut.',
     location: 'Suceava',
@@ -247,9 +247,9 @@ export const cardsMock = [
     checked: false,
   },
   {
-    id: 1,
-    title: 'name 1',
-    price: 123.12,
+    id: 21,
+    title: 'name2 1',
+    price: 212.123,
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptates ex facilis laboriosam. Architecto odio fugit corporis, commodi vero molestiae quos delectus reiciendis. Repellat nostrum laboriosam placeat error nobis aut.',
     location: 'Satu Mare',
@@ -260,9 +260,9 @@ export const cardsMock = [
     checked: false,
   },
   {
-    id: 1,
-    title: 'name 1',
-    price: 123.12,
+    id: 22,
+    title: 'name 22',
+    price: 123.122,
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptates ex facilis laboriosam. Architecto odio fugit corporis, commodi vero molestiae quos delectus reiciendis. Repellat nostrum laboriosam placeat error nobis aut.',
     location: 'Suceava',
@@ -273,9 +273,9 @@ export const cardsMock = [
     checked: false,
   },
   {
-    id: 1,
-    title: 'name 1',
-    price: 123.12,
+    id: 23,
+    title: 'name 13',
+    price: 323.122,
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptates ex facilis laboriosam. Architecto odio fugit corporis, commodi vero molestiae quos delectus reiciendis. Repellat nostrum laboriosam placeat error nobis aut.',
     location: 'Suceava',
@@ -286,9 +286,9 @@ export const cardsMock = [
     checked: false,
   },
   {
-    id: 1,
-    title: 'name 1',
-    price: 123.12,
+    id: 24,
+    title: 'name 24',
+    price: 423.123,
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptates ex facilis laboriosam. Architecto odio fugit corporis, commodi vero molestiae quos delectus reiciendis. Repellat nostrum laboriosam placeat error nobis aut.',
     location: 'Iasi',
@@ -299,9 +299,9 @@ export const cardsMock = [
     checked: false,
   },
   {
-    id: 1,
-    title: 'name 1',
-    price: 123.12,
+    id: 25,
+    title: 'name 55',
+    price: 553.152,
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptates ex facilis laboriosam. Architecto odio fugit corporis, commodi vero molestiae quos delectus reiciendis. Repellat nostrum laboriosam placeat error nobis aut.',
     location: 'Suceava',
@@ -312,22 +312,22 @@ export const cardsMock = [
     checked: false,
   },
   {
-    id: 1,
-    title: 'name 1',
-    price: 123.12,
+    id: 26,
+    title: 'nam6e 1',
+    price: 663.126,
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptates ex facilis laboriosam. Architecto odio fugit corporis, commodi vero molestiae quos delectus reiciendis. Repellat nostrum laboriosam placeat error nobis aut.',
     location: 'Bucuresti',
     urlImage: 'url',
-    isFavorite: false,
+    isFavorite: true,
     displayWide: false,
     cretedBy: 'anndy',
     checked: false,
   },
   {
-    id: 1,
-    title: 'name 1',
-    price: 123.12,
+    id: 27,
+    title: 'name 177',
+    price: 773.122,
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptates ex facilis laboriosam. Architecto odio fugit corporis, commodi vero molestiae quos delectus reiciendis. Repellat nostrum laboriosam placeat error nobis aut.',
     location: 'Suceava',
