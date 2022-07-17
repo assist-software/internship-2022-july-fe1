@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Galery.module.css';
+// import styles from './Galery.module.css';
 
 import StyledFormTitle from '../../components/FormTitle/FormTitle';
 import Filter from '../../components/Filter/Filter';

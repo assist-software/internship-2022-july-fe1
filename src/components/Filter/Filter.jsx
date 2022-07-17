@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './Filter.module.css';
 
 import StyledHamburgerMenu from '../../components/HamburgerMenu/HamburgerMenu';
 import FitlterMultiSelect from '../FilterMultiSelect/FitlterMultiSelect';
 import FilterSingleselect from '../FilterSingleSelect/FilterSingleSelect';
 import FilterOrderSelect from '../FilterOrderSelect/FilterOrderSelect';
-
-import { useGlobalContext } from '../../Context/appContext';
 
 const Filter = ({ location, price, order }) => {
   return (

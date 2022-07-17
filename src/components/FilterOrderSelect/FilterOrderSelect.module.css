@@ -18,4 +18,5 @@
 }
 .pointer:hover {
   cursor: pointer;
+  margin-right: 10px;
 }

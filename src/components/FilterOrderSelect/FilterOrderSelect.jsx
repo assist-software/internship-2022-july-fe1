@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styles from './FilterOrderSelect.module.css';
 import Dropdown from 'react-bootstrap/Dropdown';
 
@@ -7,22 +7,19 @@ import { useGlobalContext } from '../../Context/appContext';
 const FilterOrderSelect = (props) => {
   const { name } = props;
   const { handleOrderFilter } = useGlobalContext();
-  const [order, setOrder] = useState('Most popular');
-  const [valueForDropDownOrder, setValueForDropDownOrder] = useState([
-    'Most popular',
-    'Price: Low to High',
-    'Price: High to Low',
-    'Featured',
-  ]);
-
-  // const valueForDropDownOrder = [
+  // const [valueForDropDownOrder, setValueForDropDownOrder] = useState([
   //   'Most popular',
   //   'Price: Low to High',
   //   'Price: High to Low',
   //   'Featured',
-  // ];
+  // ]);
 
-  // console.log('order', order);
+  const valueForDropDownOrder = [
+    'Most popular',
+    'Price: Low to High',
+    'Price: High to Low',
+    'Featured',
+  ];
 
   return (
     <>

@@ -1,8 +1,7 @@
 import React, { useContext, createContext, useState } from 'react';
 
-import { appReducer } from '../Reducers/appReducer';
+// import { appReducer } from '../Reducers/appReducer';
 import { API } from '../api/API';
-import { isFocusable } from '@testing-library/user-event/dist/utils';
 
 const AppContext = createContext();
 

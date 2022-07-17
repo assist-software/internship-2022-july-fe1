@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styles from './FilterSingleSelect.module.css';
 import Dropdown from 'react-bootstrap/Dropdown';
 
@@ -8,18 +8,14 @@ const FilterSingleSelect = (props) => {
   const { name } = props;
   const { handlePriceFilter } = useGlobalContext();
 
-  const [valueForDropDown, setValueForDropDown] = useState([
+  const valueForDropDown = [
     '0 - 10.000',
     '10.000 - 50.0000',
     '50.000 - 100.000',
     '100.000 - 300.000',
     '300.000 - 700.000',
     '700.000 - 1.000.000',
-  ]);
-
-  // const handleChangeValue = (price) => {
-  //   handlePriceFilter(price);
-  // };
+  ];
 
   return (
     <>
