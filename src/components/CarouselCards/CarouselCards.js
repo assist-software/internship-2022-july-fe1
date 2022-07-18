@@ -25,7 +25,7 @@ const CarouselCards = ({ render }) => {
         <h4>Latest</h4>
         <Button variant='default' onClick={() => seeEverything()}>
           <span className='ha2'>
-            See everything <FiArrowRight className='ha3' />
+            See everything <FiArrowRight />
           </span>
         </Button>
       </div>
