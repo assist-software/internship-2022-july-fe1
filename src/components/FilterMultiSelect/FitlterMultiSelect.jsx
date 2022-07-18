@@ -28,7 +28,7 @@ const FitlterMultiSelect = (props) => {
 
   useEffect(() => {
     handleLocationFilter(selectedLocation);
-  }, [selectedLocation]);
+  }, [selectedLocation, handleLocationFilter]);
 
   return (
     <>
@@ -64,6 +64,7 @@ const FitlterMultiSelect = (props) => {
                 </Dropdown.Item>
               );
             }
+            return console.log();
           })}
         </Dropdown.Menu>
       </Dropdown>
