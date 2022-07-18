@@ -1,24 +1,59 @@
 .favoriteBtn {
-    width: 28px;
-    height: 28px;
-    background: transparent;
+  width: 28px;
+  height: 28px;
+  background: transparent;
 }
 
 .favoriteBtnCircle {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: rgba(0, 0, 0, 0.20);
-    display: flex;
-    justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.smallCardBackground {
+  background: rgba(0, 0, 0, 0.2);
 }
 
 .favoriteBtn :hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .centralIcon {
-    margin-top: 7px;
-    height: 14.7px;
-    width: 16.6px;
+  margin-top: 7px;
+  height: 14.7px;
+  width: 16.6px;
+}
+
+.favIcon {
+  color: #ffffff;
+}
+
+.favoriteBtnCircle:hover .favIcon {
+  color: #ef2028;
+}
+
+.activeFavIcon {
+  color: #ef2028;
+}
+
+.whiteBackground {
+  background-color: #ffffff;
+}
+
+.backgroundSmallCard {
+  background: rgba(28, 28, 28, 0.2);
+}
+
+.backgroundSmallCard:hover {
+  background: #ffffff;
+}
+
+.backgroundWideCard:hover {
+  background: rgba(28, 28, 28, 0.2);
+}
+
+.greyIcon {
+  color: #98a2b3;
 }
