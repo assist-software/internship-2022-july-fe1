@@ -1,25 +1,59 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import Carousel from 'react-bootstrap/Carousel';
-import CardGroup from 'react-bootstrap/CardGroup';
 import Card from '../Card/Card';
-import CardSeeEverything from '../CarouselCards/CardSeeEverything';
+import { Navigation } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import CardSeeEverything from './CardSeeEverything';
 
-const CarouselCards = (props) => {
+import { cardsMock } from '../../api/ApiMocks';
+import Button from 'react-bootstrap/Button';
+import { FiArrowRight } from 'react-icons/fi';
+
+const CarouselCards = ({ render }) => {
+  const [renderCategory, setRenderCategory] = useState(render);
+  function seeEverything() {
+    console.log('see everything');
+  }
+
   return (
-    <div className='container'>
-      <Carousel className='carousel'>
-        <Carousel.Item>
-          <CardGroup className='cds'>
-            <Card /> <Card /> <Card /> <Card />
-          </CardGroup>
-        </Carousel.Item>
-        <Carousel.Item>
-          <CardGroup className='cds'>
-            <Card /> <Card /> <Card /> <CardSeeEverything />
-          </CardGroup>
-        </Carousel.Item>
-      </Carousel>
+    <div className='container '>
+      <br />
+      <div className='ha'>
+        <h4>Latest</h4>
+        <Button variant='default' onClick={() => seeEverything()}>
+          <span className='ha2'>
+            See everything <FiArrowRight className='ha3' />
+          </span>
+        </Button>
+      </div>
+
+      <Swiper
+        slidesPerView={4}
+        spaceBetween={30}
+        slidesPerGroup={4}
+        loop={true}
+        loopFillGroupWithBlank={true}
+        navigation={true}
+        modules={[Navigation]}>
+        {cardsMock.map((item, index) => {
+          if (item.location === 'Cluj') {
+            return (
+              <div key={index}>
+                <SwiperSlide key={index}>
+                  <Card key={index} />
+                </SwiperSlide>
+              </div>
+            );
+          }
+          return console.log();
+        })}
+        <SwiperSlide>
+          <CardSeeEverything />
+        </SwiperSlide>
+      </Swiper>
     </div>
   );
 };

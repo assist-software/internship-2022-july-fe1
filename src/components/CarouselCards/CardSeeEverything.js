@@ -1,13 +1,21 @@
 import Button from 'react-bootstrap/Button';
 
 import React from 'react';
-import Card from 'react-bootstrap/Card';
+import { FiArrowRight } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 
 const CardSeeEverything = () => {
+  function seeEverything() {
+    console.log('see everything');
+  }
   return (
     <div>
       <div className='cardContainer'>
-        <button>hahs</button>
+        <FiArrowRight className='fiArrowRBtn' />
+        <Button variant='default' className='seeEverythingBtn' onClick={() => seeEverything()}>
+          <span className='seeEverythingSpan'>See everything</span>
+          <Link to={'/seeEverything'}></Link>
+        </Button>
       </div>
     </div>
   );

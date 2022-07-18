@@ -5,7 +5,7 @@ const HomePage = () => {
   return (
     <div>
       <Header />
-      <CarouselCards />
+      <CarouselCards render={'smallHouse'} />
     </div>
     // when test uncomment
     // <Card onClick={() => console.log('tste')} isFavorite={true} />
