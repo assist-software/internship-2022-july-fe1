@@ -32,6 +32,25 @@ export const StyledColumnDiv = styled.div`
     margin: 20px 0;
   }
 `;
+export const MessagesContainer = styled.div`
+  display: flex;
+  width: 100%;
+  height: 500px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 235px;
+    height: auto;
+    margin-bottom: 50px;
+  }
+
+  .empty {
+    height: 30px;
+    width: 100%;
+  }
+`;
 export const NotificationsContainer = styled.div`
   display: flex;
   width: 100%;
@@ -41,6 +60,11 @@ export const LoginSecurityContainer = styled.div`
   display: flex;
   width: 100%;
   flex-direction: column;
+
+  .updatePassword {
+    display: ${(props) =>
+      props.accountPassword.currentPassword.isOpened ? "flex" : "none"};
+  }
 `;
 export const ProfileContainer = styled.div`
   display: flex;
@@ -115,6 +139,21 @@ export const StyledRowDiv = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: 18px 0 0 0;
+
+  button {
+    color: #0241ae;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+    border: none;
+    background-color: white;
+  }
+  button:hover {
+    background-color: #e2edff;
+    border-radius: 8px;
+    padding: 0 6px;
+    cursor: pointer;
+  }
 
   .redTextColor {
     color: red;
