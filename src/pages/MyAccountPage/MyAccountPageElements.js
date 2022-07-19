@@ -4,6 +4,7 @@ export const StyledPageContent = styled.div`
   display: flex;
   margin: 40px 0 0 0;
 `;
+
 export const StyledProfileMenu = styled.div`
   width: 165px;
   display: flex;
@@ -30,6 +31,12 @@ export const StyledColumnDiv = styled.div`
   input {
     margin: 20px 0;
   }
+`;
+
+export const LoginSecurityContainer = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: column;
 `;
 export const ProfileContainer = styled.div`
   display: flex;
