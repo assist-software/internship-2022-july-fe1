@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import Card from '../Card/Card';
 import { Navigation } from 'swiper';
@@ -13,7 +13,6 @@ import Button from 'react-bootstrap/Button';
 import { FiArrowRight } from 'react-icons/fi';
 
 const CarouselCards = ({ render }) => {
-  const [renderCategory, setRenderCategory] = useState(render);
   function seeEverything() {
     console.log('see everything');
   }
@@ -37,7 +36,8 @@ const CarouselCards = ({ render }) => {
         loop={true}
         loopFillGroupWithBlank={true}
         navigation={true}
-        modules={[Navigation]}>
+        modules={[Navigation]}
+      >
         {cardsMock.map((item, index) => {
           if (item.location === 'Cluj') {
             return (

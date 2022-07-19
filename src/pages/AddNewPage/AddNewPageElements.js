@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledPageContainer = styled.div`
   width: 100%;
@@ -10,7 +10,7 @@ export const StyledPageContainer = styled.div`
 export const StyledPageContent = styled.form`
   height: 100%;
   width: 847px;
-  margin: 32px 0 40px 0;
+  margin: 32px 20px 40px 20px;
 
   .data {
     width: 100%;
@@ -39,5 +39,12 @@ export const StyledRightContent = styled.div`
     font-weight: 500;
     margin-left: 10px;
     color: #4d5464;
+  }
+
+  .select-placeholder-text {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #d0d5dd;
   }
 `;
