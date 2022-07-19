@@ -32,7 +32,11 @@ export const StyledColumnDiv = styled.div`
     margin: 20px 0;
   }
 `;
-
+export const NotificationsContainer = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+`;
 export const LoginSecurityContainer = styled.div`
   display: flex;
   width: 100%;

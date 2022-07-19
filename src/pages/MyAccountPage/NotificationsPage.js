@@ -2,14 +2,14 @@ import React from 'react';
 import StyledInputLabel from '../../components/InputLabel/InputLabel';
 import {
   LineBreak,
-  ProfileContainer,
+  NotificationsContainer,
   StyledRowDiv,
   StyledText,
 } from './MyAccountPageElements';
 
 const NotificationsPage = () => {
   return (
-    <ProfileContainer>
+    <NotificationsContainer>
       {/* News */}
       <StyledRowDiv>
         <StyledInputLabel text='News' />
@@ -45,7 +45,7 @@ const NotificationsPage = () => {
       </StyledRowDiv>
       <StyledText>Off</StyledText>
       <LineBreak />
-    </ProfileContainer>
+    </NotificationsContainer>
   );
 };
 

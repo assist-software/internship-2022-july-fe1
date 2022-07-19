@@ -4,6 +4,7 @@ export const StyledDiv = styled.div`
   display: flex;
   justify-content: space-between;
   width: 50px;
+  margin-left: 55px;
 
   svg {
     height: 18px;
