@@ -1,29 +1,33 @@
-import React from 'react';
+import React from "react";
 
-import Card from '../Card/Card';
-import { Navigation } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import CardSeeEverything from './CardSeeEverything';
+import Card from "../Card/Card";
+import { Navigation } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import CardSeeEverything from "./CardSeeEverything";
 
-import { cardsMock } from '../../api/ApiMocks';
-import Button from 'react-bootstrap/Button';
-import { FiArrowRight } from 'react-icons/fi';
+import { cardsMock } from "../../api/ApiMocks";
+import Button from "react-bootstrap/Button";
+import { FiArrowRight } from "react-icons/fi";
 
 const CarouselCards = ({ render }) => {
   function seeEverything() {
-    console.log('see everything');
+    console.log("see everything");
   }
 
   return (
-    <div className='container '>
+    <div className="container ">
       <br />
-      <div className='ha'>
+      <div className="ha">
         <h4>Latest</h4>
-        <Button variant='default' onClick={() => seeEverything()}>
-          <span className='ha2'>
+        <Button
+          variant="default"
+          className="shadow-none"
+          onClick={() => seeEverything()}
+        >
+          <span className="ha2">
             See everything <FiArrowRight />
           </span>
         </Button>
@@ -39,7 +43,7 @@ const CarouselCards = ({ render }) => {
         modules={[Navigation]}
       >
         {cardsMock.map((item, index) => {
-          if (item.location === 'Cluj') {
+          if (item.location === "Cluj") {
             return (
               <div key={index}>
                 <SwiperSlide key={index}>

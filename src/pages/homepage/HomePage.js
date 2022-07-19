@@ -1,5 +1,5 @@
-import Header from '../../components/header/header';
-import CarouselCards from '../../components/CarouselCards/CarouselCards';
+import Header from "../../components/header/header";
+import CarouselCards from "../../components/CarouselCards/CarouselCards";
 
 const HomePage = () => {
   return (
