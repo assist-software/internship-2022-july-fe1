@@ -57,7 +57,13 @@ const AddNewPage = () => {
               }
             />
             <StyledInputLabel text="Price" />
-            <StyledSmallFormInput />
+            <StyledSmallFormInput
+              onKeyPress={(event) => {
+                if (!/[0-9]/.test(event.key)) {
+                  event.preventDefault();
+                }
+              }}
+            />
             <span>lei</span>
           </StyledRightContent>
         </StyledData>
@@ -92,7 +98,13 @@ const AddNewPage = () => {
             <StyledInputLabel text="Location" />
             <StyledLoginFormInput />
             <StyledInputLabel text="Phone number" />
-            <StyledSmallFormInput />
+            <StyledSmallFormInput
+              onKeyPress={(event) => {
+                if (!/[0-9+]/.test(event.key)) {
+                  event.preventDefault();
+                }
+              }}
+            />
           </StyledRightContent>
         </StyledData>
         <div className="data">

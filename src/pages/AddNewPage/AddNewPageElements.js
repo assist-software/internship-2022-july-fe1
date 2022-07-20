@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyledPageContainer = styled.div`
   width: 100%;
@@ -29,6 +29,16 @@ export const StyledData = styled.div`
   display: flex;
   border-bottom: 1px solid #e4e7ec;
   margin-top: 24px;
+
+  /* input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  } */
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 export const StyledRightContent = styled.div`
@@ -46,5 +56,9 @@ export const StyledRightContent = styled.div`
     font-size: 16px;
     line-height: 24px;
     color: #d0d5dd;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
   }
 `;

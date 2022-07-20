@@ -4,8 +4,6 @@ export const Section = styled.section`
   display: flex;
   flex-wrap: wrap;
   padding: 0;
-  /* margin-left: -15px; */
-  /* justify-content: spac; */
 
   .dropzone {
     height: 100%;

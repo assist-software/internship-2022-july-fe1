@@ -9,6 +9,10 @@ export const StyledProfileMenu = styled.div`
   width: 165px;
   display: flex;
   flex-direction: column;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const LineBreak = styled.hr`
@@ -23,6 +27,11 @@ export const StyledMyAccountContent = styled.div`
   margin: 0 0 0 100px;
   display: flex;
   flex-direction: column;
+
+  @media screen and (max-width: 768px) {
+    width: 95vw;
+    margin: 0 10px;
+  }
 `;
 export const StyledColumnDiv = styled.div`
   display: flex;
@@ -30,25 +39,6 @@ export const StyledColumnDiv = styled.div`
 
   input {
     margin: 20px 0;
-  }
-`;
-export const MessagesContainer = styled.div`
-  display: flex;
-  width: 100%;
-  height: 500px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  img {
-    width: 235px;
-    height: auto;
-    margin-bottom: 50px;
-  }
-
-  .empty {
-    height: 30px;
-    width: 100%;
   }
 `;
 export const NotificationsContainer = styled.div`
@@ -202,4 +192,179 @@ export const MessageNotifications = styled.div`
     width: 30px;
     height: 30px;
   }
+
+  @media (max-width: 768px) {
+    left: 85%;
+  }
+`;
+
+// Messages page
+export const MessagesContainer = styled.div`
+  display: flex;
+  width: 100%;
+  max-height: 850px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 50px;
+  }
+
+  .empty {
+    height: 30px;
+    width: 100%;
+  }
+
+  .no-messages {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+`;
+
+export const ChatContainer = styled.div`
+  width: 100%;
+  border-radius: 24px;
+  border: 1px solid #e4e7ec;
+  display: flex;
+`;
+
+export const ReceivedMessagesContainer = styled.div`
+  max-height: 855px;
+  display: flex;
+  flex-direction: column;
+  min-width: 292px;
+  padding: 20px 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: 1px solid #e4e7ec;
+  border-radius: 24px 0 0 24px;
+`;
+
+export const HeaderAndChatContainer = styled.div`
+  width: 570px;
+`;
+
+export const ChatHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  color: #1c1c1e;
+  height: 76px;
+  border-bottom: 1px solid #e4e7ec;
+`;
+
+export const Buttons = styled.div`
+  width: 72px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+`;
+
+export const ChatContent = styled.div`
+  width: 100%;
+  height: 779px;
+  border-radius: 0 0 24px 0;
+  display: flex;
+  flex-direction: column-reverse;
+
+  .messages {
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 0 10px;
+  }
+
+  .messages::-webkit-scrollbar {
+    width: 2px;
+  }
+
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-bottom: 5px;
+  }
+`;
+
+export const MessageInput = styled.input`
+  width: 90%;
+  border: 1px solid #d0d5dd;
+  border-radius: 24px;
+  height: 44px;
+  outline: none;
+  padding: 0 20px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+
+  &::-webkit-input-placeholder {
+    color: #98a2b3;
+  }
+`;
+
+export const SendMessageButton = styled.button`
+  width: 44px;
+  min-height: 44px;
+  background-color: #0356e8;
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+
+  svg {
+    height: 30px;
+    width: 30px;
+  }
+`;
+
+export const SendedMessage = styled.div`
+  min-height: 46px;
+  display: flex;
+  align-items: center;
+  width: min-content;
+  padding: 0 10px;
+  justify-content: center;
+  border-radius: 24px;
+  background: #f2f4f7;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  color: #1c1c1e;
+  justify-content: flex-end;
+  margin: 10px 0 10px auto;
+  white-space: nowrap;
+`;
+
+export const ReceivedMessage = styled.div`
+  border: 1px solid #e4e7ec;
+  min-height: 46px;
+  width: min-content;
+  border-radius: 24px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  color: #1c1c1e;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  margin: 10px 0 10px;
 `;
