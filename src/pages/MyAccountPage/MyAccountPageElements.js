@@ -202,10 +202,15 @@ export const MessageNotifications = styled.div`
 export const MessagesContainer = styled.div`
   display: flex;
   width: 100%;
-  max-height: 850px;
+  height: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  .noMessageImage {
+    width: 292px;
+    height: auto;
+  }
 
   img {
     width: 40px;
@@ -230,6 +235,7 @@ export const MessagesContainer = styled.div`
 
 export const ChatContainer = styled.div`
   width: 100%;
+  height: 90%;
   border-radius: 24px;
   border: 1px solid #e4e7ec;
   display: flex;
@@ -277,7 +283,8 @@ export const Buttons = styled.div`
 
 export const ChatContent = styled.div`
   width: 100%;
-  height: 779px;
+
+  height: 695px;
   border-radius: 0 0 24px 0;
   display: flex;
   flex-direction: column-reverse;
@@ -314,6 +321,10 @@ export const MessageInput = styled.input`
 
   &::-webkit-input-placeholder {
     color: #98a2b3;
+  }
+
+  @media (max-width: 1700px) {
+    width: 85%;
   }
 `;
 

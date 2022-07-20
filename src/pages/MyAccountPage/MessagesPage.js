@@ -50,7 +50,7 @@ const MessagesPage = () => {
     <MessagesContainer>
       {!existMessages && (
         <div className="no-messages">
-          <img src={ChatBot} alt="Chatbot" />
+          <img src={ChatBot} alt="Chatbot" className="noMessageImage" />
           <StyledMyAccountTitle text={"You haven't sent any messages yet."} />
           <StyledInputLabel
             text={"This is where you'll find all of your chats and messages."}
