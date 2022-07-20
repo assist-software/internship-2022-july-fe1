@@ -1,51 +1,58 @@
-// import { useState } from 'react';
+import { useState } from 'react';
 // import axios from 'axios'
 
+import { useEffect } from 'react';
 import { cardsMock } from './ApiMocks';
 
-// const useApi = (url) => {
-//   const [data, setData] = useState([]);
-//   const [loading, setLoading] = useState(true);
-//   const [error, setError] = useState(null);
+const url = `https://assist-jully-2022-be1.azurewebsites.net/api/listing`;
 
-// useEffect(() => {
-//     setData(cardsMock)
-//     //delete when u  will use  setLoading and setError
-//     setLoading(true)
-//     setError(null)
-// }, [])
-
-// useEffect(() => {
-//   const abortCont = new AbortController();
-
-//   setLoading(true);
-//   fetch(url, { signal: abortCont.signal })
-//     .then((res) => {
-//       if (!res.ok) {
-//         throw Error("could not fetch that data");
-//       }
-//       res.json();
-//     })
-//     .then((data) => {
-//       setData(data);
-//       setLoading(false);
-//     })
-//     .catch((err) => {
-//       if (err.name === "AbortError") {
-//         console.log("fetch aborted");
-//       } else {
-//         setLoading(false);
-//         setError(err.message);
-//       }
-//     });
-
-//   return () => abortCont.abort();
-// }, [url]);
-
-//   return { data, loading, error };
+// const fetch = async (url) => {
+//   const response = await fetch(url);
+//   const data = await response.json();
+//   console.log(data);
 // };
 
+const useApi = (url) => {
+  const [data, setData] = useState([]);
+  // const [loading, setLoading] = useState(true);
+  // const [error, setError] = useState(null);
+
+  // useEffect(() => {
+  //     setData(cardsMock)
+  //     //delete when u  will use  setLoading and setError
+  //     setLoading(true)
+  //     setError(null)
+  // }, [])
+
+  // useEffect(() => {
+  //   const abortCont = new AbortController();
+
+  //   fetch(url, { signal: abortCont.signal })
+  //     .then((res) => {
+  //       if (!res.ok) {
+  //         throw Error('could not fetch that data');
+  //       }
+  //       res.json();
+  //     })
+  //     .then((data) => {
+  //       setData(data);
+  //     })
+  //     .catch((err) => {
+  //       if (err.name === 'AbortError') {
+  //         console.log('fetch aborted');
+  //       } else {
+  //         console.log(err);
+  //       }
+  //     });
+
+  //   return () => abortCont.abort();
+  // }, [url]);
+
+  return { data };
+};
+
 export const API = {
+  url,
   cardsMock,
   // useApi,
 };

@@ -7,10 +7,12 @@ export const cardsMock = [
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptates ex facilis laboriosam. Architecto odio fugit corporis, commodi vero molestiae quos delectus reiciendis. Repellat nostrum laboriosam placeat error nobis aut.',
     location: 'Suceava',
     urlImage: 'url',
-    isFavorite: false,
+    isFavorite: true,
     displayWide: false,
     cretedBy: 'anndy',
     checked: false,
+    smallHouse: true,
+    bigHouse: false,
   },
   {
     id: 2,
@@ -24,6 +26,8 @@ export const cardsMock = [
     displayWide: false,
     cretedBy: 'anndy',
     checked: false,
+    smallHouse: false,
+    bigHouse: true,
   },
   {
     id: 3,
@@ -37,6 +41,8 @@ export const cardsMock = [
     displayWide: false,
     cretedBy: 'anndy',
     checked: false,
+    smallHouse: false,
+    bigHouse: true,
   },
   {
     id: 4,
@@ -47,9 +53,10 @@ export const cardsMock = [
     location: 'Suceava',
     urlImage: 'url',
     isFavorite: false,
-    displayWide: false,
     cretedBy: 'anndy',
     checked: false,
+    smallHouse: false,
+    bigHouse: false,
   },
   {
     id: 6,
@@ -60,9 +67,10 @@ export const cardsMock = [
     location: 'Timisoara',
     urlImage: 'url',
     isFavorite: false,
-    displayWide: false,
     cretedBy: 'anndy',
     checked: false,
+    smallHouse: true,
+    bigHouse: false,
   },
   {
     id: 7,
@@ -76,6 +84,8 @@ export const cardsMock = [
     displayWide: false,
     cretedBy: 'anndy',
     checked: false,
+    smallHouse: false,
+    bigHouse: false,
   },
   {
     id: 8,
@@ -89,6 +99,8 @@ export const cardsMock = [
     displayWide: false,
     cretedBy: 'anndy',
     checked: false,
+    smallHouse: false,
+    bigHouse: true,
   },
   {
     id: 9,
@@ -102,6 +114,8 @@ export const cardsMock = [
     displayWide: false,
     cretedBy: 'anndy',
     checked: false,
+    smallHouse: false,
+    bigHouse: false,
   },
   {
     id: 10,
@@ -115,6 +129,8 @@ export const cardsMock = [
     displayWide: false,
     cretedBy: 'anndy',
     checked: false,
+    smallHouse: false,
+    bigHouse: true,
   },
   {
     id: 11,
@@ -128,6 +144,8 @@ export const cardsMock = [
     displayWide: false,
     cretedBy: 'anndy',
     checked: false,
+    smallHouse: true,
+    bigHouse: false,
   },
   {
     id: 12,
@@ -141,6 +159,8 @@ export const cardsMock = [
     displayWide: false,
     cretedBy: 'anndy',
     checked: false,
+    smallHouse: false,
+    bigHouse: false,
   },
   {
     id: 13,
@@ -154,6 +174,8 @@ export const cardsMock = [
     displayWide: false,
     cretedBy: 'anndy',
     checked: false,
+    smallHouse: false,
+    bigHouse: true,
   },
   {
     id: 14,
@@ -167,6 +189,8 @@ export const cardsMock = [
     displayWide: false,
     cretedBy: 'anndy',
     checked: false,
+    smallHouse: false,
+    bigHouse: false,
   },
   {
     id: 15,
@@ -180,6 +204,8 @@ export const cardsMock = [
     displayWide: false,
     cretedBy: 'anndy',
     checked: false,
+    smallHouse: true,
+    bigHouse: false,
   },
   {
     id: 16,
@@ -193,6 +219,8 @@ export const cardsMock = [
     displayWide: false,
     cretedBy: 'anndy',
     checked: false,
+    smallHouse: false,
+    bigHouse: true,
   },
   {
     id: 17,
@@ -206,6 +234,8 @@ export const cardsMock = [
     displayWide: false,
     cretedBy: 'anndy',
     checked: false,
+    smallHouse: false,
+    bigHouse: false,
   },
   {
     id: 18,
@@ -219,6 +249,8 @@ export const cardsMock = [
     displayWide: false,
     cretedBy: 'anndy',
     checked: false,
+    smallHouse: true,
+    bigHouse: false,
   },
   {
     id: 19,
@@ -232,6 +264,8 @@ export const cardsMock = [
     displayWide: false,
     cretedBy: 'anndy',
     checked: false,
+    smallHouse: false,
+    bigHouse: false,
   },
   {
     id: 20,
@@ -245,6 +279,8 @@ export const cardsMock = [
     displayWide: false,
     cretedBy: 'anndy',
     checked: false,
+    smallHouse: false,
+    bigHouse: true,
   },
   {
     id: 21,
@@ -258,6 +294,8 @@ export const cardsMock = [
     displayWide: false,
     cretedBy: 'anndy',
     checked: false,
+    smallHouse: false,
+    bigHouse: false,
   },
   {
     id: 22,
@@ -271,6 +309,8 @@ export const cardsMock = [
     displayWide: false,
     cretedBy: 'anndy',
     checked: false,
+    smallHouse: false,
+    bigHouse: false,
   },
   {
     id: 23,
@@ -284,6 +324,8 @@ export const cardsMock = [
     displayWide: false,
     cretedBy: 'anndy',
     checked: false,
+    smallHouse: true,
+    bigHouse: false,
   },
   {
     id: 24,
@@ -297,6 +339,8 @@ export const cardsMock = [
     displayWide: false,
     cretedBy: 'anndy',
     checked: false,
+    smallHouse: false,
+    bigHouse: true,
   },
   {
     id: 25,
@@ -310,6 +354,8 @@ export const cardsMock = [
     displayWide: false,
     cretedBy: 'anndy',
     checked: false,
+    smallHouse: false,
+    bigHouse: false,
   },
   {
     id: 26,
@@ -323,6 +369,8 @@ export const cardsMock = [
     displayWide: false,
     cretedBy: 'anndy',
     checked: false,
+    smallHouse: false,
+    bigHouse: true,
   },
   {
     id: 27,
@@ -336,5 +384,7 @@ export const cardsMock = [
     displayWide: false,
     cretedBy: 'anndy',
     checked: false,
+    smallHouse: true,
+    bigHouse: false,
   },
 ];

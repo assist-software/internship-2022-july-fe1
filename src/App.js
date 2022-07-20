@@ -8,6 +8,8 @@ import ProtectedRoutes from "./routes/ProtectedRoutes";
 import "./components/App.css";
 import AddNewPage from "./pages/AddNewPage/AddNewPage";
 import MyAccountPage from "./pages/MyAccountPage/MyAccountPage";
+import Header from "./components/header/header";
+import Galery from "./pages/Galery/Galery";
 
 const GlobalStyle = createGlobalStyle`
   *{
@@ -24,13 +26,16 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <GlobalStyle />
+        <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/category/:galeryname" element={<Galery />} />
 
           {/* ----------Protected Routed for authenticated user --------------- */}
           <Route element={<ProtectedRoutes />}>
-            <Route path="/favorites" element={<HomePage />} />
+            <Route path="/favourites" element={<HomePage />} />
             <Route path="/pending" element={<HomePage />} />
+
 
             <Route path="/mylisting" element={<HomePage />} />
             <Route path="/mylisting/add" element={<HomePage />} />
@@ -43,7 +48,10 @@ function App() {
             <Route path="/myprofile/message" element={<Profile />} />
           </Route>
 
+
           <Route path="/login" element={<OnBoarding pageName="logIn" />} />
+
+
           <Route
             path="/sign-up"
             element={<OnBoarding pageName="createAccount" />}

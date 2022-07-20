@@ -18,7 +18,7 @@ const Filter = ({ location, price, order }) => {
           {price && <FilterSingleselect name={'Price'} />}
         </div>
         <div className={styles.inRow}>
-          <div className={styles.filterGrayText}>Order By:</div>
+          {order && <div className={styles.filterGrayText}>Order By:</div>}
           {order && <FilterOrderSelect name={'Most Popular'} />}
           <StyledHamburgerMenu />
         </div>

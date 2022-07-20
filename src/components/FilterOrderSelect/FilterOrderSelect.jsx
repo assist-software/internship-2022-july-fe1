@@ -6,12 +6,12 @@ import { useGlobalContext } from '../../Context/appContext';
 
 const FilterOrderSelect = (props) => {
   const { name } = props;
-  const { handleOrderFilter } = useGlobalContext();
+  const { setOrderFIlter } = useGlobalContext();
   const [selectedId, setSelectedId] = useState({});
 
   const clickHandler = (item, index) => {
     setSelectedId(index);
-    handleOrderFilter(item);
+    setOrderFIlter(item);
   };
 
   const valueForDropDownOrder = [

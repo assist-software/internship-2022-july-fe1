@@ -5,7 +5,8 @@ import Galery from "../Galery/Galery";
 const HomePage = () => {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
+
       <Galery />
     </>
   );

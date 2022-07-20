@@ -6,17 +6,17 @@ import { useGlobalContext } from '../../Context/appContext';
 
 const FilterSingleSelect = (props) => {
   const { name } = props;
-  const { handlePriceFilter } = useGlobalContext();
+  const { setPriceFilter } = useGlobalContext();
   const [selectId, setSelectId] = useState({});
 
   const clickHandler = (item, index) => {
     setSelectId(index);
-    handlePriceFilter(item);
+    setPriceFilter(item);
   };
 
   const valueForDropDown = [
     '0 - 10.000',
-    '10.000 - 50.0000',
+    '10.000 - 50.000',
     '50.000 - 100.000',
     '100.000 - 300.000',
     '300.000 - 700.000',

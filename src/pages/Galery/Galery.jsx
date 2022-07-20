@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 // import styles from './Galery.module.css';
 
 import StyledFormTitle from '../../components/FormTitle/FormTitle';
@@ -6,15 +7,17 @@ import Filter from '../../components/Filter/Filter';
 import ContentContainer from '../../components/ContentContainer/ContentContainer';
 
 const Galery = (props) => {
-  // props care vor fi nevoie APROXIMATIV
-  // groupOfCard totalItems location price oreder(from Backend)
-  // viewMode currentPage paginate
+  let { galeryname } = useParams();
 
   return (
     <>
       <div className="container">
-        <StyledFormTitle text={'Latest'}></StyledFormTitle>
-        <Filter location={true} price={true} order={true} />
+        <StyledFormTitle text={galeryname}></StyledFormTitle>
+        {galeryname !== 'favourites' ? (
+          <Filter location={true} price={true} order={true} />
+        ) : (
+          <Filter location={false} price={false} order={false} />
+        )}
         <ContentContainer />
       </div>
     </>
