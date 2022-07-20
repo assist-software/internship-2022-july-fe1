@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import StyledAddPageLabels from "../../components/AddPageLabels/AddPageLabels";
 import ImagePicker from "../../components/ImagePicker/ImagePicker";
 import StyledInputLabel from "../../components/InputLabel/InputLabel";
@@ -6,7 +6,6 @@ import {
   StyledLoginFormInput,
   StyledSmallFormInput,
 } from "../../components/LoginFormInput";
-import LongDropdown from "../../components/LongDropdown/LongDropdown";
 import StyledPageButton from "../../components/PageButton/PageButton";
 import StyledPageTitle from "../../components/PageTitle/PageTitle";
 import StyledTextarea from "../../components/Textarea/Textarea";
@@ -16,8 +15,68 @@ import {
   StyledPageContainer,
   StyledPageContent,
 } from "./AddNewPageElements";
+import Select from "react-select";
+
+import { APIData } from "../../api/APIData";
+
+const options = [
+  // { value: "latest", label: "Latest" },
+  { value: 0, label: "Big houses" },
+  { value: 1, label: "Small houses" },
+];
+
+const customStyles = {
+  control: (base) => ({
+    ...base,
+    height: 44,
+    minHeight: 44,
+    borderRadius: 8,
+    marginBottom: 20,
+  }),
+};
 
 const AddNewPage = () => {
+  const [title, setTitle] = useState('')
+  const [category, setCategory] = useState(1)
+  const [price, setPrice] = useState(0)
+  const [files, setFiles] = useState([])
+  const [description, setDescripton] = useState('')
+  const [location, setLocation] = useState('')
+  const [phone, setPhone] = useState('')
+
+  const handleDesciptionChange = (e) => {
+    setDescripton(e.target.value);
+  }
+
+  const sendFileToAddNewPage = (urlOfImage) => {
+    setFiles(urlOfImage)
+    console.log('in add new', files);
+  }
+
+  const handleLocation = (e) => {
+    let firstLetterUpperAndRestLower = e.target.value
+    setLocation(firstLetterUpperAndRestLower.charAt(0).toUpperCase() + firstLetterUpperAndRestLower.slice(1).toLowerCase())
+  }
+
+  const handleCreateNew = (e) => {
+    e.preventDefault()
+
+    let item = {
+      title: title,
+      description: description,
+      location: location,
+      price: price,
+      category: category,
+      authorId: 'A5BF21BA-E26B-49E5-C17A-08DA688B8AC2',
+      featured: true,
+      images: files,
+      phoneNumber: phone,
+    };
+
+    APIData.addItem(item)
+  }
+
+
   return (
     <StyledPageContainer>
       <StyledPageContent>
@@ -31,11 +90,25 @@ const AddNewPage = () => {
           />
           <StyledRightContent>
             <StyledInputLabel text="Title" />
-            <StyledLoginFormInput />
+            <StyledLoginFormInput value={title} onChange={(e) => setTitle(e.target.value)} />
             <StyledInputLabel text="Category" />
-            <LongDropdown />
+            <Select
+              options={options}
+              styles={customStyles}
+              onChange={(e) => { setCategory(e.value) }}
+              placeholder={
+                <div className="select-placeholder-text">Select category</div>
+              }
+            />
             <StyledInputLabel text="Price" />
-            <StyledSmallFormInput />
+            <StyledSmallFormInput
+              onKeyPress={(event) => {
+                if (!/[0-9]/.test(event.key)) {
+                  event.preventDefault();
+                }
+              }}
+              value={price} onChange={(e) => setPrice(e.target.value)}
+            />
             <span>lei</span>
           </StyledRightContent>
         </StyledData>
@@ -46,7 +119,7 @@ const AddNewPage = () => {
             paragraphText="Be as thorough as you can."
           />
           <StyledRightContent>
-            <ImagePicker />
+            <ImagePicker sendFileToAddNewPage={sendFileToAddNewPage} />
           </StyledRightContent>
         </StyledData>
         {/* Description */}
@@ -55,9 +128,9 @@ const AddNewPage = () => {
             labelText="Description"
             paragraphText="Be as thorough as you can."
           />
-          <StyledRightContent>
+          <StyledRightContent >
             <StyledInputLabel text="Description details" />
-            <StyledTextarea />
+            <StyledTextarea value={description} onchange={e => handleDesciptionChange(e)} />
           </StyledRightContent>
         </StyledData>
         {/* Contact info */}
@@ -68,15 +141,23 @@ const AddNewPage = () => {
           />
           <StyledRightContent>
             <StyledInputLabel text="Location" />
-            <StyledLoginFormInput />
+            <StyledLoginFormInput value={location} onChange={(e) => handleLocation(e)} />
             <StyledInputLabel text="Phone number" />
-            <StyledSmallFormInput />
+            <StyledSmallFormInput
+              onKeyPress={(event) => {
+                if (!/[0-9+]/.test(event.key)) {
+                  event.preventDefault();
+                }
+              }}
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+            />
           </StyledRightContent>
         </StyledData>
         <div className="data">
           <div className="row">
             <StyledPageButton text={"Preview"} color={false} />
-            <StyledPageButton text={"Publish"} color={true} />
+            <StyledPageButton text={"Publish"} color={true} onclick={(e) => handleCreateNew(e)} />
           </div>
         </div>
       </StyledPageContent>

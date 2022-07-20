@@ -10,8 +10,16 @@ const ResetPasswordForm = () => {
   const [password, setPassword] = useState("");
   const [passwordVisibility, setPasswordVisibility] = useState(true);
 
+  const [verifiedPassword, setVerifiedPassword] = useState("");
+  const [verifiedPasswordVisibility, setVerifiedPasswordVisibility] =
+    useState(true);
+
   const toogleVisibility = () => {
     setPasswordVisibility(!passwordVisibility);
+  };
+
+  const toogleVisibility2 = () => {
+    setVerifiedPasswordVisibility(!verifiedPasswordVisibility);
   };
 
   return (
@@ -25,13 +33,13 @@ const ResetPasswordForm = () => {
         password={password}
         setPassword={setPassword}
       />
-      <h2>At least 8 characters and one number.</h2>
+      <p>At least 8 characters and one number.</p>
       <StyledInputLabel text="Confirm password" />
       <StyledPasswordInput
-        passwordVisibility={passwordVisibility}
-        toogleVisibility={toogleVisibility}
-        password={password}
-        setPassword={setPassword}
+        passwordVisibility={verifiedPasswordVisibility}
+        toogleVisibility={toogleVisibility2}
+        password={verifiedPassword}
+        setPassword={setVerifiedPassword}
       />
       <StyledFormButton text="Confirm password" />
     </StyledLoginForm>

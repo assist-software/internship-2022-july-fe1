@@ -37,22 +37,9 @@ const firstFetch = async (requestOption = '') => {
   if (result) console.log(result);
 };
 
+//ADD ONE ITEM
 const addItem = async (item) => {
-  // DOAR PT TESSTE
-
-  item = {
-    title: 'test Anndy',
-    description: 'description description description description ',
-    location: 'Suceava',
-    price: 123333,
-    images: 'images',
-    category: 1,
-    authorId: 'A5BF21BA-E26B-49E5-C17A-08DA688B8AC2',
-    featured: true,
-  };
-
   console.log(item);
-
   const postOptions = {
     method: 'POST',
     headers: {

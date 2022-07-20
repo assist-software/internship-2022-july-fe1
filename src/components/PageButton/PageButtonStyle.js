@@ -15,4 +15,5 @@ export const StyledButton = styled.button`
     bcolor ? "1px solid #0356e8" : "1px solid #0231ae"};
   color: ${({ bcolor }) => (bcolor ? "#fff" : "#0231ae")};
   font-size: 14px;
+  margin: 0 0 20px 0;
 `;

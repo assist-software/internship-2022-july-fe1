@@ -1,11 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-import styles from './Favorite.module.css'
+import styles from './Favorite.module.css';
 
 const Favorite = () => {
-    return (
-        <div className={st}>Favorite</div>
-    )
-}
+  return <div className={styles}>Favorite</div>;
+};
 
-export default Favorite
+export default Favorite;

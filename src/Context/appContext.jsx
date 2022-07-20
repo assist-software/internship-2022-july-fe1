@@ -21,9 +21,6 @@ export const AppProvider = ({ children }) => {
   const [test, setTest] = useState();
 
   let url = `https://assist-jully-2022-be1.azurewebsites.net/api/listing`;
-  // let url = `https://assist-jully-2022-be2.azurewebsites.net/api/listing`;
-
-  // const urlE = `https://jsonplaceholder.typicode.com/comments?_page=${currentPageForContext}&_limit=12`;
 
   const [requestOption, setRequestOption] = useState({
     category: null,
@@ -43,60 +40,60 @@ export const AppProvider = ({ children }) => {
       return errMsg;
     }
   };
-  useEffect(() => {
-    const firsttFetch = async (requestOption = '') => {
-      const postOptions = {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(requestOption),
-      };
-      const result = await apiRequest(`${url}`, postOptions);
-      if (result) console.log(result);
-    };
-    firsttFetch();
+  // useEffect(() => {
+  // const firsttFetch = async (requestOption = '') => {
+  //   const postOptions = {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify(requestOption),
+  //   };
+  //   const result = await apiRequest(`${url}`, postOptions);
+  //   if (result) console.log(result);
+  // };
+  // firsttFetch();
+  // const fetchItems = async () => {
+  //   try {
+  //     const response = await fetch(url);
+  //     if (!response.ok) throw Error('Did not receive expected data');
+  //     const listItems = await response.json();
+  //     console.log(listItems);
+  //     // return setTest(listItems);
+  //   } catch (err) {
+  //     console.log(err.message);
+  //   }
+  // };
+  // fetchItems();
+  // }, []);
 
-    // const fetchItems = async () => {
-    //   try {
-    //     const response = await fetch(url);
-    //     if (!response.ok) throw Error('Did not receive expected data');
-    //     const listItems = await response.json();
-    //     console.log(listItems);
-    //     // return setTest(listItems);
-    //   } catch (err) {
-    //     console.log(err.message);
-    //   }
-    // };
-    // fetchItems();
-  }, []);
+  // const adddItem = async (item) => {
 
-  const adddItem = async (item) => {
-    // DOAR PT TESSTE
+  //   // DOAR PT TESSTE
 
-    item = {
-      title: 'test Anndy',
-      description: 'description description description description ',
-      location: 'Suceava',
-      price: 123333,
-      images: 'images',
-      category: 1,
-      authorId: 'A5BF21BA-E26B-49E5-C17A-08DA688B8AC2',
-      featured: true,
-    };
+  //   item = {
+  //     title: 'test Anndy',
+  //     description: 'description description description description ',
+  //     location: 'Suceava',
+  //     price: 123333,
+  //     images: 'images',
+  //     category: 1,
+  //     authorId: 'A5BF21BA-E26B-49E5-C17A-08DA688B8AC2',
+  //     featured: true,
+  //   };
 
-    const postOptions = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(item),
-    };
-    const result = await apiRequest(`${url}/create`, postOptions);
-    if (result) console.log(result);
-  };
+  //   const postOptions = {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify(item),
+  //   };
+  //   const result = await apiRequest(`${url}/create`, postOptions);
+  //   if (result) console.log(result);
+  // };
 
-  adddItem();
+  // adddItem();
 
   // useEffect(() => {
   //   setTest(APIData.firstFetch());
@@ -146,15 +143,17 @@ export const AppProvider = ({ children }) => {
       if (!response.ok) throw Error('Did not receive expected data');
       const listItems = await response.json();
       // console.log(listItems);
-      return listItems;
+      return console.log(listItems);
     } catch (err) {
       console.log(err.message);
     }
   };
 
-  useEffect(() => {
-    console.log(fetchItems());
-  }, []);
+  fetchItems();
+
+  // useEffect(() => {
+  //   console.log(fetchItems());
+  // }, []);
 
   useEffect(() => {
     setRequestOption({ ...requestOption, price: priceFIlter });
@@ -212,15 +211,15 @@ export const AppProvider = ({ children }) => {
   // }, [fetchDrinks]);
 
   //useEffect DOAR PT TESTE
-  useEffect(() => {
-    // console.log(
-    //   'useEffect in context doar de teste',
-    //   orderFilter,
-    //   priceFIlter,
-    //   locationFIlter
-    // );
-    // console.log([...locationFIlter]);
-  }, [orderFilter, priceFIlter, locationFIlter]);
+  // useEffect(() => {
+  //   // console.log(
+  //   //   'useEffect in context doar de teste',
+  //   //   orderFilter,
+  //   //   priceFIlter,
+  //   //   locationFIlter
+  //   // );
+  //   // console.log([...locationFIlter]);
+  // }, [orderFilter, priceFIlter, locationFIlter]);
 
   // console.log(requestOption);
   //   console.log('initialState', initialState);

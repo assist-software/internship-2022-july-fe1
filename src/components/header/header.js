@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 import Form from 'react-bootstrap/Form';
 import img from '../../assets/images/assistLogo.png'
@@ -7,11 +7,12 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Button from 'react-bootstrap/esm/Button';
 import { FiHeart, FiUser, FiSearch } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
+import '../../App.css';
 
-import { useGlobalContext } from '../../Context/appContext';
+// import { useGlobalContext } from '../../Context/appContext';
 
 const Header = () => {
-    const { setSearchValue } = useGlobalContext()
+    // const { setSearchValue } = useGlobalContext()
 
     // const [searchValue, setSearchValue] = useState('')
 
@@ -68,4 +69,25 @@ const Header = () => {
     )
 }
 
-export default Header
+//             <FiSearch className="searchIcon"></FiSearch>
+//             <Button variant="outline" className="favouritesBtn shadow-none">
+//               <FiHeart id="headerIcons"></FiHeart>
+//               <Link to={"/favourites"} className="ColorText">
+//                 Favourites
+//               </Link>
+//             </Button>
+//             <Button variant="outline" className="userBtn">
+//               <FiUser id="headerIcons"></FiUser>
+//               <Link to={"/login"} className="ColorTextd">
+//                 My account
+//               </Link>
+//             </Button>
+//           </Nav>
+//         </Navbar.Collapse>
+//         {/* </Container> */}
+//       </Navbar>
+//     </div>
+//   );
+// };
+
+export default Header;
