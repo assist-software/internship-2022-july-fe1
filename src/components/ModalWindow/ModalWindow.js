@@ -11,7 +11,7 @@ const NotificationsPageModal = ({ title, description }) => {
     <>
       <Button
         variant="primary"
-        className="button-bootstrap"
+        className="button-bootstrap shadow-none"
         onClick={() => setShow(true)}
       >
         Edit

@@ -41,15 +41,10 @@ const LoginSecurityPage = () => {
         break;
       case "confirm":
         confirmNewPasswordRef.current.value = newAccountPassword;
+        break;
       default:
         break;
     }
-  };
-
-  const handleChange = (property, value) => {
-    let newAccountPassword = { ...accountPassword };
-    newAccountPassword[property].value = value;
-    setAccountPassword(newAccountPassword);
   };
 
   return (
