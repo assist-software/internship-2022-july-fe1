@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactPaginate from 'react-paginate';
 import styles from './Paginate.module.css';
 import {
@@ -6,20 +6,21 @@ import {
   MdOutlineKeyboardArrowRight,
 } from 'react-icons/md';
 
-import Card from '../Card/Card';
+// import Card from '../Card/Card';
 
 import { useGlobalContext } from '../../Context/appContext';
 
 const Paginate = () => {
-  const { state, displayWide, setCurrentPageForContext } = useGlobalContext();
+  const { setCurrentPageForContext } = useGlobalContext();
   const [items, setItems] = useState([]);
   const [pageCount, setPageCount] = useState(0);
   const cardsLimitOnThePage = 12;
 
-  const urlAssit = `https://assist-jully-2022-be1.azurewebsites.net/api/listing/`;
+  // const urlAssit = `https://assist-jully-2022-be1.azurewebsites.net/api/listing/`;
   const urlExterior = `https://jsonplaceholder.typicode.com/comments?_page=$1&_limit=${cardsLimitOnThePage}`;
 
   // console.log(state);
+  setPageCount(0);
 
   useEffect(() => {
     const getCards = async () => {
