@@ -1,13 +1,15 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 
-import HomePage from './pages/homepage/HomePage';
-import OnBoarding from './pages/OnBoarding/OnBoarding';
-import Profile from './pages/Profile/Profile';
-import ProtectedRoutes from './routes/ProtectedRoutes';
-import '../src/App.css';
-import AddNewPage from './pages/AddNewPage/AddNewPage';
-import MyAccountPage from './pages/MyAccountPage/MyAccountPage';
+import HomePage from "./pages/homepage/HomePage";
+import OnBoarding from "./pages/OnBoarding/OnBoarding";
+import Profile from "./pages/Profile/Profile";
+import ProtectedRoutes from "./routes/ProtectedRoutes";
+
+import AddNewPage from "./pages/AddNewPage/AddNewPage";
+import MyAccountPage from "./pages/MyAccountPage/MyAccountPage";
+import Header from "./components/header/header";
+import Galery from "./pages/Galery/Galery";
 
 const GlobalStyle = createGlobalStyle`
   *{
@@ -24,18 +26,21 @@ function App() {
     <div className='App'>
       <BrowserRouter>
         <GlobalStyle />
+        <Header />
         <Routes>
-          <Route path='/' element={<HomePage />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/category/:galeryname" element={<Galery />} />
 
           {/* ----------Protected Routed for authenticated user --------------- */}
           <Route element={<ProtectedRoutes />}>
-            <Route path='/favorites' element={<HomePage />} />
-            <Route path='/pending' element={<HomePage />} />
+            <Route path="/favourites" element={<HomePage />} />
+            <Route path="/pending" element={<HomePage />} />
 
-            <Route path='/mylisting' element={<HomePage />} />
-            <Route path='/mylisting/add' element={<HomePage />} />
-            <Route path='/mylisting/:id' element={<HomePage />} />
-            <Route path='/mylisting/edit' element={<HomePage />} />
+
+            <Route path="/mylisting" element={<HomePage />} />
+            <Route path="/mylisting/add" element={<HomePage />} />
+            <Route path="/mylisting/:id" element={<HomePage />} />
+            <Route path="/mylisting/edit" element={<HomePage />} />
 
             <Route path='/myprofile/profile' element={<Profile />} />
             <Route path='/myprofile/loginsecurity' element={<Profile />} />
@@ -43,7 +48,10 @@ function App() {
             <Route path='/myprofile/message' element={<Profile />} />
           </Route>
 
-          <Route path='/login' element={<OnBoarding pageName='logIn' />} />
+
+          <Route path="/login" element={<OnBoarding pageName="logIn" />} />
+
+
           <Route
             path='/sign-up'
             element={<OnBoarding pageName='createAccount' />}

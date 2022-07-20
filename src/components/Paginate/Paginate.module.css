@@ -1,0 +1,46 @@
+.pagination {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 60px;
+  margin-bottom: 64px;
+  height: 44px;
+}
+
+.pagination .pageNumber {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  height: 44px;
+  width: 44px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.active {
+  border: 1px solid #0241ae;
+  border-radius: 8px;
+}
+
+.pageNumber {
+  margin: 2px;
+}
+
+.pagination .pageNumber:hover {
+  background-color: #0241ae50;
+  border-radius: 8px;
+}
+
+.pagination a {
+  justify-content: center;
+  align-items: center;
+}
+
+.blue .pageNumber {
+  border-radius: 8px;
+  background-color: #5592fd;
+}
+.blue svg {
+  color: white;
+}
