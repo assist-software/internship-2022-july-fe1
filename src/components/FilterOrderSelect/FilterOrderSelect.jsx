@@ -2,11 +2,8 @@ import React, { useState } from 'react';
 import styles from './FilterOrderSelect.module.css';
 import Dropdown from 'react-bootstrap/Dropdown';
 
-import { useGlobalContext } from '../../Context/appContext';
-
 const FilterOrderSelect = (props) => {
-  const { name } = props;
-  const { handleOrderFilter } = useGlobalContext();
+  const { name, handleOrderFilter } = props;
   const [selectedId, setSelectedId] = useState({});
 
   const clickHandler = (item, index) => {
