@@ -6,10 +6,10 @@ import FitlterMultiSelect from '../FilterMultiSelect/FitlterMultiSelect';
 import FilterSingleselect from '../FilterSingleSelect/FilterSingleSelect';
 import FilterOrderSelect from '../FilterOrderSelect/FilterOrderSelect';
 
-import { useGlobalContext } from '../../Context/appContext';
+// import { useGlobalContext } from '../../Context/appContext' ;
 
 const Filter = ({ location, price, order }) => {
-  const { currentPageForContext, requestOption } = useGlobalContext;
+  // const { currentPageForContext, requestOption } = useGlobalContext;
 
   //ALL FILTER STATE
   const [locationFIlter, setLocationFilter] = useState([]);

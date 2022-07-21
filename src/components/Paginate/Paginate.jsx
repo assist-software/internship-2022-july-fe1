@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactPaginate from 'react-paginate';
 import styles from './Paginate.module.css';
 import {
@@ -11,19 +11,18 @@ import {
 import { useGlobalContext } from '../../Context/appContext';
 
 const Paginate = () => {
-  const { state, setCurrentPageForContext } = useGlobalContext();
-  const [items, setItems] = useState(state);
+  const { setCurrentPageForContext } = useGlobalContext();
+  // const [items, setItems] = useState(state);
   const [pageCount, setPageCount] = useState(1);
-  const cardsLimitOnThePage = 12;
+  // const cardsLimitOnThePage = 12;
 
+  // setPageCount(1);
   // const urlAssit = `https://assist-jully-2022-be1.azurewebsites.net/api/listing/`;
   // const urlExterior = `https://jsonplaceholder.typicode.com/comments?_page=$1&_limit=${cardsLimitOnThePage}`;
 
-  // console.log(state);
-
-  // useEffect(() => {
-  //   setPageCount(1);
-  // }, []);
+  useEffect(() => {
+    setPageCount(1);
+  }, []);
 
   // useEffect(() => {
   //   setPageCount(0);
@@ -42,15 +41,15 @@ const Paginate = () => {
 
   // console.log(items);
 
-  const fetchCards = async (currentPage) => {
-    // const res = await fetch(`
-    // https://jsonplaceholder.typicode.com/comments?_page=${currentPage}&_limit=${cardsLimitOnThePage}
-    const res = await fetch(
-      `https://jsonplaceholder.typicode.com/comments?_page=${currentPage}&_limit=${cardsLimitOnThePage}`
-    );
-    const data = await res.json();
-    return data;
-  };
+  // const fetchCards = async (currentPage) => {
+  //   // const res = await fetch(`
+  //   // https://jsonplaceholder.typicode.com/comments?_page=${currentPage}&_limit=${cardsLimitOnThePage}
+  //   const res = await fetch(
+  //     `https://jsonplaceholder.typicode.com/comments?_page=${currentPage}&_limit=${cardsLimitOnThePage}`
+  //   );
+  //   const data = await res.json();
+  //   return data;
+  // };
 
   const handlePageClick = async (data) => {
     // console.log(data.selected);

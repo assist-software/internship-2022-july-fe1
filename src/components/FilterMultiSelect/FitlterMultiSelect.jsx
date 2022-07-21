@@ -6,7 +6,7 @@ import { useGlobalContext } from '../../Context/appContext';
 
 const FitlterMultiSelect = (props) => {
   const { name, handleLocationFilter } = props;
-  const { state, setLocationFilter } = useGlobalContext();
+  const { state } = useGlobalContext();
   let chekingIfLocationExist = [];
   const [selectedLocation, setSelectedLocation] = useState([]);
 
@@ -30,7 +30,7 @@ const FitlterMultiSelect = (props) => {
 
   useEffect(() => {
     handleLocationFilter(selectedLocation);
-  }, [selectedLocation]);
+  }, [selectedLocation, handleLocationFilter]);
 
   return (
     <>
