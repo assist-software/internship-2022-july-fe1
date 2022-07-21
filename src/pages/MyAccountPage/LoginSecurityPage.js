@@ -49,82 +49,70 @@ const LoginSecurityPage = () => {
 
   return (
     <LoginSecurityContainer accountPassword={accountPassword}>
-      {/* Password */}
+      {' '}
+      {/* Password */}{' '}
       <div id='password'>
         <StyledRowDiv>
           <StyledInputLabel text='Password' />
           <button onClick={() => handleEditButtonClick('currentPassword')}>
-            {accountPassword.currentPassword.isOpened ? 'Close' : 'Edit'}
-          </button>
-        </StyledRowDiv>
+            {' '}
+            {accountPassword.currentPassword.isOpened ? 'Close' : 'Edit'}{' '}
+          </button>{' '}
+        </StyledRowDiv>{' '}
         <StyledColumnDiv className='updatePassword'>
           <StyledInputLabel text='Current password' />
-          <StyledLoginFormInput ref={currentPasswordRef} />
-          <StyledInputLabel text='New password' />
-          <StyledLoginFormInput ref={currentPasswordRef} />
+          <StyledLoginFormInput ref={currentPasswordRef} /> <StyledInputLabel text='New password' />
+          <StyledLoginFormInput ref={currentPasswordRef} />{' '}
           <StyledInputLabel text='Confirm new password' />
           <StyledLoginFormInput ref={currentPasswordRef} />
-
           <StyledPageButton
             text='Save'
             color={true}
             // onclick={() => handleChange("email", emailRef.current.value)}
-          />
-        </StyledColumnDiv>
-        <StyledText className='passwordMessageVisibility'>Last updated 3 weeks ago</StyledText>
+          />{' '}
+        </StyledColumnDiv>{' '}
+        <StyledText className='passwordMessageVisibility'>Last updated 3 weeks ago </StyledText>{' '}
         <LineBreak />
-      </div>
-      {/* Title */}
-      <StyledMyAccountTitle text='Social accounts' />
-      {/* Facebook*/}
+      </div>{' '}
+      {/* Title */} <StyledMyAccountTitle text='Social accounts' /> {/* Facebook*/}{' '}
       <StyledRowDiv>
         <StyledInputLabel text='Facebook' />
-        <button>Connect</button>
-      </StyledRowDiv>
-      <StyledText>Not connected</StyledText>
-      <LineBreak />
-      {/* Google */}
+        <button> Connect </button>{' '}
+      </StyledRowDiv>{' '}
+      <StyledText> Not connected </StyledText> <LineBreak /> {/* Google */}{' '}
       <StyledRowDiv>
         <StyledInputLabel text='Google' />
-        <button>Disconnect</button>
-      </StyledRowDiv>
-      <StyledText>Connected</StyledText>
-      <LineBreak />
-      {/* Title */}
-      <StyledMyAccountTitle text='Recent login activity' />
-      {/* Windows 10  */}
+        <button> Disconnect </button>{' '}
+      </StyledRowDiv>{' '}
+      <StyledText> Connected </StyledText> <LineBreak /> {/* Title */}{' '}
+      <StyledMyAccountTitle text='Recent login activity' /> {/* Windows 10  */}{' '}
       <ConnectedDevice>
         <MdLaptopWindows />
         <StyledRowDiv>
           <div>
             <StyledInputLabel text='Windows 10 - Chrome' />
-            <StyledText>Suceava, SV - 25.05.2022 at 13:14</StyledText>
-          </div>
-          <button>Log out device</button>
-        </StyledRowDiv>
-      </ConnectedDevice>
+            <StyledText> Suceava, SV - 25.05 .2022 at 13: 14 </StyledText>{' '}
+          </div>{' '}
+          <button> Log out device </button>{' '}
+        </StyledRowDiv>{' '}
+      </ConnectedDevice>{' '}
       <LineBreak />
-
-      {/* Ios */}
+      {/* Ios */}{' '}
       <ConnectedDevice>
         <MdOutlinePhoneIphone />
         <StyledRowDiv>
           <div>
             <StyledInputLabel text='IOS 15.2 - Chrome Mobile' />
-            <StyledText>Pitesti, AG - 10.06.2022 at 07:32</StyledText>
-          </div>
-          <button>Log out device</button>
-        </StyledRowDiv>
+            <StyledText> Pitesti, AG - 10.06 .2022 at 07: 32 </StyledText>{' '}
+          </div>{' '}
+          <button> Log out device </button>{' '}
+        </StyledRowDiv>{' '}
       </ConnectedDevice>
-
-      <LineBreak />
-      {/* Title */}
-      <StyledMyAccountTitle text='Account' />
-      {/* Address */}
+      <LineBreak /> {/* Title */} <StyledMyAccountTitle text='Account' /> {/* Address */}{' '}
       <StyledRowDiv>
-        <StyledText>Deactivate your account</StyledText>
-        <button className='redTextColor'>Deactivate</button>
-      </StyledRowDiv>
+        <StyledText> Deactivate your account </StyledText>{' '}
+        <button className='redTextColor'> Deactivate </button>{' '}
+      </StyledRowDiv>{' '}
       <LineBreak />
     </LoginSecurityContainer>
   );
