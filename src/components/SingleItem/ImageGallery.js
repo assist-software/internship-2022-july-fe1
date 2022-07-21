@@ -42,7 +42,7 @@ const ImageGallery = () => {
           <Modal.Title id='example-modal-sizes-title-lg' className='modalTitle'>
             <Button className='shareBtn' variant='light' onClick={() => share()}>
               <FiShare2 className='iconShare' />
-              <span>Share</span>
+              Share
             </Button>
             <Button className='shareBtnModal' variant='light' onClick={() => favourite()}>
               <FiHeart className='iconHeart' />

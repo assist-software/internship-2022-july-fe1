@@ -40,7 +40,7 @@ const Header = () => {
                     </Dropdown.Menu>
                   </Dropdown>
                 </Nav>
-                <div id='inputSearchBar'>
+                <div id='inputSearchBar' className='justify-content-between'>
                   <input
                     type='text'
                     placeholder='Search'
@@ -64,7 +64,7 @@ const Header = () => {
                     title='My account'
                     id={`offcanvasNavbarDropdown-expand-${expand}`}>
                     <Dropdown.Toggle variant='default'>
-                      <span className='colorText'>
+                      <span className='textMyAccount'>
                         <FiUser id='headerIcons' />
                         My account
                       </span>

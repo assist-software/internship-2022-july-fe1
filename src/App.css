@@ -20,17 +20,36 @@
         height: 44px;
         border: 1px solid #D0D5DD;
         border-radius: 8px 0px 0px 8px;
+        border-right: 0px;
         text-align: center;
     }
-    
+    /*     
     .dropDownBtn:focus {
-        outline: none;
-    }
+      
+    } */
     
     .textCategory {
-        color: #0241AE;
         text-decoration: none;
         text-align: center;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 22px;
+        /* identical to box height, or 157% */
+        /* Primary/500 */
+        color: #0241AE;
+    }
+    
+    span.textMyAccount {
+        text-decoration: none;
+        text-align: center;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 22px;
+        /* identical to box height, or 157% */
+        /* Primary/500 */
+        color: #4D5464;
     }
     /* ----------------- search component -------------------- */
     
@@ -47,8 +66,7 @@
     
     #inputSearchBar {
         width: 100%;
-        max-width: 700px;
-        /* max-width: 700px; */
+        max-width: 800px;
         height: 44px;
     }
     
@@ -65,14 +83,17 @@
     }
     
     .searchIcon {
+        position: absolute;
         width: 34px;
-        padding: 0 10px;
+        padding: 10px;
         height: 44px;
-        margin-left: -30px;
+        margin-left: -40px;
+        color: #0241AE;
     }
     /* favourites button */
     
-    .colorText {
+    .colorText,
+    .colorText1 {
         color: #4D5464;
         text-decoration: none;
     }
