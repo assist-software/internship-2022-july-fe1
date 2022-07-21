@@ -34,23 +34,20 @@ const CarouselCards = ({ render }) => {
         slidesPerView={4}
         spaceBetween={30}
         slidesPerGroup={4}
-        loop={true}
+        loop={false}
         loopFillGroupWithBlank={true}
         navigation={true}
         modules={[Navigation]}>
         {cardsMock.map((item, index) => {
-          if (item.location === 'Cluj') {
-            return (
-              <div key={index}>
-                <SwiperSlide key={index}>
-                  <Card key={index} />
-                </SwiperSlide>
-              </div>
-            );
-          }
-          return console.log();
+          return (
+            <div key={item.id}>
+              <SwiperSlide key={item.id}>
+                <Card key={item.id} />
+              </SwiperSlide>
+            </div>
+          );
         })}
-        <SwiperSlide>
+        <SwiperSlide key={'qweqweqw'}>
           <CardSeeEverything />
         </SwiperSlide>
       </Swiper>
