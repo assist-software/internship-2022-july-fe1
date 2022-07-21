@@ -23,10 +23,8 @@ const ProfilePage = () => {
   });
 
   // refs
-  const nameRef = useRef();
   const firstNameRef = useRef();
   const lastNameRef = useRef();
-  const genderRef = useRef(null);
   const dateOfBirthRef = useRef(null);
   const emailRef = useRef(null);
   const phoneNumberRef = useRef(null);
@@ -41,10 +39,6 @@ const ProfilePage = () => {
       case "name":
         firstNameRef.current.value = newUserData[property].value.firstName;
         lastNameRef.current.value = newUserData[property].value.lastName;
-        nameRef.current.value = `${newUserData[property].value.firstName} ${newUserData[property].value.lastName}`;
-        break;
-      case "gender":
-        genderRef.current.value = newUserData[property].value;
         break;
       case "email":
         emailRef.current.value = newUserData[property].value;
@@ -65,156 +59,209 @@ const ProfilePage = () => {
 
   const handleChange = (property, value) => {
     let newUserData = { ...userData };
-    newUserData[property].value = value;
+    if (property === "name") {
+      let fullName = value.split("%");
+      newUserData[property].value.firstName = fullName[0];
+      newUserData[property].value.lastName = fullName[1];
+    } else newUserData[property].value = value;
     setUserData(newUserData);
   };
 
+  const [selectedValue, setSelectedValue] = useState(userData.gender.value);
+
+  // handle onChange event of the dropdown
+  const handleGenderChange = (e) => {
+    setSelectedValue(e.label);
+  };
+
+  //   //fetch data
+  //   useEffect(() => {
+  //     const url = "https://api.adviceslip.com/advice";
+
+  //     const fetchData = async () => {
+  //       try {
+  //         const response = await fetch(url);
+  //         const json = await response.json();
+  //         console.log(json);
+  //       } catch (error) {
+  //         console.log("error", error);
+  //       }
+  //     };
+
+  //     fetchData();
+  // }, []);
   return (
     <ProfileContainer userData={userData}>
       {/* Full name */}
-      <div id="name">
+      <div id='name'>
         <StyledRowDiv>
-          <StyledInputLabel text="Full name" />
+          <StyledInputLabel text='Full name' />
           <button onClick={() => handleEditButtonClick("name")}>
             {userData.name.isOpened ? "Close" : "Edit"}
           </button>
         </StyledRowDiv>
-        <StyledColumnDiv className="updateName">
+        <StyledColumnDiv className='updateName'>
           <StyledRowDiv>
-            <div className="longInput">
-              <StyledInputLabel text="First name" />
+            <div className='longInput'>
+              <StyledInputLabel text='First name' />
               <StyledLoginFormInput ref={firstNameRef} />
             </div>
-            <div className="longInput">
-              <StyledInputLabel text="Last name" />
+            <div className='longInput'>
+              <StyledInputLabel text='Last name' />
               <StyledLoginFormInput ref={lastNameRef} />
             </div>
           </StyledRowDiv>
           <StyledPageButton
-            text="Save"
+            text='Save'
             color={true}
-            onclick={() =>
+            onclick={() => {
               handleChange(
                 "name",
-                // firstNameRef.current.value + " " + lastNameRef.current.value
-                nameRef
-              )
-            }
+                firstNameRef.current.value + "%" + lastNameRef.current.value
+              );
+              handleEditButtonClick("name");
+            }}
           />
         </StyledColumnDiv>
-        <StyledText className="nameVisibility">
+        <StyledText className='nameVisibility'>
           {userData.name.value.firstName + " " + userData.name.value.lastName}
         </StyledText>
         <LineBreak />
       </div>
       {/* Gender */}
-      <div id="gender">
+      <div id='gender'>
         <StyledRowDiv>
-          <StyledInputLabel text="Gender" />
+          <StyledInputLabel text='Gender' />
           <button onClick={() => handleEditButtonClick("gender")}>
             {userData.gender.isOpened ? "Close" : "Edit"}
           </button>
         </StyledRowDiv>
-        <StyledColumnDiv className="updateGender">
+        <StyledColumnDiv className='updateGender'>
           <Select
             options={options}
             styles={customStyles}
             placeholder={
-              <div className="select-placeholder-text">Select gender</div>
+              <div className='select-placeholder-text'>Select gender</div>
             }
+            onChange={handleGenderChange}
+            defaultValue={{ label: selectedValue }}
           />
-          <StyledPageButton text="Save" color={true} />
+
+          <StyledPageButton
+            text='Save'
+            color={true}
+            onclick={() => {
+              handleChange("gender", selectedValue);
+              handleEditButtonClick("gender");
+            }}
+          />
         </StyledColumnDiv>
-        <StyledText className="genderVisibility">
+        <StyledText className='genderVisibility'>
           {userData.gender.value}
         </StyledText>
         <LineBreak />
       </div>
       {/* Date of birth */}
-      <div id="dateOfBirth">
+      <div id='dateOfBirth'>
         <StyledRowDiv>
-          <StyledInputLabel text="Date of birth" />
+          <StyledInputLabel text='Date of birth' />
           <button onClick={() => handleEditButtonClick("dateOfBirth")}>
             {userData.dateOfBirth.isOpened ? "Close" : "Edit"}
           </button>
         </StyledRowDiv>
-        <StyledColumnDiv className="updateDateOfBirth">
+        <StyledColumnDiv className='updateDateOfBirth'>
           <input type={"date"} ref={dateOfBirthRef} />
           <StyledPageButton
-            text="Save"
+            text='Save'
             color={true}
-            onclick={() =>
-              handleChange("dateOfBirth", dateOfBirthRef.current.value)
-            }
+            onclick={() => {
+              handleChange("dateOfBirth", dateOfBirthRef.current.value);
+              handleEditButtonClick("dateOfBirth");
+            }}
           />
         </StyledColumnDiv>
-        <StyledText className="dateOfBirthVisibility">
+        <StyledText className='dateOfBirthVisibility'>
           {userData.dateOfBirth.value}
         </StyledText>
         <LineBreak />
       </div>
       {/* Email address */}
-      <div id="email">
+      <div id='email'>
         <StyledRowDiv>
-          <StyledInputLabel text="Email address" />
+          <StyledInputLabel text='Email address' />
           <button onClick={() => handleEditButtonClick("email")}>
             {userData.email.isOpened ? "Close" : "Edit"}
           </button>
         </StyledRowDiv>
-        <StyledColumnDiv className="updateEmail">
+        <StyledColumnDiv className='updateEmail'>
           <StyledLoginFormInput ref={emailRef} />
 
           <StyledPageButton
-            text="Save"
+            text='Save'
             color={true}
-            onclick={() => handleChange("email", emailRef.current.value)}
+            onclick={() => {
+              handleChange("email", emailRef.current.value);
+              handleEditButtonClick("email");
+            }}
           />
         </StyledColumnDiv>
-        <StyledText className="emailVisibility">
+        <StyledText className='emailVisibility'>
           {userData.email.value}
         </StyledText>
         <LineBreak />
       </div>
       {/* Phone number */}
-      <div id="phoneNumber">
+      <div id='phoneNumber'>
         <StyledRowDiv>
-          <StyledInputLabel text="Phone number" />
+          <StyledInputLabel text='Phone number' />
           <button onClick={() => handleEditButtonClick("phoneNumber")}>
             {userData.phoneNumber.isOpened ? "Close" : "Edit"}
           </button>
         </StyledRowDiv>
-        <StyledColumnDiv className="updatePhoneNumber">
-          <StyledLoginFormInput ref={phoneNumberRef} />
+        <StyledColumnDiv className='updatePhoneNumber'>
+          <StyledLoginFormInput
+            ref={phoneNumberRef}
+            onKeyPress={(event) => {
+              if (!/[0-9+]/.test(event.key)) {
+                event.preventDefault();
+              }
+            }}
+            maxLength={16}
+          />
           <StyledPageButton
-            text="Save"
+            text='Save'
             color={true}
-            onclick={() =>
-              handleChange("phoneNumber", phoneNumberRef.current.value)
-            }
+            onclick={() => {
+              handleChange("phoneNumber", phoneNumberRef.current.value);
+              handleEditButtonClick("phoneNumber");
+            }}
           />
         </StyledColumnDiv>
-        <StyledText className="phoneNumberVisibility">
+        <StyledText className='phoneNumberVisibility'>
           {userData.phoneNumber.value}
         </StyledText>
         <LineBreak />
       </div>
       {/* Address */}
-      <div id="address">
+      <div id='address'>
         <StyledRowDiv>
-          <StyledInputLabel text="Address" />
+          <StyledInputLabel text='Address' />
           <button onClick={() => handleEditButtonClick("address")}>
             {userData.address.isOpened ? "Close" : "Edit"}
           </button>
         </StyledRowDiv>
-        <StyledColumnDiv className="updateAddress">
+        <StyledColumnDiv className='updateAddress'>
           <StyledLoginFormInput ref={addressRef} />
           <StyledPageButton
-            text="Save"
+            text='Save'
             color={true}
-            onclick={() => handleChange("address", addressRef.current.value)}
+            onclick={() => {
+              handleChange("address", addressRef.current.value);
+              handleEditButtonClick("address");
+            }}
           />
         </StyledColumnDiv>
-        <StyledText className="addressVisibility">
+        <StyledText className='addressVisibility'>
           {userData.address.value}
         </StyledText>
         <LineBreak />
@@ -226,8 +273,8 @@ const ProfilePage = () => {
 export default ProfilePage;
 
 const options = [
-  { value: "male", label: "Male" },
-  { value: "female", label: "Female" },
+  { value: 0, label: "Male" },
+  { value: 1, label: "Female" },
 ];
 
 const customStyles = {
@@ -238,5 +285,18 @@ const customStyles = {
     borderRadius: 8,
     marginBottom: 20,
     marginTop: 20,
+  }),
+  menu: (base) => ({
+    ...base,
+    marginTop: -18,
+  }),
+
+  option: (base) => ({
+    ...base,
+    fontWeight: 400,
+  }),
+  singleValue: (base) => ({
+    ...base,
+    fontWeight: 400,
   }),
 };
