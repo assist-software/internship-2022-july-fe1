@@ -1,3 +1,4 @@
+import React from "react";
 import { Button } from "./FormButtonStyle";
 
 const StyledFormButton = ({ text, func }) => {
