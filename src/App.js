@@ -21,7 +21,7 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 600;
   }
 `;
-console.log('asd');
+console.log('ad');
 
 function App() {
   return (
