@@ -292,7 +292,7 @@ export const Buttons = styled.div`
 
 export const ChatContent = styled.div`
   width: 100%;
-
+  height: 100%;
   max-height: 695px;
   border-radius: 0 0 24px 0;
   display: flex;
@@ -314,9 +314,6 @@ export const ChatContent = styled.div`
     justify-content: space-between;
     padding: 10px 20px;
     margin-bottom: 5px;
-  }
-
-  @media (max-width: 1500px) {
   }
 `;
 

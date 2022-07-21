@@ -18,9 +18,9 @@ import {
 import Select from "react-select";
 
 const options = [
-  { value: "latest", label: "Latest" },
-  { value: "big houses", label: "Big houses" },
-  { value: "small houses", label: "Small houses" },
+  { value: "0", label: "Latest" },
+  { value: "1", label: "Big houses" },
+  { value: "2", label: "Small houses" },
 ];
 
 const customStyles = {
@@ -30,6 +30,18 @@ const customStyles = {
     minHeight: 44,
     borderRadius: 8,
     marginBottom: 20,
+  }),
+  menu: (base) => ({
+    ...base,
+    marginTop: 2,
+  }),
+  option: (base) => ({
+    ...base,
+    fontWeight: 400,
+  }),
+  singleValue: (base) => ({
+    ...base,
+    fontWeight: 400,
   }),
 };
 
@@ -42,21 +54,22 @@ const AddNewPage = () => {
         {/* Details */}
         <StyledData>
           <StyledAddPageLabels
-            labelText="Details"
-            paragraphText="Be as thorough as you can."
+            labelText='Details'
+            paragraphText='Be as thorough as you can.'
           />
           <StyledRightContent>
-            <StyledInputLabel text="Title" />
+            <StyledInputLabel text='Title' />
             <StyledLoginFormInput />
-            <StyledInputLabel text="Category" />
+            <StyledInputLabel text='Category' />
             <Select
               options={options}
               styles={customStyles}
               placeholder={
-                <div className="select-placeholder-text">Select category</div>
+                <div className='select-placeholder-text'>Select category</div>
               }
+              defaultValue={{ label: "Big houses" }}
             />
-            <StyledInputLabel text="Price" />
+            <StyledInputLabel text='Price' />
             <StyledSmallFormInput
               onKeyPress={(event) => {
                 if (!/[0-9]/.test(event.key)) {
@@ -70,8 +83,8 @@ const AddNewPage = () => {
         {/* Photo & videos */}
         <StyledData>
           <StyledAddPageLabels
-            labelText="Photo & videos"
-            paragraphText="Be as thorough as you can."
+            labelText='Photo & videos'
+            paragraphText='Be as thorough as you can.'
           />
           <StyledRightContent>
             <ImagePicker />
@@ -80,24 +93,24 @@ const AddNewPage = () => {
         {/* Description */}
         <StyledData>
           <StyledAddPageLabels
-            labelText="Description"
-            paragraphText="Be as thorough as you can."
+            labelText='Description'
+            paragraphText='Be as thorough as you can.'
           />
           <StyledRightContent>
-            <StyledInputLabel text="Description details" />
+            <StyledInputLabel text='Description details' />
             <StyledTextarea />
           </StyledRightContent>
         </StyledData>
         {/* Contact info */}
         <StyledData>
           <StyledAddPageLabels
-            labelText="Contact info"
-            paragraphText="Be as thorough as you can."
+            labelText='Contact info'
+            paragraphText='Be as thorough as you can.'
           />
           <StyledRightContent>
-            <StyledInputLabel text="Location" />
+            <StyledInputLabel text='Location' />
             <StyledLoginFormInput />
-            <StyledInputLabel text="Phone number" />
+            <StyledInputLabel text='Phone number' />
             <StyledSmallFormInput
               onKeyPress={(event) => {
                 if (!/[0-9+]/.test(event.key)) {
@@ -107,8 +120,8 @@ const AddNewPage = () => {
             />
           </StyledRightContent>
         </StyledData>
-        <div className="data">
-          <div className="row">
+        <div className='data'>
+          <div className='row'>
             <StyledPageButton text={"Preview"} color={false} />
             <StyledPageButton text={"Publish"} color={true} />
           </div>
