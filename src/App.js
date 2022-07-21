@@ -10,6 +10,7 @@ import AddNewPage from './pages/AddNewPage/AddNewPage';
 import MyAccountPage from './pages/MyAccountPage/MyAccountPage';
 import Header from './components/Header/Header';
 import Galery from './pages/Galery/Galery';
+import React from 'react';
 
 const GlobalStyle = createGlobalStyle`
   *{

@@ -1,25 +1,26 @@
-import { useRef, useState } from "react";
-import StyledInputLabel from "../../components/InputLabel/InputLabel";
-import { StyledLoginFormInput } from "../../components/LoginFormInput";
-import StyledPageButton from "../../components/PageButton/PageButton";
+import { useRef, useState } from 'react';
+import StyledInputLabel from '../../components/InputLabel/InputLabel';
+import { StyledLoginFormInput } from '../../components/LoginFormInput';
+import StyledPageButton from '../../components/PageButton/PageButton';
 import {
   LineBreak,
   ProfileContainer,
   StyledColumnDiv,
   StyledRowDiv,
   StyledText,
-} from "./MyAccountPageElements";
-import Select from "react-select";
+} from './MyAccountPageElements';
+import Select from 'react-select';
+import React from 'react';
 
 const ProfilePage = () => {
   // states
   const [userData, setUserData] = useState({
-    name: { value: { firstName: "Test", lastName: "Test" }, isOpened: false },
-    gender: { value: "Male", isOpened: false },
-    dateOfBirth: { value: "2022-07-15", isOpened: false },
-    email: { value: "test", isOpened: false },
-    phoneNumber: { value: "0000000000", isOpened: false },
-    address: { value: "test", isOpened: false },
+    name: { value: { firstName: 'Test', lastName: 'Test' }, isOpened: false },
+    gender: { value: 'Male', isOpened: false },
+    dateOfBirth: { value: '2022-07-15', isOpened: false },
+    email: { value: 'test', isOpened: false },
+    phoneNumber: { value: '0000000000', isOpened: false },
+    address: { value: 'test', isOpened: false },
   });
 
   // refs
@@ -38,24 +39,24 @@ const ProfilePage = () => {
     setUserData(newUserData);
 
     switch (property) {
-      case "name":
+      case 'name':
         firstNameRef.current.value = newUserData[property].value.firstName;
         lastNameRef.current.value = newUserData[property].value.lastName;
         nameRef.current.value = `${newUserData[property].value.firstName} ${newUserData[property].value.lastName}`;
         break;
-      case "gender":
+      case 'gender':
         genderRef.current.value = newUserData[property].value;
         break;
-      case "email":
+      case 'email':
         emailRef.current.value = newUserData[property].value;
         break;
-      case "dateOfBirth":
+      case 'dateOfBirth':
         dateOfBirthRef.current.value = newUserData[property].value;
         break;
-      case "phoneNumber":
+      case 'phoneNumber':
         phoneNumberRef.current.value = newUserData[property].value;
         break;
-      case "address":
+      case 'address':
         addressRef.current.value = newUserData[property].value;
         break;
       default:
@@ -71,154 +72,144 @@ const ProfilePage = () => {
 
   return (
     <ProfileContainer userData={userData}>
-      {/* Full name */}
-      <div id="name">
+      {' '}
+      {/* Full name */}{' '}
+      <div id='name'>
         <StyledRowDiv>
-          <StyledInputLabel text="Full name" />
-          <button onClick={() => handleEditButtonClick("name")}>
-            {userData.name.isOpened ? "Close" : "Edit"}
-          </button>
-        </StyledRowDiv>
-        <StyledColumnDiv className="updateName">
+          <StyledInputLabel text='Full name' />
+          <button onClick={() => handleEditButtonClick('name')}>
+            {' '}
+            {userData.name.isOpened ? 'Close' : 'Edit'}{' '}
+          </button>{' '}
+        </StyledRowDiv>{' '}
+        <StyledColumnDiv className='updateName'>
           <StyledRowDiv>
-            <div className="longInput">
-              <StyledInputLabel text="First name" />
-              <StyledLoginFormInput ref={firstNameRef} />
-            </div>
-            <div className="longInput">
-              <StyledInputLabel text="Last name" />
-              <StyledLoginFormInput ref={lastNameRef} />
-            </div>
-          </StyledRowDiv>
+            <div className='longInput'>
+              <StyledInputLabel text='First name' />
+              <StyledLoginFormInput ref={firstNameRef} />{' '}
+            </div>{' '}
+            <div className='longInput'>
+              <StyledInputLabel text='Last name' />
+              <StyledLoginFormInput ref={lastNameRef} />{' '}
+            </div>{' '}
+          </StyledRowDiv>{' '}
           <StyledPageButton
-            text="Save"
+            text='Save'
             color={true}
             onclick={() =>
               handleChange(
-                "name",
+                'name',
                 // firstNameRef.current.value + " " + lastNameRef.current.value
-                nameRef
+                nameRef,
               )
             }
-          />
-        </StyledColumnDiv>
-        <StyledText className="nameVisibility">
-          {userData.name.value.firstName + " " + userData.name.value.lastName}
-        </StyledText>
+          />{' '}
+        </StyledColumnDiv>{' '}
+        <StyledText className='nameVisibility'>
+          {' '}
+          {userData.name.value.firstName + ' ' + userData.name.value.lastName}{' '}
+        </StyledText>{' '}
         <LineBreak />
-      </div>
-      {/* Gender */}
-      <div id="gender">
+      </div>{' '}
+      {/* Gender */}{' '}
+      <div id='gender'>
         <StyledRowDiv>
-          <StyledInputLabel text="Gender" />
-          <button onClick={() => handleEditButtonClick("gender")}>
-            {userData.gender.isOpened ? "Close" : "Edit"}
-          </button>
-        </StyledRowDiv>
-        <StyledColumnDiv className="updateGender">
+          <StyledInputLabel text='Gender' />
+          <button onClick={() => handleEditButtonClick('gender')}>
+            {' '}
+            {userData.gender.isOpened ? 'Close' : 'Edit'}{' '}
+          </button>{' '}
+        </StyledRowDiv>{' '}
+        <StyledColumnDiv className='updateGender'>
           <Select
             options={options}
             styles={customStyles}
-            placeholder={
-              <div className="select-placeholder-text">Select gender</div>
-            }
-          />
-          <StyledPageButton text="Save" color={true} />
-        </StyledColumnDiv>
-        <StyledText className="genderVisibility">
-          {userData.gender.value}
-        </StyledText>
+            placeholder={<div className='select-placeholder-text'> Select gender </div>}
+          />{' '}
+          <StyledPageButton text='Save' color={true} />{' '}
+        </StyledColumnDiv>{' '}
+        <StyledText className='genderVisibility'> {userData.gender.value} </StyledText>{' '}
         <LineBreak />
-      </div>
-      {/* Date of birth */}
-      <div id="dateOfBirth">
+      </div>{' '}
+      {/* Date of birth */}{' '}
+      <div id='dateOfBirth'>
         <StyledRowDiv>
-          <StyledInputLabel text="Date of birth" />
-          <button onClick={() => handleEditButtonClick("dateOfBirth")}>
-            {userData.dateOfBirth.isOpened ? "Close" : "Edit"}
-          </button>
-        </StyledRowDiv>
-        <StyledColumnDiv className="updateDateOfBirth">
-          <input type={"date"} ref={dateOfBirthRef} />
+          <StyledInputLabel text='Date of birth' />
+          <button onClick={() => handleEditButtonClick('dateOfBirth')}>
+            {' '}
+            {userData.dateOfBirth.isOpened ? 'Close' : 'Edit'}{' '}
+          </button>{' '}
+        </StyledRowDiv>{' '}
+        <StyledColumnDiv className='updateDateOfBirth'>
+          <input type={'date'} ref={dateOfBirthRef} />{' '}
           <StyledPageButton
-            text="Save"
+            text='Save'
             color={true}
-            onclick={() =>
-              handleChange("dateOfBirth", dateOfBirthRef.current.value)
-            }
-          />
-        </StyledColumnDiv>
-        <StyledText className="dateOfBirthVisibility">
-          {userData.dateOfBirth.value}
-        </StyledText>
+            onclick={() => handleChange('dateOfBirth', dateOfBirthRef.current.value)}
+          />{' '}
+        </StyledColumnDiv>{' '}
+        <StyledText className='dateOfBirthVisibility'> {userData.dateOfBirth.value} </StyledText>{' '}
         <LineBreak />
-      </div>
-      {/* Email address */}
-      <div id="email">
+      </div>{' '}
+      {/* Email address */}{' '}
+      <div id='email'>
         <StyledRowDiv>
-          <StyledInputLabel text="Email address" />
-          <button onClick={() => handleEditButtonClick("email")}>
-            {userData.email.isOpened ? "Close" : "Edit"}
-          </button>
-        </StyledRowDiv>
-        <StyledColumnDiv className="updateEmail">
+          <StyledInputLabel text='Email address' />
+          <button onClick={() => handleEditButtonClick('email')}>
+            {' '}
+            {userData.email.isOpened ? 'Close' : 'Edit'}{' '}
+          </button>{' '}
+        </StyledRowDiv>{' '}
+        <StyledColumnDiv className='updateEmail'>
           <StyledLoginFormInput ref={emailRef} />
-
           <StyledPageButton
-            text="Save"
+            text='Save'
             color={true}
-            onclick={() => handleChange("email", emailRef.current.value)}
-          />
-        </StyledColumnDiv>
-        <StyledText className="emailVisibility">
-          {userData.email.value}
-        </StyledText>
-        <LineBreak />
-      </div>
-      {/* Phone number */}
-      <div id="phoneNumber">
+            onclick={() => handleChange('email', emailRef.current.value)}
+          />{' '}
+        </StyledColumnDiv>{' '}
+        <StyledText className='emailVisibility'> {userData.email.value} </StyledText> <LineBreak />
+      </div>{' '}
+      {/* Phone number */}{' '}
+      <div id='phoneNumber'>
         <StyledRowDiv>
-          <StyledInputLabel text="Phone number" />
-          <button onClick={() => handleEditButtonClick("phoneNumber")}>
-            {userData.phoneNumber.isOpened ? "Close" : "Edit"}
-          </button>
-        </StyledRowDiv>
-        <StyledColumnDiv className="updatePhoneNumber">
-          <StyledLoginFormInput ref={phoneNumberRef} />
+          <StyledInputLabel text='Phone number' />
+          <button onClick={() => handleEditButtonClick('phoneNumber')}>
+            {' '}
+            {userData.phoneNumber.isOpened ? 'Close' : 'Edit'}{' '}
+          </button>{' '}
+        </StyledRowDiv>{' '}
+        <StyledColumnDiv className='updatePhoneNumber'>
+          <StyledLoginFormInput ref={phoneNumberRef} />{' '}
           <StyledPageButton
-            text="Save"
+            text='Save'
             color={true}
-            onclick={() =>
-              handleChange("phoneNumber", phoneNumberRef.current.value)
-            }
-          />
-        </StyledColumnDiv>
-        <StyledText className="phoneNumberVisibility">
-          {userData.phoneNumber.value}
-        </StyledText>
+            onclick={() => handleChange('phoneNumber', phoneNumberRef.current.value)}
+          />{' '}
+        </StyledColumnDiv>{' '}
+        <StyledText className='phoneNumberVisibility'> {userData.phoneNumber.value} </StyledText>{' '}
         <LineBreak />
-      </div>
-      {/* Address */}
-      <div id="address">
+      </div>{' '}
+      {/* Address */}{' '}
+      <div id='address'>
         <StyledRowDiv>
-          <StyledInputLabel text="Address" />
-          <button onClick={() => handleEditButtonClick("address")}>
-            {userData.address.isOpened ? "Close" : "Edit"}
-          </button>
-        </StyledRowDiv>
-        <StyledColumnDiv className="updateAddress">
-          <StyledLoginFormInput ref={addressRef} />
+          <StyledInputLabel text='Address' />
+          <button onClick={() => handleEditButtonClick('address')}>
+            {' '}
+            {userData.address.isOpened ? 'Close' : 'Edit'}{' '}
+          </button>{' '}
+        </StyledRowDiv>{' '}
+        <StyledColumnDiv className='updateAddress'>
+          <StyledLoginFormInput ref={addressRef} />{' '}
           <StyledPageButton
-            text="Save"
+            text='Save'
             color={true}
-            onclick={() => handleChange("address", addressRef.current.value)}
-          />
-        </StyledColumnDiv>
-        <StyledText className="addressVisibility">
-          {userData.address.value}
-        </StyledText>
+            onclick={() => handleChange('address', addressRef.current.value)}
+          />{' '}
+        </StyledColumnDiv>{' '}
+        <StyledText className='addressVisibility'> {userData.address.value} </StyledText>{' '}
         <LineBreak />
-      </div>
+      </div>{' '}
     </ProfileContainer>
   );
 };
@@ -226,8 +217,8 @@ const ProfilePage = () => {
 export default ProfilePage;
 
 const options = [
-  { value: "male", label: "Male" },
-  { value: "female", label: "Female" },
+  { value: 'male', label: 'Male' },
+  { value: 'female', label: 'Female' },
 ];
 
 const customStyles = {
