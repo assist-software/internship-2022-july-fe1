@@ -7,6 +7,7 @@ import ImageLogin from '../../assets/images/furniture.png';
 
 import { APIData } from '../../api/APIData';
 import { useGlobalContext } from '../../Context/appContext';
+import styled from 'styled-components';
 
 const Card = ({
   id,
@@ -54,6 +55,7 @@ const Card = ({
   const renderWideCard = () => (
     <>
       <div onClick={() => onCardClick()} className={styles.wideCardContainer}>
+        <div className={styles.rowElements}>
         <img className={styles.wideCardImg} src={ImageLogin} alt="" />
         <div className={styles.wideCardContent}>
           <div className={styles.wideTitleContainer}>
@@ -71,9 +73,10 @@ const Card = ({
           <div className={styles.wideCardDescription}>{description}</div>
           <div className={styles.wideCardTitle}>{`${price} lei`}</div>
         </div>
+        </div>
         <div className={styles.buttonContainer}>
-          <button onClick={() => handleEditButton(id)}>Edit</button>
-          <button onClick={() => handleDeleteButton(id)}>Delete</button>
+          <button className={styles.deleteButton} onClick={() => handleDeleteButton(id)}>Delete</button>
+          <button className={styles.editButton} onClick={() => handleEditButton(id)}>Edit</button>
         </div>
       </div>
     </>

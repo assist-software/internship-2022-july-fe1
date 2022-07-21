@@ -159,14 +159,6 @@ const AddNewPage = () => {
                   event.preventDefault();
                 }
               }}
-            />
-            <StyledInputLabel text='Price' />
-            <StyledSmallFormInput
-              onKeyPress={(event) => {
-                if (!/[0-9]/.test(event.key)) {
-                  event.preventDefault();
-                }
-              }}
               value={price}
               onChange={(e) => setPrice(e.target.value)}
             />
