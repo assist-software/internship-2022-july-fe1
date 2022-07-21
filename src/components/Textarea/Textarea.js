@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import { Textarea, TextareaMessage } from "./TextareaStyle";
 
-const StyledTextarea = ({ value, onchange }) => {
-  const MAX_CHARS = 100;
-  const handleTextareaChange = (e) => {
-    // setDescription(e.target.value);
 
-  };
-  const remaining = `${value.length}/${MAX_CHARS} mandatory characters`;
+const StyledTextarea = ({ value, onchange }) => {
+  const MIN_CHARS = 100;
+  const [text, setText] = useState("");
+  // const handleTextareaChange = (e) => {
+  //   // setDescription(e.target.value);
+  // };
+
+  console.log('setText', setText);
+  const remaining = `${text.length}/${MIN_CHARS} mandatory characters`;
   return (
     <div>
       <Textarea

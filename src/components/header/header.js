@@ -1,93 +1,107 @@
-import React from 'react'
-
-import Form from 'react-bootstrap/Form';
-import img from '../../assets/images/assistLogo.png'
+import React from 'react';
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Offcanvas from 'react-bootstrap/Offcanvas';
 import Dropdown from 'react-bootstrap/Dropdown';
 import 'bootstrap/dist/css/bootstrap.css';
-import Button from 'react-bootstrap/esm/Button';
-import { FiHeart, FiUser, FiSearch } from 'react-icons/fi'
-import { Link } from 'react-router-dom'
-import '../../App.css';
-
-// import { useGlobalContext } from '../../Context/appContext';
+import { FiHeart, FiUser, FiSearch } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import { MdOutlineSecurity, MdOutlineNotificationsNone, MdLogout } from 'react-icons/md';
+import { BiMessageDetail } from 'react-icons/bi';
+import logo from '../../assets/images/assistLogo.png';
 
 const Header = () => {
-    // const { setSearchValue } = useGlobalContext()
+  return (
+    <>
+      {['lg'].map((expand) => (
+        <Navbar key={expand} expand={expand} className='mb-3 headerComponent'>
+          <Container>
+            <Navbar.Brand href='/'>
+              <img src={logo} alt='Assist Logo' className='headerLogo' />
+            </Navbar.Brand>
+            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
+            <Navbar.Offcanvas
+              id={`offcanvasNavbar-expand-${expand}`}
+              aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
+              placement='end'>
+              <Offcanvas.Header closeButton></Offcanvas.Header>
+              <Offcanvas.Body>
+                <Nav className='justify-content-between'>
+                  <Dropdown className='dropDownBtn' id={`offcanvasNavbarDropdown-expand-${expand}`}>
+                    <Dropdown.Toggle variant='default'>
+                      <span className='textCategory'>Category </span>
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                      <Dropdown.Item href='#'>Latest</Dropdown.Item>
+                      <Dropdown.Item href='#'>Big houses</Dropdown.Item>
+                      <Dropdown.Item href='#'>Small houses</Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </Nav>
+                <div id='inputSearchBar'>
+                  <input
+                    type='text'
+                    placeholder='Search'
+                    className='searchInput'
+                    aria-label='Search'
+                  />
 
-    // const [searchValue, setSearchValue] = useState('')
-
-    // const handleSearch = (e) => {
-    //     setInterval(() => {
-    //         console.log('This will run every second!', searchValue);
-    //     }, 1000);
-    // }
-
-
-    // useEffect(() => {
-    //     const interval = setInterval(() => {
-    //         console.log('This will run every second!', searchValue);
-    //     }, 1000);
-    //     return () => clearInterval(interval);
-    // }, []);
-
-
-
-    return (
-        <div className='headerComponent'>
-            <div className='container' >
-                <img src={img} alt="Assist Logo" className='headerLogo' />
-                <Form className='searchForm'>
-                    <Dropdown className='dropDownBtn' title='Category'>
-                        <Dropdown.Toggle variant="default"><span className='textCategory'>Category </span></Dropdown.Toggle>
-                        <Dropdown.Menu>
-                            <Dropdown.Item href="/category/latest">Latest</Dropdown.Item>
-                            <Dropdown.Item href="/category/big">Big houses</Dropdown.Item>
-                            <Dropdown.Item href="/category/small">Small houses</Dropdown.Item>
-                        </Dropdown.Menu>
-                    </Dropdown>
-                    <Form.Control
-                        // onChange={(e) => setSearchValue(e.target.value)}
-                        className="searchInput"
-                        type="search"
-                        placeholder="Search"
-                        aria-label="Search"
-                    />
-                    <Button variant="outline" className='btnSearchIcon'>
-                        <FiSearch className='searchIcon'></FiSearch>
-                    </Button>
-                    <Button variant="outline" className='favouritesBtn'>
-                        <FiHeart id='headerIcons'></FiHeart>
-                        <Link to={"/favourites"} className='ColorText' >Favourites</Link>
-                    </Button>
-                    <Button variant="outline" className='userBtn'>
-                        <FiUser id='headerIcons'></FiUser>
-                        <Link to={"/login"} className='ColorTextd'>My account</Link>
-                    </Button>
-                </Form>
-            </div>
-        </div>
-    )
-}
-
-//             <FiSearch className="searchIcon"></FiSearch>
-//             <Button variant="outline" className="favouritesBtn shadow-none">
-//               <FiHeart id="headerIcons"></FiHeart>
-//               <Link to={"/favourites"} className="ColorText">
-//                 Favourites
-//               </Link>
-//             </Button>
-//             <Button variant="outline" className="userBtn">
-//               <FiUser id="headerIcons"></FiUser>
-//               <Link to={"/login"} className="ColorTextd">
-//                 My account
-//               </Link>
-//             </Button>
-//           </Nav>
-//         </Navbar.Collapse>
-//         {/* </Container> */}
-//       </Navbar>
-//     </div>
-//   );
-// };
+                  <FiSearch className='searchIcon'></FiSearch>
+                </div>
+                <div>
+                  <Button variant='outline' className='favouritesBtn'>
+                    <FiHeart id='headerIcons'></FiHeart>
+                    <Link to={'/favourites'} className='colorText'>
+                      Favourites
+                    </Link>
+                  </Button>
+                </div>
+                <div>
+                  <Dropdown
+                    className='userBtn'
+                    title='My account'
+                    id={`offcanvasNavbarDropdown-expand-${expand}`}>
+                    <Dropdown.Toggle variant='default'>
+                      <span className='colorText'>
+                        <FiUser id='headerIcons' />
+                        My account
+                      </span>
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                      <h5> Hello!</h5>
+                      <Dropdown.Item href='#' className='textMyAccount'>
+                        <FiUser className='myAccountIcons' />
+                        Profile
+                      </Dropdown.Item>
+                      <Dropdown.Item href='#' className='textMyAccount'>
+                        <MdOutlineSecurity className='myAccountIcons' />
+                        Login & security
+                      </Dropdown.Item>
+                      <Dropdown.Item href='#' className='textMyAccount'>
+                        <MdOutlineNotificationsNone className='myAccountIcons' />
+                        Notifications
+                      </Dropdown.Item>
+                      <Dropdown.Item href='#' className='textMyAccount'>
+                        <BiMessageDetail className='myAccountIcons' />
+                        Messages
+                      </Dropdown.Item>
+                      <div className='emptyDiv'></div>
+                      <Dropdown.Item href='#' className='textMyAccount'>
+                        <MdLogout className='myAccountIcons' />
+                        Logout
+                      </Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </div>
+              </Offcanvas.Body>
+            </Navbar.Offcanvas>
+          </Container>
+        </Navbar>
+      ))}
+    </>
+  );
+};
 
 export default Header;

@@ -11,7 +11,11 @@ const ImagePicker = ({ sendFileToAddNewPage }) => {
 
 
   const { getRootProps, getInputProps } = useDropzone({
-    accept: "image/*",
+    accept: {
+      "image/png": [".png"],
+      "image/jpg": [".jpg"],
+      "image/jpeg": [".jpeg"],
+    },
     onDrop: (acceptedFiles) => {
       setFiles([
         ...files,
@@ -29,6 +33,7 @@ const ImagePicker = ({ sendFileToAddNewPage }) => {
 
   const onTrashClick = (id) => {
     setFiles(files.filter((file) => file.id !== id));
+    console.table(files);
   };
 
   const thumbs = files.map((file) => (

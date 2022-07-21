@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 
-import HomePage from "./pages/homepage/HomePage";
-import OnBoarding from "./pages/OnBoarding/OnBoarding";
-import Profile from "./pages/Profile/Profile";
-import ProtectedRoutes from "./routes/ProtectedRoutes";
-
-import AddNewPage from "./pages/AddNewPage/AddNewPage";
-import MyAccountPage from "./pages/MyAccountPage/MyAccountPage";
+import HomePage from './pages/homepage/HomePage';
+import OnBoarding from './pages/OnBoarding/OnBoarding';
+import Profile from './pages/Profile/Profile';
+import ProtectedRoutes from './routes/ProtectedRoutes';
+import '../src/App.css';
+import AddNewPage from './pages/AddNewPage/AddNewPage';
+import MyAccountPage from './pages/MyAccountPage/MyAccountPage';
 import Header from "./components/header/header";
 import Galery from "./pages/Galery/Galery";
 
@@ -76,18 +76,15 @@ function App() {
           <Route
             path='/my-account/login&security'
             element={<MyAccountPage pageName='Login & security' />}
-          />
+          />{' '}
           <Route
             path='/my-account/notifications'
             element={<MyAccountPage pageName='Notifications' />}
-          />
-          <Route
-            path='/my-account/messages'
-            element={<MyAccountPage pageName='Messages' />}
-          />
-          <Route path='/*' element={<Navigate replace to='/' />} />
-        </Routes>
-      </BrowserRouter>
+          />{' '}
+          <Route path='/my-account/messages' element={<MyAccountPage pageName='Messages' />} />{' '}
+          <Route path='/*' element={<Navigate replace to='/' />} />{' '}
+        </Routes>{' '}
+      </BrowserRouter>{' '}
     </div>
   );
 }
