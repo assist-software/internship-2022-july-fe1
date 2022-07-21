@@ -1,0 +1,393 @@
+.imageGallery {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    height: 100%;
+    max-height: 418px;
+}
+
+.firstPhotoGallery {
+    width: 100%;
+    max-width: 555px;
+    height: 100%;
+    max-height: 418px;
+    border-radius: 12px 0px 0px 12px;
+}
+
+.smallPhotos {
+    position: relative;
+    display: grid;
+    flex-wrap: wrap;
+    grid-template-columns: 2;
+    justify-content: space-between;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+    grid-gap: 30px 30px;
+}
+
+.secondPhotoGallery {
+    width: 100%;
+    max-width: 263px;
+    height: 100%;
+    max-height: 194px;
+}
+
+.secondPhotoGallery2 {
+    width: 100%;
+    max-width: 263px;
+    height: 100%;
+    max-height: 194px;
+    border-radius: 0px 12px 0px 0px;
+}
+
+.secondPhotoGallery4 {
+    width: 100%;
+    max-width: 263px;
+    height: 100%;
+    max-height: 194px;
+    border-radius: 0px 0px 12px 0px;
+}
+
+.showAllPhotosBtn {
+    width: 100%;
+    height: 100%;
+    max-width: 160px;
+    max-height: 36px;
+    border-radius: 8px;
+    border: 1px solid #0241AE;
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background-color: #fff;
+    color: #0241AE;
+    justify-content: space-between;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.iconBtn {
+    margin-right: 11px;
+    margin-bottom: 2px;
+}
+
+.infoLabel {
+    margin-top: 40px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 28px;
+    color: #4D5464;
+    display: flex;
+    justify-content: space-between;
+}
+
+.shareBtn,
+.shareBtnModal {
+    color: #0241AE;
+    background-color: #fff;
+    width: 92px;
+    height: 36px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+    border: 0px;
+}
+
+.iconShare,
+.iconHeart {
+    width: 15px;
+    height: 16px;
+    margin-right: 10px;
+}
+
+.priceSpan {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+}
+
+.descriptionForm {
+    width: 100%;
+    height: 100%;
+    max-width: 750px;
+    max-height: 432px;
+    border: 1px solid #E4E7EC;
+    margin-top: 32px;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+.descriptTitle {
+    margin-top: 32px;
+}
+
+.descriptContent {
+    width: 100%;
+    height: 100%;
+    max-width: 750px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+    /* display: flex;
+            align-items: center; */
+    color: #667085;
+    margin-bottom: 32px;
+}
+
+.userForm {
+    margin-top: 32px;
+    margin-left: 30px;
+    width: 100%;
+    max-width: 360px;
+    height: 100%;
+    max-height: 142px;
+    border: 1px solid #E4E7EC;
+    border-radius: 12px;
+}
+
+.infoForm {
+    display: flex;
+    justify-content: space-between;
+}
+
+.userContent {
+    margin: 20px;
+    max-width: 264px;
+    max-height: 102px;
+    width: 100%;
+    height: 100%;
+}
+
+#userPhoto {
+    max-width: 44px;
+    max-height: 44px;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}
+
+.userInfo {
+    display: grid;
+    flex-wrap: wrap;
+    margin-left: 60px;
+    position: relative;
+    bottom: 40px;
+}
+
+.userName {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #1C1C1E;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+    color: #667085;
+}
+
+.purchaseBtn {
+    width: 100%;
+    height: 100%;
+    max-width: 304px;
+    max-height: 44px;
+    margin-top: 20px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+    border-radius: 8px;
+}
+
+.heartBtn {
+    margin-top: 20px;
+    /* margin-right: 12px; */
+    max-width: 44px;
+    max-height: 44px;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    color: #0241AE;
+    background-color: #fff;
+}
+
+.buttonsGroup {
+    display: flex;
+    justify-content: space-between;
+}
+
+.locationForm {
+    margin-top: 32px;
+    width: 713px;
+}
+
+.locationContent {
+    width: 100%;
+    height: 100%;
+    max-width: 750px;
+    border: 1px solid #E4E7EC;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+h4 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: #1C1C1E;
+}
+
+.spanLocation {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #667085;
+}
+
+.maps {
+    width: 100%;
+    height: 100%;
+    margin-top: 12px;
+    margin-bottom: 32px;
+    max-width: 713px;
+    max-height: 382px;
+    border-radius: 12px;
+}
+
+.messageForm {
+    margin-top: 32px;
+    width: 100%;
+    max-width: 750px;
+    margin-bottom: 50px;
+}
+
+.messageText {
+    margin-top: 12px;
+    max-width: 750px;
+    max-height: 151px;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    border: 1px solid #667085;
+    padding: 12px 20px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #1C1C1E;
+}
+
+.sendBtn {
+    margin-top: 10px;
+    max-width: 180px;
+    max-height: 44px;
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+    color: #0241AE;
+    border: 1px solid #0241AE;
+    background-color: #fff;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.sendBtnPosition {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+/* ----------------------- modal style -------------- */
+
+.modalPhoto {
+    width: 300px;
+    height: 200px;
+    margin: 20px;
+}
+
+.btn-close {
+    position: absolute;
+    left: 10px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modalGallery {
+    text-align: center;
+}
+
+.modalPhoto1 {
+    width: 100%;
+    height: 100%;
+    max-width: 678px;
+    max-height: 418px;
+}
+
+.modalPhoto {
+    width: 100%;
+    height: 100%;
+    max-width: 319px;
+    max-height: 328px;
+}
+
+
+/* --------- header -------- */
+
+.offcanvas-body {
+    flex-grow: 1;
+    padding: 13.8rem 1rem;
+    overflow-y: auto;
+    height: 100%;
+}
+
+.myAccountIcons {
+    margin-right: 10px;
+    margin-bottom: 4px;
+    width: 16px;
+    height: 16px;
+    color: #0356E8;
+}
+
+.textMyAccount {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+    color: #596274;
+}
+
+.emptyDiv {
+    height: 1px;
+    width: 100%;
+    border-bottom: 1px solid #cececf;
+}
+
+h5 {
+    margin-left: 14px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: #1C1C1E;
+    width: 46px;
+    height: 24px;
+}

@@ -1,11 +1,11 @@
-import Header from "../../components/header/header";
-import CarouselCards from "../../components/CarouselCards/CarouselCards";
+import Header from '../../components/Header/Header';
+import SingleItem from '../../components/SingleItem/SingleItem';
 
 const HomePage = () => {
   return (
     <div>
       <Header />
-      <CarouselCards />
+      <SingleItem />
     </div>
     // when test uncomment
     // <Card onClick={() => console.log('tste')} isFavorite={true} />
