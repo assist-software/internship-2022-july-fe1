@@ -1,4 +1,4 @@
-let url = `https://assist-jully-2022-be1.azurewebsites.net/api/listing`;
+let url = `https://assist-jully-2022-be1.azurewebsites.net/api`;
 
 const apiRequest = async (url = '', optionsObj = null, errMsg = null) => {
   try {
@@ -22,14 +22,14 @@ const addPost = async (item) => {
     },
     body: JSON.stringify(item),
   };
-  const result = await apiRequest(`${url}/create`, postOptions);
+  const result = await apiRequest(`${url}/listing/create`, postOptions);
   if (result) console.log(result);
 };
 
 // DELETE POST
 const deletePost = async (id) => {
   const deleteOptions = { method: 'DELETE' };
-  const reqUrl = `${url}/${id}`;
+  const reqUrl = `${url}/listing/${id}`;
   const result = await apiRequest(reqUrl, deleteOptions);
   if (result) console.log(result);
 };
@@ -40,61 +40,18 @@ const editPost = async (item, id) => {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
-      // id: `${id}`,
     },
     body: JSON.stringify(item),
   };
-  const reqUrl = `${url}/${id}`;
+  const reqUrl = `${url}/listing/${id}`;
   const result = await apiRequest(reqUrl, updateOptions);
   if (result) console.log(result);
 };
 
 export const APIData = {
+  url,
   apiRequest,
   addPost,
   deletePost,
   editPost,
 };
-
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-// const addItem = async (item) => {
-//   const postOptions = {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify(item),
-//   };
-//   const result = await apiRequest(`${url}/create`, postOptions);
-//   if (result) console.log(result);
-// };
-
-// const handleCheck = async (id) => {
-//   const listItems = items.map((item) =>
-//     item.id === id ? { ...item, checked: !item.checked } : item
-//   );
-//   setItems(listItems);
-
-//   const myItem = listItems.filter((item) => item.id === id);
-//   const updateOptions = {
-//     method: 'PATCH',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify({ checked: myItem[0].checked }),
-//   };
-//   const reqUrl = `${API_URL}/${id}`;
-//   const result = await apiRequest(reqUrl, updateOptions);
-//   if (result) setFetchError(result);
-// };
-
-// const handleDelete = async (id) => {
-//   const listItems = items.filter((item) => item.id !== id);
-//   setItems(listItems);
-
-//   const deleteOptions = { method: 'DELETE' };
-//   const reqUrl = `${API_URL}/${id}`;
-//   const result = await apiRequest(reqUrl, deleteOptions);
-//   if (result) setFetchError(result);
-// };

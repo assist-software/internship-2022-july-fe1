@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 import StyledAddPageLabels from "../../components/AddPageLabels/AddPageLabels";
 import ImagePicker from "../../components/ImagePicker/ImagePicker";
@@ -34,11 +34,11 @@ const customStyles = {
     minHeight: 44,
     borderRadius: 8,
     marginBottom: 20,
-    fontWeight: "300",
   }),
 };
 
 const AddNewPage = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
   const [editPost, setEditPost] = useState(false)
 
@@ -53,7 +53,7 @@ const AddNewPage = () => {
   useEffect(() => {
     if (id) {
       setEditPost(true)
-      const getId = fetch(`https://assist-jully-2022-be1.azurewebsites.net/api/listing/${id}`)
+      fetch(`https://assist-jully-2022-be1.azurewebsites.net/api/listing/${id}`)
         .then((getId) => getId.json())
         .then((data) => {
           console.log(data);
@@ -65,7 +65,7 @@ const AddNewPage = () => {
           setPhone(data.phoneNumber ? data.phoneNumber : '')
         })
     };
-  }, [])
+  }, [id])
 
   const handleDesciptionChange = (e) => {
     setDescripton(e.target.value);
@@ -100,8 +100,11 @@ const AddNewPage = () => {
       item = { ...item, id: id, approvedById: null }
       console.log(' editmode', item);
       APIData.editPost(item, item.id)
+      navigate(`/mylisting/${item.id}`)
+
     } else {
       APIData.addPost(item)
+      navigate(`/`)
     }
 
   }
@@ -120,7 +123,7 @@ const AddNewPage = () => {
           />
           <StyledRightContent>
             <StyledInputLabel text="Title" />
-            <StyledLoginFormInput value={title} onChange={(e) => setTitle(e.target.value)} />
+            <StyledLoginFormInput required value={title} onChange={(e) => setTitle(e.target.value)} />
             <StyledInputLabel text="Category" />
             <Select
               options={options}

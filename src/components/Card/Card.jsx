@@ -6,14 +6,14 @@ import FavoriteBtn from '../FavoriteBtn/FavoriteBtn';
 import ImageLogin from '../../assets/images/furniture.png';
 
 import { APIData } from '../../api/APIData';
+import { useGlobalContext } from '../../Context/appContext';
 
 const Card = ({
   id,
   displayWide,
   onCardClick,
   onFavoriteClick,
-  // when u will use uncommnet the props
-  urlImage,
+  // urlImage,
   description,
   title,
   location,
@@ -21,6 +21,7 @@ const Card = ({
   isFavorite = false,
 }) => {
   const navigate = useNavigate();
+  let { state } = useGlobalContext();
 
   const handleEditButton = (id) => {
     console.log('edit clicked');
@@ -29,6 +30,7 @@ const Card = ({
   const handleDeleteButton = (id) => {
     console.log('delete clicked');
     APIData.deletePost(id);
+    state = state.filter((item) => item.id !== id);
   };
 
   const renderSmallCard = () => (
