@@ -6,7 +6,6 @@ import {
   StyledLoginFormInput,
   StyledSmallFormInput,
 } from "../../components/LoginFormInput";
-import LongDropdown from "../../components/LongDropdown/LongDropdown";
 import StyledPageButton from "../../components/PageButton/PageButton";
 import StyledPageTitle from "../../components/PageTitle/PageTitle";
 import StyledTextarea from "../../components/Textarea/Textarea";
@@ -16,6 +15,23 @@ import {
   StyledPageContainer,
   StyledPageContent,
 } from "./AddNewPageElements";
+import Select from "react-select";
+
+const options = [
+  { value: "latest", label: "Latest" },
+  { value: "big houses", label: "Big houses" },
+  { value: "small houses", label: "Small houses" },
+];
+
+const customStyles = {
+  control: (base) => ({
+    ...base,
+    height: 44,
+    minHeight: 44,
+    borderRadius: 8,
+    marginBottom: 20,
+  }),
+};
 
 const AddNewPage = () => {
   return (
@@ -33,9 +49,21 @@ const AddNewPage = () => {
             <StyledInputLabel text="Title" />
             <StyledLoginFormInput />
             <StyledInputLabel text="Category" />
-            <LongDropdown />
+            <Select
+              options={options}
+              styles={customStyles}
+              placeholder={
+                <div className="select-placeholder-text">Select category</div>
+              }
+            />
             <StyledInputLabel text="Price" />
-            <StyledSmallFormInput />
+            <StyledSmallFormInput
+              onKeyPress={(event) => {
+                if (!/[0-9]/.test(event.key)) {
+                  event.preventDefault();
+                }
+              }}
+            />
             <span>lei</span>
           </StyledRightContent>
         </StyledData>
@@ -70,7 +98,13 @@ const AddNewPage = () => {
             <StyledInputLabel text="Location" />
             <StyledLoginFormInput />
             <StyledInputLabel text="Phone number" />
-            <StyledSmallFormInput />
+            <StyledSmallFormInput
+              onKeyPress={(event) => {
+                if (!/[0-9+]/.test(event.key)) {
+                  event.preventDefault();
+                }
+              }}
+            />
           </StyledRightContent>
         </StyledData>
         <div className="data">

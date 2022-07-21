@@ -1,38 +1,39 @@
 import React from "react";
 import { StyledPageContainer } from "../AddNewPage/AddNewPageElements";
 import {
-  EditProfileImageButton,
   LineBreak,
   StyledMyAccountContent,
-  StyledProfileImage,
   StyledProfileMenu,
   StyledPageContent,
+  MessageNotifications,
 } from "./MyAccountPageElements";
-import Image from "../../assets/images/furniture.png";
-import { HiPencil } from "react-icons/hi";
 import StyledProfileButton from "../../components/ProfileButton/ProfileButton";
-import { BiUser, BiMessageSquareDetail } from "react-icons/bi";
+import { BiUser, BiMessageSquareDetail, BiMessageDetail } from "react-icons/bi";
 import { MdSecurity, MdOutlineLogout } from "react-icons/md";
 import { IoMdNotificationsOutline } from "react-icons/io";
-import StyledFormTitle from "../../components/FormTitle/FormTitle";
 import ProfilePage from "./ProfilePage";
 import LoginSecurityPage from "./LoginSecurityPage";
 import NotificationsPage from "./NotificationsPage";
 import MessagesPage from "./MessagesPage";
 import { useLocation } from "react-router-dom";
+import UploadImage from "../../components/ProfileImage/UploadImage";
+import StyledMyAccountTitle from "../../components/MyAccountTitle/MyAccountTitle";
 
 const MyAccountPage = ({ pageName }) => {
   const location = useLocation();
 
   return (
     <StyledPageContainer>
+      {/* MessageNotifications */}
+      <MessageNotifications>
+        <BiMessageDetail />
+      </MessageNotifications>
       <StyledPageContent>
         {/* Profile menu */}
         <StyledProfileMenu>
-          <StyledProfileImage src={Image} alt="image" />
-          <EditProfileImageButton>
-            <HiPencil />
-          </EditProfileImageButton>
+          {/* Profile image */}
+          <UploadImage />
+          {/* Profile buttons */}
           <StyledProfileButton
             icon={<BiUser />}
             text="Profile"
@@ -75,7 +76,7 @@ const MyAccountPage = ({ pageName }) => {
         </StyledProfileMenu>
         {/* Profile page content */}
         <StyledMyAccountContent>
-          <StyledFormTitle text={pageName} />
+          <StyledMyAccountTitle text={pageName} />
           {/* Profile page */}
           {pageName === "Profile" && <ProfilePage />}
           {/* Login & security */}
