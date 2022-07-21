@@ -9,7 +9,7 @@ import MyAccountPage from "./pages/MyAccountPage/MyAccountPage";
 import Header from "./components/Header/Header";
 import Galery from "./pages/Galery/Galery";
 import React from "react";
-import HomePage from "./pages/HomePage/HomePage";
+import Home from "./pages/Home/Home";
 
 const GlobalStyle = createGlobalStyle`
   *{
@@ -29,16 +29,16 @@ function App() {
         <GlobalStyle />
         <Header />
         <Routes>
-          <Route path='/' element={<HomePage />} />
+          <Route path='/' element={<Home />} />
           <Route path='/category/:galeryname' element={<Galery />} />
           {/* ----------Protected Routed for authenticated user --------------- */}
           <Route element={<ProtectedRoutes />}>
-            <Route path='/favourites' element={<HomePage />} />
-            <Route path='/pending' element={<HomePage />} />
-            <Route path='/mylisting' element={<HomePage />} />
-            <Route path='/mylisting/add' element={<HomePage />} />
-            <Route path='/mylisting/:id' element={<HomePage />} />
-            <Route path='/mylisting/edit' element={<HomePage />} />
+            <Route path='/favourites' element={<Home />} />
+            <Route path='/pending' element={<Home />} />
+            <Route path='/mylisting' element={<Home />} />
+            <Route path='/mylisting/add' element={<Home />} />
+            <Route path='/mylisting/:id' element={<Home />} />
+            <Route path='/mylisting/edit' element={<Home />} />
             <Route path='/myprofile/profile' element={<Profile />} />
             <Route path='/myprofile/loginsecurity' element={<Profile />} />
             <Route path='/myprofile/notification' element={<Profile />} />
