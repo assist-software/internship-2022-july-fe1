@@ -12,6 +12,7 @@ import {
 import { MdLaptopWindows, MdOutlinePhoneIphone } from "react-icons/md";
 import StyledPageButton from "../../components/PageButton/PageButton";
 import { StyledLoginFormInput } from "../../components/LoginFormInput";
+import React from "react";
 
 const LoginSecurityPage = () => {
   // states
@@ -106,8 +107,7 @@ const LoginSecurityPage = () => {
         </StyledRowDiv>
       </ConnectedDevice>
       <LineBreak />
-
-      {/* Ios */}
+      {/* Ios */}{" "}
       <ConnectedDevice>
         <MdOutlinePhoneIphone />
         <StyledRowDiv>
@@ -118,7 +118,6 @@ const LoginSecurityPage = () => {
           <button>Log out device</button>
         </StyledRowDiv>
       </ConnectedDevice>
-
       <LineBreak />
       {/* Title */}
       <StyledMyAccountTitle text='Account' />

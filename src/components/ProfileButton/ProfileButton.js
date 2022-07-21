@@ -1,5 +1,5 @@
-import { StyledButtonText, StyledButton } from "./ProfileButtonStyle";
-
+import { StyledButtonText, StyledButton } from './ProfileButtonStyle';
+import React from 'react';
 const StyledProfileButton = ({ icon, text, selected, pathname }) => {
   return (
     <StyledButton selected={selected}>

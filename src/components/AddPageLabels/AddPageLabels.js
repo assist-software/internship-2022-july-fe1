@@ -1,5 +1,5 @@
-import { StyledDiv, StyledLabel, StyledParagraph } from "./AddPageLabelsStyle";
-
+import { StyledDiv, StyledLabel, StyledParagraph } from './AddPageLabelsStyle';
+import React from 'react';
 const StyledAddPageLabels = ({ labelText, paragraphText }) => {
   return (
     <StyledDiv>

@@ -10,6 +10,7 @@ import {
   StyledText,
 } from "./MyAccountPageElements";
 import Select from "react-select";
+import React from "react";
 
 const ProfilePage = () => {
   // states
@@ -195,7 +196,6 @@ const ProfilePage = () => {
         </StyledRowDiv>
         <StyledColumnDiv className='updateEmail'>
           <StyledLoginFormInput ref={emailRef} />
-
           <StyledPageButton
             text='Save'
             color={true}
@@ -265,7 +265,7 @@ const ProfilePage = () => {
           {userData.address.value}
         </StyledText>
         <LineBreak />
-      </div>
+      </div>{" "}
     </ProfileContainer>
   );
 };
