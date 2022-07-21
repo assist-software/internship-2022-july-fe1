@@ -5,8 +5,11 @@ import { BsPlusLg } from "react-icons/bs";
 import { BiTrash } from "react-icons/bi";
 import { nanoid } from "nanoid";
 
-const ImagePicker = () => {
+const ImagePicker = ({ sendFileToAddNewPage }) => {
   const [files, setFiles] = useState([]);
+
+
+
   const { getRootProps, getInputProps } = useDropzone({
     accept: {
       "image/png": [".png"],
@@ -23,6 +26,8 @@ const ImagePicker = () => {
           })
         ),
       ]);
+      console.log('aici');
+      sendFileToAddNewPage(files)
     },
   });
 

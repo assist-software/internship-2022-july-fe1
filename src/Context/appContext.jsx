@@ -1,38 +1,54 @@
-import React, { useContext, createContext, useState } from 'react';
+import React, {
+  useContext,
+  createContext,
+  useState,
+  useEffect,
+  useCallback,
+} from 'react';
 
-// import { appReducer } from '../Reducers/appReducer';
-import { API } from '../api/API';
+import { APIData } from '../api/APIData';
 
 const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
-  const initialState = API.cardsMock;
+  // const [initialState, setInitialState] = useState(API.cardsMock);
+  const [initialState, setInitialState] = useState([]);
+  const [currentPageForContext, setCurrentPageForContext] = useState(1);
   const [displayWide, setDisplayWide] = useState(false);
 
-  //   console.log('initialState', initialState);
+  // VALUE OF SEARCH
+  // const [searchValue, setSearchValue] = useState(null);
 
-  // will be use later
-  // const [state, dispatch] = useReducer(appReducer, initialState)
+  const [requestOption, setRequestOption] = useState({
+    category: null,
+    price: null,
+    locations: null,
+    orderBy: null,
+    pageIndex: currentPageForContext,
+  });
 
-  // will delete when start use reducer
+  const fetchData = useCallback((optionReq) => {
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(optionReq),
+    };
+    fetch(`${APIData.url}/listing`, requestOptions)
+      .then((response) => response.json())
+      .then((data) => {
+        setInitialState(data);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetchData(requestOption);
+  }, [fetchData, requestOption]);
+
+  console.log('in context');
+
   const state = initialState;
 
-  //FILTER FOR ORDER
-  const handleOrderFilter = (order) => {
-    console.log(order);
-  };
-
-  //FILTER FOR PRICE
-  const handlePriceFilter = (price) => {
-    console.log(price);
-  };
-
-  //FILTER FOR LOCATION
-  const handleLocationFilter = (location) => {
-    console.log(location);
-  };
-
-  // BRINGS VALUE TO THE PROPS ITEM OF ALL OBJECTS
+  //BRINGS VALUE TO THE SINGLE PROPS ITEM FROM ALL OBJECTS
   const singleElement = (element) => {
     if (element) {
       const cloneInitalState = [...initialState];
@@ -58,11 +74,13 @@ export const AppProvider = ({ children }) => {
         ...state,
         state,
         displayWide,
+        setCurrentPageForContext,
+        // setSearchValue,
+        setRequestOption,
         setDisplayWide,
         singleElement,
-        handleLocationFilter,
-        handlePriceFilter,
-        handleOrderFilter,
+        fetchData,
+        requestOption,
       }}
     >
       {children}
