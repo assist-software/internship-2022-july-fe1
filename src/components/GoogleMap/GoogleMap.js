@@ -17,32 +17,31 @@ function MyComponent() {
     googleMapsApiKey: 'AIzaSyB0C38O6O4IIHFaxHYhLZKF_Uv_0fvsJA4',
   });
 
-  const [map, setMap] = React.useState(null);
+  const [gmap, setGMap] = React.useState(null);
 
-  const onLoad = React.useCallback(function callback(map) {
+  const onLoad = React.useCallback(function callback(gmap) {
     const bounds = new window.google.maps.LatLngBounds(center);
-    map.fitBounds(bounds);
-    setMap(map);
+    gmap.fitBounds(bounds);
+    setGMap(gmap);
   }, []);
 
   const onUnmount = React.useCallback(function callback(map) {
-    setMap(null);
+    setGMap(null);
   }, []);
-
+  console.log(gmap);
   return isLoaded ? (
     <GoogleMap
       mapContainerStyle={containerStyle}
       center={center}
-      defaultZoom={10}
+      zoom={10}
       onLoad={onLoad}
       onUnmount={onUnmount}
       //   defaultZoom={15}
     >
-      <></>
-      <Marker position={center} />
+      <> </> <Marker position={center} />
     </GoogleMap>
   ) : (
-    <></>
+    <> </>
   );
 }
 
