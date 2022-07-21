@@ -1,5 +1,7 @@
 import React, { useContext, createContext, useState } from 'react';
 
+import { APIAuth } from '../api/APIAuth';
+
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -7,17 +9,29 @@ export const AuthProvider = ({ children }) => {
 
   const login = (user) => {
     setUser(user);
+    localStorage.setItem('user', user);
   };
   const logout = () => {
     setUser(null);
+    localStorage.clear();
+  };
+  const register = (email, pass) => {
+    setUser(email);
+    console.log(email);
+    APIAuth.register(email, pass);
+  };
+  const token = () => {
+    return localStorage.getItem('token');
   };
 
   return (
     <AuthContext.Provider
       value={{
         user,
+        register,
         login,
         logout,
+        token,
       }}
     >
       {children}

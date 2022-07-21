@@ -56,7 +56,7 @@ const AddNewPage = () => {
       fetch(`https://assist-jully-2022-be1.azurewebsites.net/api/listing/${id}`)
         .then((getId) => getId.json())
         .then((data) => {
-          console.log(data);
+          // console.log(data);
           setTitle(data.title)
           setCategory(data.category)
           setPrice(data.price)

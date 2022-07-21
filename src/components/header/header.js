@@ -34,9 +34,9 @@ const Header = () => {
                       <span className='textCategory'>Category </span>
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
-                      <Dropdown.Item href='#'>Latest</Dropdown.Item>
-                      <Dropdown.Item href='#'>Big houses</Dropdown.Item>
-                      <Dropdown.Item href='#'>Small houses</Dropdown.Item>
+                      <Dropdown.Item href='/category/latest'>Latest</Dropdown.Item>
+                      <Dropdown.Item href='/category/Big'>Big houses</Dropdown.Item>
+                      <Dropdown.Item href='/category/Small'>Small houses</Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
                 </Nav>

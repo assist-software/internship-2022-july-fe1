@@ -48,9 +48,7 @@ function App() {
             <Route path='/myprofile/message' element={<Profile />} />
           </Route>
 
-
           <Route path="/login" element={<OnBoarding pageName="logIn" />} />
-
 
           <Route
             path='/sign-up'
