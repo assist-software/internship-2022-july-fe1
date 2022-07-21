@@ -7,7 +7,7 @@ import ImageLogin from '../../assets/images/furniture.png';
 
 import { APIData } from '../../api/APIData';
 import { useGlobalContext } from '../../Context/appContext';
-import styled from 'styled-components';
+
 
 const Card = ({
   id,
