@@ -1,7 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
-
-import HomePage from "./pages/Homepage/HomePage";
 import OnBoarding from "./pages/OnBoarding/OnBoarding";
 import Profile from "./pages/Profile/Profile";
 import ProtectedRoutes from "./routes/ProtectedRoutes";
@@ -11,6 +9,7 @@ import MyAccountPage from "./pages/MyAccountPage/MyAccountPage";
 import Header from "./components/Header/Header";
 import Galery from "./pages/Galery/Galery";
 import React from "react";
+import HomePage from "./pages/HomePage/HomePage";
 
 const GlobalStyle = createGlobalStyle`
   *{
