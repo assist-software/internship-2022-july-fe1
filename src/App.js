@@ -6,10 +6,10 @@ import ProtectedRoutes from "./routes/ProtectedRoutes";
 import "../src/App.css";
 import AddNewPage from "./pages/AddNewPage/AddNewPage";
 import MyAccountPage from "./pages/MyAccountPage/MyAccountPage";
-import Header from "./components/Header/Header";
 import Galery from "./pages/Galery/Galery";
 import React from "react";
 import Home from "./pages/Home/Home";
+import Head from "./components/Head/Head";
 
 const GlobalStyle = createGlobalStyle`
   *{
@@ -27,7 +27,7 @@ function App() {
     <div className='App'>
       <BrowserRouter>
         <GlobalStyle />
-        <Header />
+        <Head />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/category/:galeryname' element={<Galery />} />

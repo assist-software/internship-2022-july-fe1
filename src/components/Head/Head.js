@@ -16,7 +16,7 @@ import {
 import { BiMessageDetail } from "react-icons/bi";
 import logo from "../../assets/images/assistLogo.png";
 
-const Header = () => {
+const Head = () => {
   return (
     <>
       {["lg"].map((expand) => (
@@ -113,4 +113,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Head;
