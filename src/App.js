@@ -66,6 +66,7 @@ function App() {
           />
           {/* add new */}
           <Route path='/add-new' element={<AddNewPage />} />
+          <Route path='/editpost/:id' element={<AddNewPage />} />
           {/* my account */}
           <Route path='/my-account' element={<MyAccountPage />} />
           <Route

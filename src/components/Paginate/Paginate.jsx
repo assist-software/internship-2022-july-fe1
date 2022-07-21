@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import styles from './Paginate.module.css';
 import {
@@ -11,30 +11,34 @@ import {
 import { useGlobalContext } from '../../Context/appContext';
 
 const Paginate = () => {
-  const { setCurrentPageForContext } = useGlobalContext();
-  const [items, setItems] = useState([]);
-  const [pageCount, setPageCount] = useState(0);
+  const { state, setCurrentPageForContext } = useGlobalContext();
+  const [items, setItems] = useState(state);
+  const [pageCount, setPageCount] = useState(1);
   const cardsLimitOnThePage = 12;
 
   // const urlAssit = `https://assist-jully-2022-be1.azurewebsites.net/api/listing/`;
-  const urlExterior = `https://jsonplaceholder.typicode.com/comments?_page=$1&_limit=${cardsLimitOnThePage}`;
+  // const urlExterior = `https://jsonplaceholder.typicode.com/comments?_page=$1&_limit=${cardsLimitOnThePage}`;
 
   // console.log(state);
-  setPageCount(0);
 
-  useEffect(() => {
-    const getCards = async () => {
-      const res = await fetch(`${urlExterior}`);
-      const data = await res.json();
-      //CALCULATE TOTAL CARDS
-      // const total = res.headers.get('x-total-count');
-      // setPageCount(Math.ceil(total / cardsLimitOnThePage));
-      setItems(data);
-    };
+  // useEffect(() => {
+  //   setPageCount(1);
+  // }, []);
 
-    setCurrentPageForContext(0);
-    getCards();
-  }, []);
+  // useEffect(() => {
+  //   setPageCount(0);
+  //   const getCards = async () => {
+  //     const res = await fetch(`${urlExterior}`);
+  //     const data = await res.json();
+  //     //CALCULATE TOTAL CARDS
+  //     // const total = res.headers.get('x-total-count');
+  //     // setPageCount(Math.ceil(total / cardsLimitOnThePage));
+  //     setItems(data);
+  //   };
+
+  //   setCurrentPageForContext(1);
+  //   getCards();
+  // }, []);
 
   // console.log(items);
 
@@ -52,15 +56,15 @@ const Paginate = () => {
     // console.log(data.selected);
     let currentPage = data.selected + 1;
     setCurrentPageForContext(currentPage);
-    const cardsFromServer = await fetchCards(currentPage);
-    setItems(cardsFromServer);
+    // const cardsFromServer = await fetchCards(currentPage);
+    // setItems(cardsFromServer);
   };
 
   return (
     <>
       {/* JUST FOR TESTING */}
       <div className="row m-2">
-        {items.map((item) => {
+        {/* {items.map((item) => {
           return (
             <div
               key={item.id}
@@ -78,7 +82,7 @@ const Paginate = () => {
               </div>
             </div>
           );
-        })}
+        })} */}
 
         {/* <section className={!displayWide ? styles.contentContainer : null}>
           {state.map((item) => {

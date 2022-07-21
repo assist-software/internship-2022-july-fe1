@@ -2,16 +2,13 @@ import React, { useState } from 'react';
 import styles from './FilterSingleSelect.module.css';
 import Dropdown from 'react-bootstrap/Dropdown';
 
-import { useGlobalContext } from '../../Context/appContext';
-
 const FilterSingleSelect = (props) => {
-  const { name } = props;
-  const { setPriceFilter } = useGlobalContext();
+  const { name, handlePriceFilter } = props;
   const [selectId, setSelectId] = useState({});
 
   const clickHandler = (item, index) => {
     setSelectId(index);
-    setPriceFilter(item);
+    handlePriceFilter(item);
   };
 
   const valueForDropDown = [

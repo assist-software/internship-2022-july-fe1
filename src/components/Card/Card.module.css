@@ -81,7 +81,18 @@
 }
 
 .wideCardTitle {
+  display: flex;
   flex: 1;
+  width: 100%;
+}
+.buttonContainer {
+  align-self: flex-end;
+}
+.buttonContainer button {
+  margin-left: 30px;
+  border-radius: 10px;
+  line-height: 14px;
+  font-size: 14px;
 }
 
 .wideCardDescription {

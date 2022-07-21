@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from 'react-router-dom';
+
 import StyledAddPageLabels from "../../components/AddPageLabels/AddPageLabels";
 import ImagePicker from "../../components/ImagePicker/ImagePicker";
 import StyledInputLabel from "../../components/InputLabel/InputLabel";
@@ -32,10 +34,14 @@ const customStyles = {
     minHeight: 44,
     borderRadius: 8,
     marginBottom: 20,
+    fontWeight: "300",
   }),
 };
 
 const AddNewPage = () => {
+  const { id } = useParams();
+  const [editPost, setEditPost] = useState(false)
+
   const [title, setTitle] = useState('')
   const [category, setCategory] = useState(1)
   const [price, setPrice] = useState(0)
@@ -43,6 +49,23 @@ const AddNewPage = () => {
   const [description, setDescripton] = useState('')
   const [location, setLocation] = useState('')
   const [phone, setPhone] = useState('')
+
+  useEffect(() => {
+    if (id) {
+      setEditPost(true)
+      const getId = fetch(`https://assist-jully-2022-be1.azurewebsites.net/api/listing/${id}`)
+        .then((getId) => getId.json())
+        .then((data) => {
+          console.log(data);
+          setTitle(data.title)
+          setCategory(data.category)
+          setPrice(data.price)
+          setDescripton(data.description)
+          setLocation(data.location)
+          setPhone(data.phoneNumber ? data.phoneNumber : '')
+        })
+    };
+  }, [])
 
   const handleDesciptionChange = (e) => {
     setDescripton(e.target.value);
@@ -73,7 +96,14 @@ const AddNewPage = () => {
       phoneNumber: phone,
     };
 
-    APIData.addItem(item)
+    if (editPost) {
+      item = { ...item, id: id, approvedById: null }
+      console.log(' editmode', item);
+      APIData.editPost(item, item.id)
+    } else {
+      APIData.addPost(item)
+    }
+
   }
 
 
@@ -157,7 +187,7 @@ const AddNewPage = () => {
         <div className="data">
           <div className="row">
             <StyledPageButton text={"Preview"} color={false} />
-            <StyledPageButton text={"Publish"} color={true} onclick={(e) => handleCreateNew(e)} />
+            <StyledPageButton text={editPost ? 'Edit' : 'Publish'} color={true} onclick={(e) => handleCreateNew(e)} />
           </div>
         </div>
       </StyledPageContent>

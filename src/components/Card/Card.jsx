@@ -1,10 +1,14 @@
 import React from 'react';
 import styles from './Card.module.css';
+import { useNavigate } from 'react-router-dom';
 
 import FavoriteBtn from '../FavoriteBtn/FavoriteBtn';
 import ImageLogin from '../../assets/images/furniture.png';
 
+import { APIData } from '../../api/APIData';
+
 const Card = ({
+  id,
   displayWide,
   onCardClick,
   onFavoriteClick,
@@ -16,6 +20,17 @@ const Card = ({
   price,
   isFavorite = false,
 }) => {
+  const navigate = useNavigate();
+
+  const handleEditButton = (id) => {
+    console.log('edit clicked');
+    navigate(`/editpost/${id}`);
+  };
+  const handleDeleteButton = (id) => {
+    console.log('delete clicked');
+    APIData.deletePost(id);
+  };
+
   const renderSmallCard = () => (
     <div onClick={() => onCardClick()} className={styles.smallCardContainer}>
       <FavoriteBtn
@@ -35,30 +50,31 @@ const Card = ({
   );
 
   const renderWideCard = () => (
-    <div onClick={() => onCardClick()} className={styles.wideCardContainer}>
-      <img className={styles.wideCardImg} src={ImageLogin} alt="" />
-      <div className={styles.wideCardContent}>
-        <div className={styles.wideTitleContainer}>
-          <div className={styles.wideCardTitle}>{title}</div>
-          <div className={styles.wideCardSubtitle}>{location}, Romania</div>
-          <FavoriteBtn
-            isActive={isFavorite}
-            className={styles.wideFavoriteBtnPosition}
-            onClick={(e) => {
-              onFavoriteClick();
-              e.stopPropagation();
-            }}
-          />
+    <>
+      <div onClick={() => onCardClick()} className={styles.wideCardContainer}>
+        <img className={styles.wideCardImg} src={ImageLogin} alt="" />
+        <div className={styles.wideCardContent}>
+          <div className={styles.wideTitleContainer}>
+            <div className={styles.wideCardTitle}>{title}</div>
+            <div className={styles.wideCardSubtitle}>{location}, Romania</div>
+            <FavoriteBtn
+              isActive={isFavorite}
+              className={styles.wideFavoriteBtnPosition}
+              onClick={(e) => {
+                onFavoriteClick();
+                e.stopPropagation();
+              }}
+            />
+          </div>
+          <div className={styles.wideCardDescription}>{description}</div>
+          <div className={styles.wideCardTitle}>{`${price} lei`}</div>
         </div>
-        <div className={styles.wideCardDescription}>
-          It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. The point of
-          using Lorem Ipsum is that it has a more-or-less normal distribution of
-          letters, as opposed to using 'Content here, content here', making it
+        <div className={styles.buttonContainer}>
+          <button onClick={() => handleEditButton(id)}>Edit</button>
+          <button onClick={() => handleDeleteButton(id)}>Delete</button>
         </div>
-        <div className={styles.wideCardTitle}>{`${price} lei`}</div>
       </div>
-    </div>
+    </>
   );
 
   return displayWide ? renderWideCard() : renderSmallCard();

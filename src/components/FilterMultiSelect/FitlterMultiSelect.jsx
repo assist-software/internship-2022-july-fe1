@@ -5,19 +5,21 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import { useGlobalContext } from '../../Context/appContext';
 
 const FitlterMultiSelect = (props) => {
-  const { name } = props;
+  const { name, handleLocationFilter } = props;
   const { state, setLocationFilter } = useGlobalContext();
   let chekingIfLocationExist = [];
   const [selectedLocation, setSelectedLocation] = useState([]);
 
   const [locations, setLocations] = useState(state);
 
+  // console.log('state', state);
+  // console.log('locations', locations);
+
   const handleLocationClick = (locationIndex, loc) => {
     const locationClone = [...locations];
     locationClone[locationIndex].checked =
       !locationClone[locationIndex].checked;
     setLocations(locationClone);
-
     if (selectedLocation.includes(loc)) {
       const temLocation = selectedLocation.filter((item) => item !== loc);
       setSelectedLocation(temLocation);
@@ -27,8 +29,8 @@ const FitlterMultiSelect = (props) => {
   };
 
   useEffect(() => {
-    setLocationFilter(selectedLocation);
-  }, [selectedLocation, setLocationFilter]);
+    handleLocationFilter(selectedLocation);
+  }, [selectedLocation]);
 
   return (
     <>

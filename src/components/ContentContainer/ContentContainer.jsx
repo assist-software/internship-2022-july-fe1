@@ -11,14 +11,16 @@ const ContentContainer = () => {
 
   return (
     <>
-      {/* <section className={!displayWide ? styles.contentContainer : null}>
-        {state.map((item) => {
+      <section className={!displayWide ? styles.contentContainer : null}>
+        {state.map((item, index) => {
           return (
             <Card
               key={item.id}
+              id={item.id}
               title={item.title}
               price={item.price}
               location={item.location}
+              description={item.shortDescription}
               onCardClick={() => console.log('card clicked')}
               onFavoriteClick={() => console.log('fav button clicked')}
               isFavorite={item.isFavorite}
@@ -26,7 +28,7 @@ const ContentContainer = () => {
             />
           );
         })}
-      </section> */}
+      </section>
 
       <div className={styles.paginateSection}>
         <Paginate />
