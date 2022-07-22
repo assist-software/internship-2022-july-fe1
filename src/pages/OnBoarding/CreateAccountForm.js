@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   StyledLoginForm,
   StyledBreakLine,
@@ -12,12 +13,22 @@ import StyledPasswordInput from "../../components/PasswordInput/PasswordInput";
 import StyledFormButton from "../../components/FormButton/FormButton";
 import StyledGoogleButton from "../../components/GoogleButton/GoogleButton";
 
+import { useGlobalAuthContext } from "../../Context/authContext";
+
 const CreateAccountForm = () => {
+  const navigate = useNavigate();
+  const { register } = useGlobalAuthContext();
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [passwordVisibility, setPasswordVisibility] = useState(true);
   const toogleVisibility = () => {
     setPasswordVisibility(!passwordVisibility);
+  };
+
+  const handleSingUp = (e) => {
+    e.preventDefault();
+    register(email, password, "register");
+    navigate("/login");
   };
 
   return (
@@ -45,7 +56,8 @@ const CreateAccountForm = () => {
         setPassword={setPassword}
       />
       <p>At least 8 characters and one number.</p>
-      <StyledFormButton text='Sign up' func={() => console.log("work")} />
+      <StyledFormButton text='Sign Up' func={(e) => handleSingUp(e)} />
+      {/* <button onClick={(e) => handleSingUp(e)}>Sign Up</button> */}
       <div className='inline'>
         <StyledFormLabel text={"Already have an account?"} />
         <StyledAnchor to='/login'>Log in</StyledAnchor>

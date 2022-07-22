@@ -1,4 +1,4 @@
-let url = `https://assist-jully-2022-be1.azurewebsites.net/api`;
+const url = `https://assist-jully-2022-be1.azurewebsites.net/api`;
 
 const apiRequest = async (url = '', optionsObj = null, errMsg = null) => {
   try {
@@ -14,7 +14,6 @@ const apiRequest = async (url = '', optionsObj = null, errMsg = null) => {
 
 //ADD POST
 const addPost = async (item) => {
-  console.log(item);
   const postOptions = {
     method: 'POST',
     headers: {
