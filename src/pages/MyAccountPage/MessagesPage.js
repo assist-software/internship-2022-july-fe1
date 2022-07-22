@@ -28,11 +28,11 @@ const MessagesPage = () => {
   const user = (
     <MessageUserInfo
       profileImage={ProfileImage}
-      altImage="Profile image"
-      name="Jordan Henderson"
-      date="20.06"
-      houseName="Hogwarts School of Witchcraft and Wizardry."
-      label="Fantastic"
+      altImage='Profile image'
+      name='Jordan Henderson'
+      date='20.06'
+      houseName='Hogwarts School of Witchcraft and Wizardry.'
+      label='Fantastic'
     />
   );
 
@@ -49,14 +49,14 @@ const MessagesPage = () => {
   return (
     <MessagesContainer>
       {!existMessages && (
-        <div className="no-messages">
-          <img src={ChatBot} alt="Chatbot" className="noMessageImage" />
+        <div className='no-messages'>
+          <img src={ChatBot} alt='Chatbot' className='noMessageImage' />
           <StyledMyAccountTitle text={"You haven't sent any messages yet."} />
           <StyledInputLabel
             text={"This is where you'll find all of your chats and messages."}
           />
-          <div className="empty"></div>
-          <StyledPageButton text="Start exploring" color={true} />
+          <div className='empty'></div>
+          <StyledPageButton text='Start exploring' color={true} />
         </div>
       )}
       {existMessages && (
@@ -65,11 +65,11 @@ const MessagesPage = () => {
           <HeaderAndChatContainer>
             <ChatHeader>
               <MessageUserInfo
-                id="currentUser"
+                id='currentUser'
                 profileImage={HarryPotter}
-                altImage="Profile image"
-                houseName="Jordan Henderson"
-                label="Active 2 days ago"
+                altImage='Profile image'
+                houseName='Jordan Henderson'
+                label='Active 2 days ago'
                 stopStyle={true}
               />
               <Buttons>
@@ -78,13 +78,13 @@ const MessagesPage = () => {
               </Buttons>
             </ChatHeader>
             <ChatContent>
-              <div className="row">
-                <MessageInput type={"text"} placeholder="Message.." />
+              <div className='row'>
+                <MessageInput type={"text"} placeholder='Message..' />
                 <SendMessageButton>
                   <AiOutlineSend />
                 </SendMessageButton>
               </div>
-              <div className="messages">{messages}</div>
+              <div className='messages'>{messages}</div>
             </ChatContent>
           </HeaderAndChatContainer>
         </ChatContainer>

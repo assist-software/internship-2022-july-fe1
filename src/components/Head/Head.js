@@ -1,20 +1,24 @@
-import React from 'react';
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-import Offcanvas from 'react-bootstrap/Offcanvas';
-import Dropdown from 'react-bootstrap/Dropdown';
-import 'bootstrap/dist/css/bootstrap.css';
-import { FiHeart, FiUser, FiSearch } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import { MdOutlineSecurity, MdOutlineNotificationsNone, MdLogout } from 'react-icons/md';
-import { BiMessageDetail } from 'react-icons/bi';
-import logo from '../../assets/images/assistLogo.png';
+import React from "react";
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+import Offcanvas from "react-bootstrap/Offcanvas";
+import Dropdown from "react-bootstrap/Dropdown";
+import "bootstrap/dist/css/bootstrap.css";
+import { FiHeart, FiUser, FiSearch } from "react-icons/fi";
+import { Link } from "react-router-dom";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import {
+  MdOutlineSecurity,
+  MdOutlineNotificationsNone,
+  MdLogout,
+} from "react-icons/md";
+import { BiMessageDetail } from "react-icons/bi";
+import logo from "../../assets/images/assistLogo.png";
 
 import { useGlobalAuthContext } from '../../Context/authContext';
 
-const Header = () => {
+const Head = () => {
   const { logout } = useGlobalAuthContext()
 
   const handleLogOut = () => {
@@ -23,7 +27,7 @@ const Header = () => {
 
   return (
     <>
-      {['lg'].map((expand) => (
+      {["lg"].map((expand) => (
         <Navbar key={expand} expand={expand} className='mb-3 headerComponent'>
           <Container>
             <Navbar.Brand href='/'>
@@ -33,11 +37,15 @@ const Header = () => {
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
               aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
-              placement='end'>
+              placement='end'
+            >
               <Offcanvas.Header closeButton></Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className='justify-content-between'>
-                  <Dropdown className='dropDownBtn' id={`offcanvasNavbarDropdown-expand-${expand}`}>
+                  <Dropdown
+                    className='dropDownBtn'
+                    id={`offcanvasNavbarDropdown-expand-${expand}`}
+                  >
                     <Dropdown.Toggle variant='default'>
                       <span className='textCategory'>Category </span>
                     </Dropdown.Toggle>
@@ -48,7 +56,7 @@ const Header = () => {
                     </Dropdown.Menu>
                   </Dropdown>
                 </Nav>
-                <div id='inputSearchBar'>
+                <div id='inputSearchBar' className='justify-content-between'>
                   <input
                     type='text'
                     placeholder='Search'
@@ -61,7 +69,7 @@ const Header = () => {
                 <div>
                   <Button variant='outline' className='favouritesBtn'>
                     <FiHeart id='headerIcons'></FiHeart>
-                    <Link to={'/favourites'} className='colorText'>
+                    <Link to={"/favourites"} className='colorText'>
                       Favourites
                     </Link>
                   </Button>
@@ -70,9 +78,10 @@ const Header = () => {
                   <Dropdown
                     className='userBtn'
                     title='My account'
-                    id={`offcanvasNavbarDropdown-expand-${expand}`}>
+                    id={`offcanvasNavbarDropdown-expand-${expand}`}
+                  >
                     <Dropdown.Toggle variant='default'>
-                      <span className='colorText'>
+                      <span className='textMyAccount'>
                         <FiUser id='headerIcons' />
                         My account
                       </span>
@@ -113,4 +122,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Head;

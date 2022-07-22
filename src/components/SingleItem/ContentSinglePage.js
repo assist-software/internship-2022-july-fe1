@@ -33,10 +33,10 @@ const ContentSinglePage = () => {
   return (
     <div className='contentSinglePage'>
       <div className='infoLabel'>
-        <span>Dreamy Treehouse Above Park City</span>
-        <Button className='shareBtn' variant='light' onClick={() => share()}>
+        <span className='titleSpan'>Dreamy Treehouse Above Park City</span>
+        <Button className='shareBtn' variant='default' onClick={() => share()}>
           <FiShare2 className='iconShare' />
-          <span>Share</span>
+          Share
         </Button>
       </div>
       <span className='priceSpan'>123,456 lei</span>

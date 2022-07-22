@@ -4,14 +4,14 @@ import {
   StyledLoginForm,
   StyledBreakLine,
   StyledAnchor,
-} from './LoginPageElements';
-import StyledFormTitle from '../../components/FormTitle/FormTitle';
-import StyledFormLabel from '../../components/FormLabel/FormLabel';
-import StyledInputLabel from '../../components/InputLabel/InputLabel';
-import { StyledLoginFormInput } from '../../components/LoginFormInput';
-import StyledPasswordInput from '../../components/PasswordInput/PasswordInput';
-import StyledFormButton from '../../components/FormButton/FormButton';
-import StyledGoogleButton from '../../components/GoogleButton/GoogleButton';
+} from "./LoginPageElements";
+import StyledFormTitle from "../../components/FormTitle/FormTitle";
+import StyledFormLabel from "../../components/FormLabel/FormLabel";
+import StyledInputLabel from "../../components/InputLabel/InputLabel";
+import { StyledLoginFormInput } from "../../components/LoginFormInput";
+import StyledPasswordInput from "../../components/PasswordInput/PasswordInput";
+import StyledFormButton from "../../components/FormButton/FormButton";
+import StyledGoogleButton from "../../components/GoogleButton/GoogleButton";
 
 import { useGlobalAuthContext } from '../../Context/authContext';
 
@@ -35,7 +35,7 @@ const CreateAccountForm = () => {
     <StyledLoginForm>
       <StyledFormTitle text='Create account' />
       <StyledFormLabel text='Sign up for free and become a member.' />
-      <StyledGoogleButton text={'Sign up with Google'} />
+      <StyledGoogleButton text={"Sign up with Google"} />
       <StyledBreakLine>
         <hr />
         <p>OR</p>
@@ -59,7 +59,7 @@ const CreateAccountForm = () => {
       <StyledFormButton text='Sign Up' func={(e) => handleSingUp(e)} />
       {/* <button onClick={(e) => handleSingUp(e)}>Sign Up</button> */}
       <div className='inline'>
-        <StyledFormLabel text={'Already have an account?'} />
+        <StyledFormLabel text={"Already have an account?"} />
         <StyledAnchor to='/login'>Log in</StyledAnchor>
       </div>
     </StyledLoginForm>

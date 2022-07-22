@@ -194,12 +194,13 @@ export const MessageNotifications = styled.div`
   }
 
   @media (max-width: 768px) {
-    left: 85%;
+    display: none;
   }
 `;
 
 // Messages page
 export const MessagesContainer = styled.div`
+  margin-top: -50px;
   display: flex;
   width: 100%;
   height: 100%;
@@ -225,7 +226,6 @@ export const MessagesContainer = styled.div`
 
   .no-messages {
     width: 100%;
-    height: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -251,10 +251,19 @@ export const ReceivedMessagesContainer = styled.div`
   overflow-x: hidden;
   border: 1px solid #e4e7ec;
   border-radius: 24px 0 0 24px;
+
+  @media (max-width: 1500px) {
+    display: none;
+  }
 `;
 
 export const HeaderAndChatContainer = styled.div`
   width: 570px;
+
+  @media (max-width: 1500px) {
+    width: 100%;
+    height: 855px;
+  }
 `;
 
 export const ChatHeader = styled.div`
@@ -283,8 +292,8 @@ export const Buttons = styled.div`
 
 export const ChatContent = styled.div`
   width: 100%;
-
-  height: 695px;
+  height: 100%;
+  max-height: 695px;
   border-radius: 0 0 24px 0;
   display: flex;
   flex-direction: column-reverse;
@@ -303,7 +312,7 @@ export const ChatContent = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 20px;
+    padding: 10px 20px;
     margin-bottom: 5px;
   }
 `;
