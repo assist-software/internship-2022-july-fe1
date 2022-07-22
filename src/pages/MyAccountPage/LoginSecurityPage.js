@@ -18,7 +18,7 @@ const LoginSecurityPage = () => {
   // states
   const [accountPassword, setAccountPassword] = useState({
     currentPassword: { value: "", isOpened: false },
-    newPassword: { value: "Male", isOpened: false },
+    newPassword: { value: "", isOpened: false },
     confirmNewPassword: { value: "", isOpened: false },
   });
 

@@ -77,7 +77,7 @@ const ProfilePage = () => {
 
   //   //fetch data
   //   useEffect(() => {
-  //     const url = "https://api.adviceslip.com/advice";
+  //     const url = `https://assist-jully-2022-be1.azurewebsites.net/api/listing`;
 
   //     const fetchData = async () => {
   //       try {
@@ -91,6 +91,7 @@ const ProfilePage = () => {
 
   //     fetchData();
   // }, []);
+
   return (
     <ProfileContainer userData={userData}>
       {/* Full name */}
