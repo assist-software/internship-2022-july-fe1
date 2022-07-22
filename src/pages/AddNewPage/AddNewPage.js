@@ -68,16 +68,16 @@ const AddNewPage = () => {
       fetch(`https://assist-jully-2022-be1.azurewebsites.net/api/listing/${id}`)
         .then((getId) => getId.json())
         .then((data) => {
-          console.log(data);
-          setTitle(data.title);
-          setCategory(data.category);
-          setPrice(data.price);
-          setDescripton(data.description);
-          setLocation(data.location);
-          setPhone(data.phoneNumber ? data.phoneNumber : "");
-        });
-    }
-  }, [id]);
+          // console.log(data);
+          setTitle(data.title)
+          setCategory(data.category)
+          setPrice(data.price)
+          setDescripton(data.description)
+          setLocation(data.location)
+          setPhone(data.phoneNumber ? data.phoneNumber : '')
+        })
+    };
+  }, [id])
 
   const handleDesciptionChange = (e) => {
     setDescripton(e.target.value);
@@ -92,7 +92,7 @@ const AddNewPage = () => {
     let firstLetterUpperAndRestLower = e.target.value;
     setLocation(
       firstLetterUpperAndRestLower.charAt(0).toUpperCase() +
-        firstLetterUpperAndRestLower.slice(1).toLowerCase()
+      firstLetterUpperAndRestLower.slice(1).toLowerCase()
     );
   };
 
@@ -151,14 +151,6 @@ const AddNewPage = () => {
                 <div className='select-placeholder-text'>Select category</div>
               }
               defaultValue={{ label: "Big houses" }}
-            />
-            <StyledInputLabel text='Price' />
-            <StyledSmallFormInput
-              onKeyPress={(event) => {
-                if (!/[0-9]/.test(event.key)) {
-                  event.preventDefault();
-                }
-              }}
             />
             <StyledInputLabel text='Price' />
             <StyledSmallFormInput

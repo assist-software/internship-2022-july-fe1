@@ -12,7 +12,15 @@ import { MdOutlineSecurity, MdOutlineNotificationsNone, MdLogout } from 'react-i
 import { BiMessageDetail } from 'react-icons/bi';
 import logo from '../../assets/images/assistLogo.png';
 
-const Header = () => {
+import { useGlobalAuthContext } from '../../Context/authContext';
+
+const Head = () => {
+  const { logout } = useGlobalAuthContext();
+
+  const handleLogOut = () => {
+    logout();
+  };
+
   return (
     <>
       {['lg'].map((expand) => (
@@ -34,9 +42,9 @@ const Header = () => {
                       <span className='textCategory'>Category </span>
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
-                      <Dropdown.Item href='#'>Latest</Dropdown.Item>
-                      <Dropdown.Item href='#'>Big houses</Dropdown.Item>
-                      <Dropdown.Item href='#'>Small houses</Dropdown.Item>
+                      <Dropdown.Item href='/category/latest'>Latest</Dropdown.Item>
+                      <Dropdown.Item href='/category/Big'>Big houses</Dropdown.Item>
+                      <Dropdown.Item href='/category/Small'>Small houses</Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
                 </Nav>
@@ -69,25 +77,29 @@ const Header = () => {
                       </span>
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
-                      <h5 className='textMy'> Hello!</h5>
-                      <Dropdown.Item href='#' className='textMyAccount'>
+                      <h5> Hello!</h5>
+                      <Dropdown.Item className='textMyAccount'>
                         <FiUser className='myAccountIcons' />
-                        Profile
+
+                        <Link to={'/my-account/profile'}>Profile</Link>
                       </Dropdown.Item>
-                      <Dropdown.Item href='#' className='textMyAccount'>
+                      <Dropdown.Item href='/my-account/login&security' className='textMyAccount'>
                         <MdOutlineSecurity className='myAccountIcons' />
                         Login & security
                       </Dropdown.Item>
-                      <Dropdown.Item href='#' className='textMyAccount'>
+                      <Dropdown.Item href='/my-account/notifications' className='textMyAccount'>
                         <MdOutlineNotificationsNone className='myAccountIcons' />
                         Notifications
                       </Dropdown.Item>
-                      <Dropdown.Item href='#' className='textMyAccount'>
+                      <Dropdown.Item href='/my-account/messages' className='textMyAccount'>
                         <BiMessageDetail className='myAccountIcons' />
                         Messages
                       </Dropdown.Item>
                       <div className='emptyDiv'></div>
-                      <Dropdown.Item href='#' className='textMyAccount'>
+                      <Dropdown.Item
+                        href='/'
+                        onClick={() => handleLogOut()}
+                        className='textMyAccount'>
                         <MdLogout className='myAccountIcons' />
                         Logout
                       </Dropdown.Item>
@@ -103,4 +115,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Head;

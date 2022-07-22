@@ -1,17 +1,15 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
-
-import HomePage from './pages/Homepage/HomePage';
 import OnBoarding from './pages/OnBoarding/OnBoarding';
 import Profile from './pages/Profile/Profile';
 import ProtectedRoutes from './routes/ProtectedRoutes';
 import '../src/App.css';
 import AddNewPage from './pages/AddNewPage/AddNewPage';
 import MyAccountPage from './pages/MyAccountPage/MyAccountPage';
-import Header from './components/Header/header';
 import Galery from './pages/Galery/Galery';
 import React from 'react';
-import SingleItem from './components/SingleItem/SingleItem';
+import Home from './pages/Home/Home';
+import Head from './components/Head/Head';
 
 const GlobalStyle = createGlobalStyle`
   *{
@@ -29,18 +27,18 @@ function App() {
     <div className='App'>
       <BrowserRouter>
         <GlobalStyle />
-        <Header />
+        <Head />
         <Routes>
-          <Route path='/' element={<HomePage />} />
+          <Route path='/' element={<Home />} />
           <Route path='/category/:galeryname' element={<Galery />} />
           {/* ----------Protected Routed for authenticated user --------------- */}
           <Route element={<ProtectedRoutes />}>
-            <Route path='/favourites' element={<HomePage />} />
-            <Route path='/pending' element={<HomePage />} />
-            <Route path='/mylisting' element={<HomePage />} />
-            <Route path='/mylisting/add' element={<HomePage />} />
-            <Route path='/mylisting/:id' element={<SingleItem />} />
-            <Route path='/mylisting/edit' element={<HomePage />} />
+            <Route path='/favourites' element={<Home />} />
+            <Route path='/pending' element={<Home />} />
+            <Route path='/mylisting' element={<Home />} />
+            <Route path='/mylisting/add' element={<Home />} />
+            <Route path='/mylisting/:id' element={<Home />} />
+            <Route path='/mylisting/edit' element={<Home />} />
             <Route path='/myprofile/profile' element={<Profile />} />
             <Route path='/myprofile/loginsecurity' element={<Profile />} />
             <Route path='/myprofile/notification' element={<Profile />} />
