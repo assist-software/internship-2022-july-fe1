@@ -1,7 +1,12 @@
-import { Button } from './FormButtonStyle';
-import React from 'react';
-const StyledFormButton = ({ text }) => {
-  return <Button> {text} </Button>;
+import React from "react";
+import { Button } from "./FormButtonStyle";
+
+const StyledFormButton = ({ text, func }) => {
+  return (
+    <Button type={"button"} onClick={func}>
+      {text}
+    </Button>
+  );
 };
 
 export default StyledFormButton;

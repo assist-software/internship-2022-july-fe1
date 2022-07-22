@@ -46,12 +46,12 @@
 
 .wideCardContainer {
   display: flex;
-  max-height: 160px;
-  height: 160px;
-  padding: 12px;
+  /* height: 160px; */
+  padding: 12px 0;
   border: 1px solid #e4e7ec;
   border-radius: 12px;
   margin-bottom: 20px;
+  flex-direction: column;
 }
 
 .wideCardImg {
@@ -60,6 +60,7 @@
   height: 100%;
   border-radius: 6px;
   margin-right: 30px;
+  object-fit: cover;
 }
 
 .wideTitleContainer {
@@ -89,7 +90,7 @@
   align-self: flex-end;
 }
 .buttonContainer button {
-  margin-left: 30px;
+  margin: 12px 12px 0 0;
   border-radius: 10px;
   line-height: 14px;
   font-size: 14px;
@@ -111,4 +112,36 @@
 
 .wideFavoriteBtnPosition {
   margin-left: 13.5px;
+}
+
+
+.deleteButton, .editButton{
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22px;
+  background-color: white;
+  padding: 10px 20px;
+}
+.editButton {
+  color:  #0241AE;
+}
+.deleteButton{
+color: #DD1018;
+}
+.deleteButton:hover,.editButton:hover{
+  background-color: #F1F6FF;
+  color:  #0241AE;
+}
+
+.deleteButton:active,.editButton:active{
+  background-color: #b7d1fe;
+}
+
+.rowElements{
+  display: flex;
+  width: 100%;
+  height: 150px;
+  border-bottom: 1px solid #e4e7ec;
+  padding: 0 12px 12px 12px;
 }
