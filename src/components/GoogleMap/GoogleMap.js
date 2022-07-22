@@ -1,5 +1,6 @@
 import React from 'react';
 import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
+// import AutocompleteLocation from '../AutocompleteLocation/AutocompleteLocation';
 
 const containerStyle = {
   width: '713px',
@@ -7,8 +8,8 @@ const containerStyle = {
 };
 
 const center = {
-  lat: 47.640272,
-  lng: 26.259146,
+  lat: 47.6399436,
+  lng: 26.2593486,
 };
 
 function MyComponent() {
@@ -36,11 +37,10 @@ function MyComponent() {
       zoom={10}
       onLoad={onLoad}
       onUnmount={onUnmount}>
-      <> </> <Marker position={center} />
+      re <> </> <Marker position={center} />
     </GoogleMap>
   ) : (
     <> </>
   );
 }
-
 export default React.memo(MyComponent);

@@ -3,6 +3,7 @@ import '../../SingleItem/ContentSinglePage/ContentSinglePageStyle.css';
 import { FiShare2, FiHeart } from 'react-icons/fi';
 
 import GoogleMap from '../../GoogleMap/GoogleMap';
+// import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
 
 import { APIData } from '../../../api/APIData';
 import user1 from '../../../assets/images/user1.webp';
@@ -125,6 +126,9 @@ const ContentSinglePage = ({ id }) => {
           </Button>
         </div>
       </div>
+      {/* <div>
+        <GooglePlacesAutocomplete apiKey='AIzaSyB0C38O6O4IIHFaxHYhLZKF_Uv_0fvsJA4' />
+      </div> */}
     </div>
   );
 };
