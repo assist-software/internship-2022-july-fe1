@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { StyledAnchor, StyledLoginForm } from "./LoginPageElements";
 import StyledFormTitle from "../../components/FormTitle/FormTitle";
 import StyledFormLabel from "../../components/FormLabel/FormLabel";
@@ -10,7 +10,7 @@ import StyledFormButton from "../../components/FormButton/FormButton";
 import { useGlobalAuthContext } from "../../Context/authContext";
 
 const ForgotPasswordForm = () => {
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   const { resetPassword } = useGlobalAuthContext()
   const [email, setEmail] = useState("");
 
