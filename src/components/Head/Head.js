@@ -38,7 +38,7 @@ const Head = () => {
               <Offcanvas.Body>
                 <Nav className='justify-content-between'>
                   <Dropdown className='dropDownBtn' id={`offcanvasNavbarDropdown-expand-${expand}`}>
-                    <Dropdown.Toggle variant='default'>
+                    <Dropdown.Toggle variant='light'>
                       <span className='textCategory'>Category </span>
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
