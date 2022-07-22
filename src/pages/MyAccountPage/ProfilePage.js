@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import StyledInputLabel from "../../components/InputLabel/InputLabel";
 import { StyledLoginFormInput } from "../../components/LoginFormInput";
 import StyledPageButton from "../../components/PageButton/PageButton";
@@ -75,22 +75,22 @@ const ProfilePage = () => {
     setSelectedValue(e.label);
   };
 
-  //   //fetch data
-  //   useEffect(() => {
-  //     const url = `https://assist-jully-2022-be1.azurewebsites.net/api/listing`;
+  //fetch data
+  useEffect(() => {
+    const url = `https://assist-jully-2022-be1.azurewebsites.net/api/user`;
 
-  //     const fetchData = async () => {
-  //       try {
-  //         const response = await fetch(url);
-  //         const json = await response.json();
-  //         console.log(json);
-  //       } catch (error) {
-  //         console.log("error", error);
-  //       }
-  //     };
+    const fetchData = async () => {
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log(data);
+      } catch (error) {
+        console.log("error", error);
+      }
+    };
 
-  //     fetchData();
-  // }, []);
+    fetchData();
+  }, []);
 
   return (
     <ProfileContainer userData={userData}>

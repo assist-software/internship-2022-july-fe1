@@ -24,37 +24,15 @@ import { useGlobalAuthContext } from "../../Context/authContext";
 const MyAccountPage = ({ pageName }) => {
   const { getUserData } = useGlobalAuthContext();
   const location = useLocation();
-  const [userData, setUserData] = useState({})
-
-  // const [test, setTest] = useState()
+  const [userData, setUserData] = useState({});
 
   useEffect(() => {
-    setUserData(getUserData('id'))
-  }, [getUserData])
+    setUserData(getUserData("id"));
+  }, [getUserData]);
 
-  // const getUserDataApi = (id) => {
-  //   id = '3fa85f64-5717-4562-b3fc-2c963f66afa6';
-  //   const requestOptions = {
-  //     method: 'GET',
-  //     headers: { 'Content-Type': 'application/json' },
-  //   };
-  //   fetch(`https://assist-jully-2022-be1.azurewebsites.net/api/user/get/${id}`, requestOptions)
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //       return setTest(data);
-  //     });
-  // };
-
-  // useEffect(() => {
-  //   getUserDataApi('ceva')
-  // }, [])
-
-  // console.log(test);
   console.log(userData);
 
   return (
-
     <StyledPageContainer>
       {/* MessageNotifications */}
       <MessageNotifications>
@@ -68,42 +46,43 @@ const MyAccountPage = ({ pageName }) => {
           {/* Profile buttons */}
           <StyledProfileButton
             icon={<BiUser />}
-            text="Profile"
+            text='Profile'
             selected={
               location.pathname === "/my-account/profile" ? true : false
             }
-            pathname="/my-account/profile"
+            pathname='/my-account/profile'
+            // title={userData.title}
           />
           <StyledProfileButton
             icon={<MdSecurity />}
-            text="Login & security"
+            text='Login & security'
             selected={
               location.pathname === "/my-account/login&security" ? true : false
             }
-            pathname="/my-account/login&security"
+            pathname='/my-account/login&security'
           />
           <StyledProfileButton
             icon={<IoMdNotificationsOutline />}
-            text="Notifications"
+            text='Notifications'
             selected={
               location.pathname === "/my-account/notifications" ? true : false
             }
-            pathname="/my-account/notifications"
+            pathname='/my-account/notifications'
           />
           <StyledProfileButton
             icon={<BiMessageSquareDetail />}
-            text="Messages"
+            text='Messages'
             selected={
               location.pathname === "/my-account/messages" ? true : false
             }
-            pathname="/my-account/messages"
+            pathname='/my-account/messages'
           />
           <LineBreak />
           <StyledProfileButton
             icon={<MdOutlineLogout />}
-            text="Logout"
+            text='Logout'
             selected={false}
-            pathname="/login"
+            pathname='/login'
           />
         </StyledProfileMenu>
         {/* Profile page content */}

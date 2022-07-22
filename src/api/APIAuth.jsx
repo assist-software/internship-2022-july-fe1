@@ -47,18 +47,19 @@ const resetPass = (email) => {
 
 //GET ALL DATA OF USER
 const getUserDataApi = (id) => {
-  id = '3fa85f64-5717-4562-b3fc-2c963f66afa6';
-  const requestOptions = {
-    method: 'GET',
-    headers: { 'Content-Type': 'application/json' },
-  };
-  // fetch(`${url}/get/${id}`, requestOptions)
-  //   .then((res) => res.json())
-  //   .then((data) => {
-  //     console.log(data);
-  //     return data;
-  //   });
+//   id = '3fa85f64-5717-4562-b3fc-2c963f66afa6';
+//   const requestOptions = {
+//     method: 'GET',
+//     headers: { 'Content-Type': 'application/json' },
+//   };
+//   fetch(`${url}/get/${id}`, requestOptions)
+//     .then((res) => res.json())
+//     .then((data) => {
+//       console.log(data);
+//       return data;
+//     });
 };
+
 
 export const APIAuth = {
   register,
