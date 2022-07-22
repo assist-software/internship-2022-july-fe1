@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { StyledPageContainer } from "../AddNewPage/AddNewPageElements";
 import {
   LineBreak,
@@ -19,10 +19,21 @@ import { useLocation } from "react-router-dom";
 import UploadImage from "../../components/ProfileImage/UploadImage";
 import StyledMyAccountTitle from "../../components/MyAccountTitle/MyAccountTitle";
 
+import { useGlobalAuthContext } from "../../Context/authContext";
+
 const MyAccountPage = ({ pageName }) => {
+  const { getUserData } = useGlobalAuthContext();
   const location = useLocation();
+  const [userData, setUserData] = useState({})
+
+  useEffect(() => {
+    setUserData(getUserData('id'))
+  }, [])
+
+  console.log(userData);
 
   return (
+
     <StyledPageContainer>
       {/* MessageNotifications */}
       <MessageNotifications>

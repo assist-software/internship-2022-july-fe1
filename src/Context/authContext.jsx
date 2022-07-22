@@ -7,19 +7,27 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
-  const login = (user) => {
-    setUser(user);
-    localStorage.setItem('user', user);
-  };
+  //LOGOUT
   const logout = () => {
     setUser(null);
     localStorage.clear();
   };
-  const register = (email, pass) => {
-    setUser(email);
-    console.log(email);
-    APIAuth.register(email, pass);
+
+  //REGISTER AND LOGIN
+  const register = (email, pass, mode) => {
+    APIAuth.register(email, pass, mode);
   };
+
+  //RESET PASSWORD
+  const resetPassword = (email) => {
+    APIAuth.resetPass(email);
+  };
+
+  //GET ALL DATA OF USER
+  const getUserData = (id) => {
+    APIAuth.getUserDataApi(id);
+  };
+
   const token = () => {
     return localStorage.getItem('token');
   };
@@ -29,9 +37,10 @@ export const AuthProvider = ({ children }) => {
       value={{
         user,
         register,
-        login,
         logout,
         token,
+        resetPassword,
+        getUserData,
       }}
     >
       {children}

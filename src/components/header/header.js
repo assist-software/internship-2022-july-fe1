@@ -12,7 +12,15 @@ import { MdOutlineSecurity, MdOutlineNotificationsNone, MdLogout } from 'react-i
 import { BiMessageDetail } from 'react-icons/bi';
 import logo from '../../assets/images/assistLogo.png';
 
+import { useGlobalAuthContext } from '../../Context/authContext';
+
 const Header = () => {
+  const { logout } = useGlobalAuthContext()
+
+  const handleLogOut = () => {
+    logout()
+  }
+
   return (
     <>
       {['lg'].map((expand) => (
@@ -71,24 +79,25 @@ const Header = () => {
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
                       <h5> Hello!</h5>
-                      <Dropdown.Item href='#' className='textMyAccount'>
+                      <Dropdown.Item className='textMyAccount'>
                         <FiUser className='myAccountIcons' />
-                        Profile
+
+                        <Link to={'/my-account/profile'}>Profile</Link>
                       </Dropdown.Item>
-                      <Dropdown.Item href='#' className='textMyAccount'>
+                      <Dropdown.Item href='/my-account/login&security' className='textMyAccount'>
                         <MdOutlineSecurity className='myAccountIcons' />
                         Login & security
                       </Dropdown.Item>
-                      <Dropdown.Item href='#' className='textMyAccount'>
+                      <Dropdown.Item href='/my-account/notifications' className='textMyAccount'>
                         <MdOutlineNotificationsNone className='myAccountIcons' />
                         Notifications
                       </Dropdown.Item>
-                      <Dropdown.Item href='#' className='textMyAccount'>
+                      <Dropdown.Item href='/my-account/messages' className='textMyAccount'>
                         <BiMessageDetail className='myAccountIcons' />
                         Messages
                       </Dropdown.Item>
                       <div className='emptyDiv'></div>
-                      <Dropdown.Item href='#' className='textMyAccount'>
+                      <Dropdown.Item href='/' onClick={() => handleLogOut()} className='textMyAccount'>
                         <MdLogout className='myAccountIcons' />
                         Logout
                       </Dropdown.Item>

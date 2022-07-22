@@ -27,8 +27,8 @@ const CreateAccountForm = () => {
 
   const handleSingUp = (e) => {
     e.preventDefault()
-    register(email, password)
-    navigate('/my-account')
+    register(email, password, 'register');
+    navigate('/login')
   }
 
   return (
