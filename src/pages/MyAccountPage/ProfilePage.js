@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 import StyledInputLabel from "../../components/InputLabel/InputLabel";
 import { StyledLoginFormInput } from "../../components/LoginFormInput";
 import StyledPageButton from "../../components/PageButton/PageButton";
@@ -11,14 +11,17 @@ import {
 } from "./MyAccountPageElements";
 import Select from "react-select";
 import React from "react";
+import { useGlobalAuthContext } from "../../Context/authContext";
 
 const ProfilePage = () => {
+  const { userDataContext } = useGlobalAuthContext();
+  console.table(userDataContext);
   // states
   const [userData, setUserData] = useState({
     name: { value: { firstName: "Test", lastName: "Test" }, isOpened: false },
     gender: { value: "Male", isOpened: false },
     dateOfBirth: { value: "2022-07-15", isOpened: false },
-    email: { value: "test", isOpened: false },
+    email: { value: "", isOpened: false },
     phoneNumber: { value: "0000000000", isOpened: false },
     address: { value: "test", isOpened: false },
   });
@@ -43,6 +46,7 @@ const ProfilePage = () => {
         break;
       case "email":
         emailRef.current.value = newUserData[property].value;
+        console.log("EMAILREF:" + emailRef.current.value);
         break;
       case "dateOfBirth":
         dateOfBirthRef.current.value = newUserData[property].value;
@@ -74,23 +78,6 @@ const ProfilePage = () => {
   const handleGenderChange = (e) => {
     setSelectedValue(e.label);
   };
-
-  //fetch data
-  useEffect(() => {
-    const url = `https://assist-jully-2022-be1.azurewebsites.net/api/user`;
-
-    const fetchData = async () => {
-      try {
-        const response = await fetch(url);
-        const data = await response.json();
-        console.log(data);
-      } catch (error) {
-        console.log("error", error);
-      }
-    };
-
-    fetchData();
-  }, []);
 
   return (
     <ProfileContainer userData={userData}>
@@ -208,6 +195,7 @@ const ProfilePage = () => {
         </StyledColumnDiv>
         <StyledText className='emailVisibility'>
           {userData.email.value}
+          {/* {userDataContext.email} */}
         </StyledText>
         <LineBreak />
       </div>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const StyledMainContainer = styled.div`
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   display: flex;
 `;
 export const StyledLeftSide = styled.div`

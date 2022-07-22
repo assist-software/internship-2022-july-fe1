@@ -44,8 +44,6 @@ export const AppProvider = ({ children }) => {
     fetchData(requestOption);
   }, [fetchData, requestOption]);
 
-  console.log('in context');
-
   const state = initialState;
 
   //BRINGS VALUE TO THE SINGLE PROPS ITEM FROM ALL OBJECTS

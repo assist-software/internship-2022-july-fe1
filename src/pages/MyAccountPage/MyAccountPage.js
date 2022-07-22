@@ -28,9 +28,13 @@ const MyAccountPage = ({ pageName }) => {
 
   useEffect(() => {
     setUserData(getUserData("id"));
-  }, [getUserData]);
+  }, []);
 
   console.log(userData);
+
+  useEffect(() => {
+    getUserData();
+  }, []);
 
   return (
     <StyledPageContainer>

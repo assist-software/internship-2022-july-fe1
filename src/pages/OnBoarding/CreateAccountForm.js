@@ -57,7 +57,6 @@ const CreateAccountForm = () => {
       />
       <p>At least 8 characters and one number.</p>
       <StyledFormButton text='Sign Up' func={(e) => handleSingUp(e)} />
-      {/* <button onClick={(e) => handleSingUp(e)}>Sign Up</button> */}
       <div className='inline'>
         <StyledFormLabel text={"Already have an account?"} />
         <StyledAnchor to='/login'>Log in</StyledAnchor>
