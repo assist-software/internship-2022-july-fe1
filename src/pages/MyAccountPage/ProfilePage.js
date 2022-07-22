@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import StyledInputLabel from "../../components/InputLabel/InputLabel";
 import { StyledLoginFormInput } from "../../components/LoginFormInput";
 import StyledPageButton from "../../components/PageButton/PageButton";
@@ -16,15 +16,36 @@ import { useGlobalAuthContext } from "../../Context/authContext";
 const ProfilePage = () => {
   const { userDataContext } = useGlobalAuthContext();
   console.table(userDataContext);
+
+  console.log(userDataContext.email);
   // states
   const [userData, setUserData] = useState({
-    name: { value: { firstName: "Test", lastName: "Test" }, isOpened: false },
-    gender: { value: "Male", isOpened: false },
-    dateOfBirth: { value: "2022-07-15", isOpened: false },
+    name: { value: { firstName: "", lastName: "" }, isOpened: false },
+    gender: { value: "", isOpened: false },
+    dateOfBirth: { value: "", isOpened: false },
     email: { value: "", isOpened: false },
-    phoneNumber: { value: "0000000000", isOpened: false },
-    address: { value: "test", isOpened: false },
+    phoneNumber: { value: "", isOpened: false },
+    address: { value: "", isOpened: false },
   });
+
+  useEffect(() => {
+    let userGender = userDataContext.gender === 0 ? "Male" : "Female";
+    let date = userDataContext.dateOfBirth;
+    setUserData({
+      name: {
+        value: {
+          firstName: userDataContext.fullName,
+          lastName: userDataContext.fullName,
+        },
+        isOpened: false,
+      },
+      gender: { value: userGender, isOpened: false },
+      dateOfBirth: { value: date, isOpened: false },
+      email: { value: userDataContext.email, isOpened: false },
+      phoneNumber: { value: userDataContext.phoneNumber, isOpened: false },
+      address: { value: userDataContext.address, isOpened: false },
+    });
+  }, [userDataContext]);
 
   // refs
   const firstNameRef = useRef();
