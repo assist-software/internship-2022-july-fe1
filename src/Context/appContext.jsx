@@ -1,10 +1,4 @@
-import React, {
-  useContext,
-  createContext,
-  useState,
-  useEffect,
-  useCallback,
-} from 'react';
+import React, { useContext, createContext, useState, useEffect, useCallback } from 'react';
 
 import { APIData } from '../api/APIData';
 
@@ -44,7 +38,7 @@ export const AppProvider = ({ children }) => {
     fetchData(requestOption);
   }, [fetchData, requestOption]);
 
-  console.log('in context');
+  console.log('in context', initialState);
 
   const state = initialState;
 
@@ -57,9 +51,7 @@ export const AppProvider = ({ children }) => {
         if (cloneInitalState[i].hasOwnProperty(element)) {
           tempData.push(cloneInitalState[i][`${element}`]);
         } else {
-          throw Error(
-            "Please don't be a thief :)) and choose an item that exists :))"
-          );
+          throw Error("Please don't be a thief :)) and choose an item that exists :))");
         }
       }
       return tempData;
@@ -81,8 +73,7 @@ export const AppProvider = ({ children }) => {
         singleElement,
         fetchData,
         requestOption,
-      }}
-    >
+      }}>
       {children}
     </AppContext.Provider>
   );

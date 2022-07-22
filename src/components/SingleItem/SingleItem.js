@@ -1,6 +1,6 @@
 import React from 'react';
-import ImageGallery from '../SingleItem/ImageGallery';
-import ContentSinglePage from './ContentSinglePage';
+import ImageGallery from '../SingleItem/ImageGallery/ImageGallery';
+import ContentSinglePage from '../SingleItem/ContentSinglePage/ContentSinglePage';
 
 const SingleItem = () => {
   return (
