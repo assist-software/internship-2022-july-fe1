@@ -24,6 +24,8 @@ const ProfilePage = () => {
   });
 
   // refs
+  const nameRef = useRef();
+  const genderRef = useRef();
   const firstNameRef = useRef();
   const lastNameRef = useRef();
   const dateOfBirthRef = useRef(null);

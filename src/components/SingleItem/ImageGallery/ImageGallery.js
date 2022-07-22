@@ -1,13 +1,12 @@
 import React from 'react';
-import house1 from '../../assets/images/house1.jpg';
-import '../SingleItem/SingleItem.css';
-import Button from 'react-bootstrap/esm/Button';
+import { useState } from 'react';
+
 import { BsGrid3X3GapFill } from 'react-icons/bs';
 import Modal from 'react-bootstrap/Modal';
 import { FiShare2, FiHeart } from 'react-icons/fi';
+import '../ImageGallery/ImageGalleryStyle.css';
 
-import { useState } from 'react';
-
+import house1 from '../../../assets/images/house1.jpg';
 const ImageGallery = () => {
   const [modalShow, setModalShow] = useState(false);
   const [fullscreen] = useState(true);
@@ -28,10 +27,10 @@ const ImageGallery = () => {
         <img src={house1} alt='Second gallery photos' className='secondPhotoGallery2' />
         <img src={house1} alt='Second gallery photos' className='secondPhotoGallery' />
         <img src={house1} alt='Second gallery photos' className='secondPhotoGallery4' />
-        <Button className='showAllPhotosBtn' variant='default' onClick={() => setModalShow(true)}>
-          <BsGrid3X3GapFill className='iconBtn' />
-          Show all photos
-        </Button>
+        <button className='showAllPhotosBtn' onClick={() => setModalShow(true)}>
+          <BsGrid3X3GapFill className='iconShowAllPhotos' />
+          <span className='showTextBtn'>Show all photos</span>
+        </button>
       </div>
       <Modal
         fullscreen={fullscreen}
@@ -39,15 +38,17 @@ const ImageGallery = () => {
         onHide={() => setModalShow(false)}
         aria-labelledby='example-modal-sizes-title-lg'>
         <Modal.Header closeButton>
-          <Modal.Title id='example-modal-sizes-title-lg' className='modalTitle'>
-            <Button className='shareBtn' variant='light' onClick={() => share()}>
-              <FiShare2 className='iconShare' />
-              Share
-            </Button>
-            <Button className='shareBtnModal' variant='light' onClick={() => favourite()}>
-              <FiHeart className='iconHeart' />
-              Save
-            </Button>
+          <Modal.Title id='example-modal-sizes-title-lg'>
+            <div className='modalButtons'>
+              <button className='shareBtnModal' onClick={() => share()}>
+                <FiShare2 className='iconShare' />
+                <span className='shareTextBtn'> Share</span>
+              </button>
+              <button className='shareBtnModal' onClick={() => favourite()}>
+                <FiHeart className='iconHeart' />
+                <span className='saveTextBtn'>Save</span>
+              </button>
+            </div>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body className='container modalGallery'>

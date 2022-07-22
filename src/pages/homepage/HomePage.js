@@ -1,11 +1,16 @@
-// import CarouselCards from "../../components/CarouselCards/CarouselCards";
-import Galery from '../Galery/Galery';
+import SingleItem from '../../components/SingleItem/SingleItem';
+
 import React from 'react';
+// import ContentContainer from '../../components/ContentContainer/ContentContainer';
+
 const HomePage = () => {
   return (
-    <>
-      <Galery />
-    </>
+    <div>
+      <SingleItem />
+      {/* <ContentContainer /> */}
+    </div>
+    // when test uncomment
+    // <Card onClick={() => console.log('tste')} isFavorite={true} />
   );
 };
 export default HomePage;

@@ -35,9 +35,7 @@ function MyComponent() {
       center={center}
       zoom={10}
       onLoad={onLoad}
-      onUnmount={onUnmount}
-      //   defaultZoom={15}
-    >
+      onUnmount={onUnmount}>
       <> </> <Marker position={center} />
     </GoogleMap>
   ) : (
