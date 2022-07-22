@@ -6,6 +6,7 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [userData, setUserData] = useState({});
 
   //LOGOUT
   const logout = () => {
@@ -20,12 +21,32 @@ export const AuthProvider = ({ children }) => {
 
   //RESET PASSWORD
   const resetPassword = (email) => {
+    console.log(APIAuth.resetPass(email));
     APIAuth.resetPass(email);
   };
 
   //GET ALL DATA OF USER
-  const getUserData = (id) => {
-    APIAuth.getUserDataApi(id);
+  // const getUserData = () => {
+  //   const x = APIAuth.getUserDataApi();
+  //   console.log('in authContext', x);
+  // };
+
+  const getUserData = () => {
+    const requestOptions = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    };
+    fetch(
+      `${APIAuth.url}/get/${localStorage.getItem('userId')}`,
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        return setUserData(data);
+      });
   };
 
   const token = () => {
@@ -41,6 +62,7 @@ export const AuthProvider = ({ children }) => {
         token,
         resetPassword,
         getUserData,
+        userData,
       }}
     >
       {children}

@@ -20,7 +20,6 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 600;
   }
 `;
-console.log("asd");
 
 function App() {
   return (

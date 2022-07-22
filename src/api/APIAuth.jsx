@@ -21,6 +21,7 @@ const register = (email, pass, mode) => {
         console.log('data TRUE', data.token);
         localStorage.setItem('token', data.token);
         localStorage.setItem('email', email);
+        localStorage.setItem('userId', data.userId);
         console.log('token', data);
         return data;
       } else {
@@ -45,23 +46,28 @@ const resetPass = (email) => {
   ).then((response) => response.json());
 };
 
-//GET ALL DATA OF USER
-const getUserDataApi = (id) => {
-  id = '3fa85f64-5717-4562-b3fc-2c963f66afa6';
-  const requestOptions = {
-    method: 'GET',
-    headers: { 'Content-Type': 'application/json' },
-  };
-  fetch(`${url}/get/${id}`, requestOptions)
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-      return data;
-    });
-};
+// GET ALL DATA OF USER
+// const getUserDataApi = () => {
+//   const requestOptions = {
+//     headers: {
+//       'Content-Type': 'application/json',
+//       Authorization: `Bearer ${localStorage.getItem('token')}`,
+//     },
+//   };
+//   fetch(`${url}/get/${localStorage.getItem('userId')}`, requestOptions)
+//     .then((response) => response.json())
+//     .then((data) => {
+//       console.log('in API', data);
+//       userData = data;
+//       console.log('in fetch userData', userData);
+//       return;
+//     });
+// };
 
 export const APIAuth = {
   register,
   resetPass,
-  getUserDataApi,
+  // getUserDataApi,
+  // userData,
+  url,
 };

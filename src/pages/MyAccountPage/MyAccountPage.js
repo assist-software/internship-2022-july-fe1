@@ -20,38 +20,17 @@ import UploadImage from "../../components/ProfileImage/UploadImage";
 import StyledMyAccountTitle from "../../components/MyAccountTitle/MyAccountTitle";
 
 import { useGlobalAuthContext } from "../../Context/authContext";
+import { APIAuth } from "../../api/APIAuth";
 
 const MyAccountPage = ({ pageName }) => {
-  const { getUserData } = useGlobalAuthContext();
+  const { getUserData, userData } = useGlobalAuthContext();
   const location = useLocation();
-  const [userData, setUserData] = useState({})
-
-  // const [test, setTest] = useState()
 
   useEffect(() => {
-    setUserData(getUserData('id'))
-  }, [getUserData])
+    getUserData()
+  }, [])
 
-  // const getUserDataApi = (id) => {
-  //   id = '3fa85f64-5717-4562-b3fc-2c963f66afa6';
-  //   const requestOptions = {
-  //     method: 'GET',
-  //     headers: { 'Content-Type': 'application/json' },
-  //   };
-  //   fetch(`https://assist-jully-2022-be1.azurewebsites.net/api/user/get/${id}`, requestOptions)
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //       return setTest(data);
-  //     });
-  // };
 
-  // useEffect(() => {
-  //   getUserDataApi('ceva')
-  // }, [])
-
-  // console.log(test);
-  console.log(userData);
 
   return (
 
