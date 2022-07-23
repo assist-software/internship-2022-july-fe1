@@ -48,6 +48,12 @@ export const AuthProvider = ({ children }) => {
       });
   };
 
+
+  //USER EDIT DATA
+  const editUserData = (newUserData) =>{
+    APIAuth.editUserDataApi(newUserData)
+  }
+
   const token = () => {
     return localStorage.getItem('token');
   };
@@ -62,6 +68,8 @@ export const AuthProvider = ({ children }) => {
         resetPassword,
         getUserData,
         userDataContext,
+        setUserDataContext,
+        editUserData,
       }}
     >
       {children}
