@@ -40,7 +40,9 @@ export const AuthProvider = ({ children }) => {
     fetch(
       `${APIAuth.url}/get/${localStorage.getItem('userId')}`,
       requestOptions
-    ).then((response) => response.json()).then((data) => {
+    )
+      .then((response) => response.json())
+      .then((data) => {
         console.log(data);
         return setUserDataContext(data);
       });
