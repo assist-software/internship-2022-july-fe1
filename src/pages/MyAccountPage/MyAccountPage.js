@@ -23,7 +23,7 @@ import { useGlobalAuthContext } from "../../Context/authContext";
 import { APIAuth } from "../../api/APIAuth";
 
 const MyAccountPage = ({ pageName }) => {
-  const { getUserData, userData } = useGlobalAuthContext();
+  const { getUserData, userDataContext } = useGlobalAuthContext();
   const location = useLocation();
 
   useEffect(() => {

@@ -8,7 +8,7 @@ const StyledTextarea = ({ value, onchange }) => {
   //   // setDescription(e.target.value);
   // };
 
-  console.log("setText", setText);
+  // console.log("setText", setText);
   const remaining = `${text.length}/${MIN_CHARS} mandatory characters`;
   return (
     <div>

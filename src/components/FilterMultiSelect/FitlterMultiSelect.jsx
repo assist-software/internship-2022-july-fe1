@@ -12,7 +12,7 @@ const FitlterMultiSelect = (props) => {
 
   const [locations, setLocations] = useState(state);
 
-  // console.log('state', state);
+  console.log('state', state);
   // console.log('locations', locations);
 
   const handleLocationClick = (locationIndex, loc) => {
@@ -42,7 +42,8 @@ const FitlterMultiSelect = (props) => {
         </Dropdown.Toggle>
         <Dropdown.Menu className="shadow-none">
           <Dropdown.ItemText className={styles.name}>{name}</Dropdown.ItemText>
-          {locations.map((locatio, index) => {
+          {locations?.map((locatio, index) => {
+            console.log('locatio', locatio);
             if (!chekingIfLocationExist.includes(locatio.location)) {
               chekingIfLocationExist.push(locatio.location);
               return (

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Offcanvas from "react-bootstrap/Offcanvas";
@@ -20,6 +20,11 @@ import { useGlobalAuthContext } from '../../Context/authContext';
 
 const Head = () => {
   const { logout } = useGlobalAuthContext()
+  const [isUserLogin, setIsUserLogin] = useState(false)
+
+  useEffect(() => {
+    { localStorage.getItem('email') ? setIsUserLogin(true) : setIsUserLogin(false) }
+  }, [])
 
   const handleLogOut = () => {
     logout()
@@ -117,7 +122,8 @@ const Head = () => {
             </Navbar.Offcanvas>
           </Container>
         </Navbar>
-      ))}
+      ))
+      }
     </>
   );
 };

@@ -6,10 +6,11 @@ import FitlterMultiSelect from '../FilterMultiSelect/FitlterMultiSelect';
 import FilterSingleselect from '../FilterSingleSelect/FilterSingleSelect';
 import FilterOrderSelect from '../FilterOrderSelect/FilterOrderSelect';
 
-// import { useGlobalContext } from '../../Context/appContext' ;
+import { useGlobalContext } from '../../Context/appContext';
 
 const Filter = ({ location, price, order }) => {
-  // const { currentPageForContext, requestOption } = useGlobalContext;
+  const { currentPageForContext, requestOption, setRequestOption } =
+    useGlobalContext;
 
   //ALL FILTER STATE
   const [locationFIlter, setLocationFilter] = useState([]);
@@ -18,15 +19,21 @@ const Filter = ({ location, price, order }) => {
 
   const handleLocationFilter = (location) => {
     setLocationFilter(location);
+    // setRequestOption({...requestOption, locations: })
   };
-  const handlePriceFilter = (price) => {
-    setPriceFilter(price);
+  const handlePriceFilter = (priceFromFilter) => {
+    setPriceFilter(priceFromFilter);
+    const temData = { ...requestOption, price: priceFromFilter };
+
+    // setRequestOption(temData);
   };
   const handleOrderFilter = (order) => {
     setOrderFIlter(order);
   };
 
-  useEffect(() => {}, [locationFIlter, priceFIlter, orderFilter]);
+  useEffect(() => {
+    console.log('ceva se inschimba', locationFIlter, priceFIlter, orderFilter);
+  }, [locationFIlter, priceFIlter, orderFilter]);
 
   return (
     <div>

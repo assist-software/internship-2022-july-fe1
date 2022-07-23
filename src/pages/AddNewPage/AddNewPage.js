@@ -99,6 +99,8 @@ const AddNewPage = () => {
   const handleCreateNew = (e) => {
     e.preventDefault();
 
+
+
     let item = {
       title: title,
       description: description,
@@ -107,7 +109,7 @@ const AddNewPage = () => {
       category: category,
       authorId: "A5BF21BA-E26B-49E5-C17A-08DA688B8AC2",
       featured: true,
-      images: files,
+      images: '',
       phoneNumber: phone,
     };
 

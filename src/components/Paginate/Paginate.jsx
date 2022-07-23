@@ -11,18 +11,14 @@ import {
 import { useGlobalContext } from '../../Context/appContext';
 
 const Paginate = () => {
-  const { setCurrentPageForContext } = useGlobalContext();
+  const { setCurrentPage } = useGlobalContext();
   // const [items, setItems] = useState(state);
-  const [pageCount, setPageCount] = useState(1);
+  // const [pageCount, setPageCount] = useState(1);
   // const cardsLimitOnThePage = 12;
 
   // setPageCount(1);
   // const urlAssit = `https://assist-jully-2022-be1.azurewebsites.net/api/listing/`;
   // const urlExterior = `https://jsonplaceholder.typicode.com/comments?_page=$1&_limit=${cardsLimitOnThePage}`;
-
-  useEffect(() => {
-    setPageCount(1);
-  }, []);
 
   // useEffect(() => {
   //   setPageCount(0);
@@ -51,10 +47,10 @@ const Paginate = () => {
   //   return data;
   // };
 
-  const handlePageClick = async (data) => {
-    // console.log(data.selected);
+  const handlePageClick = (data) => {
     let currentPage = data.selected + 1;
-    setCurrentPageForContext(currentPage);
+    console.log('page cliked', currentPage);
+    setCurrentPage(currentPage);
     // const cardsFromServer = await fetchCards(currentPage);
     // setItems(cardsFromServer);
   };
@@ -105,7 +101,8 @@ const Paginate = () => {
         previousLabel={<MdOutlineKeyboardArrowLeft />}
         nextLabel={<MdOutlineKeyboardArrowRight />}
         breakLabel={'...'}
-        pageCount={pageCount}
+        // pageCount={pageCount}
+        pageCount={12}
         marginPagesDisplayed={1}
         pageRangeDisplayed={3}
         onPageChange={handlePageClick}

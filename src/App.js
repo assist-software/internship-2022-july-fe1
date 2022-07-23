@@ -21,6 +21,8 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+
+
 function App() {
   return (
     <div className='App'>
@@ -31,8 +33,8 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/category/:galeryname' element={<Galery />} />
           {/* ----------Protected Routed for authenticated user --------------- */}
+          <Route path='/favourites' element={<Galery path={'favourites'} />} />
           <Route element={<ProtectedRoutes />}>
-            <Route path='/favourites' element={<Home />} />
             <Route path='/pending' element={<Home />} />
             <Route path='/mylisting' element={<Home />} />
             <Route path='/mylisting/add' element={<Home />} />

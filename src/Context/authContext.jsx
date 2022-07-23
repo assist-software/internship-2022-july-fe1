@@ -6,7 +6,7 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [userData, setUserData] = useState({});
+  const [userDataContext, setUserDataContext] = useState({});
 
   //LOGOUT
   const logout = () => {
@@ -26,11 +26,6 @@ export const AuthProvider = ({ children }) => {
   };
 
   //GET ALL DATA OF USER
-  // const getUserData = () => {
-  //   const x = APIAuth.getUserDataApi();
-  //   console.log('in authContext', x);
-  // };
-
   const getUserData = () => {
     const requestOptions = {
       headers: {
@@ -45,7 +40,7 @@ export const AuthProvider = ({ children }) => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        return setUserData(data);
+        return setUserDataContext(data);
       });
   };
 
@@ -62,7 +57,7 @@ export const AuthProvider = ({ children }) => {
         token,
         resetPassword,
         getUserData,
-        userData,
+        userDataContext,
       }}
     >
       {children}
