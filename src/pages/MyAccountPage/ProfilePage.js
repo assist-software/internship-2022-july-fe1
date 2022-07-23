@@ -14,8 +14,8 @@ import React from "react";
 import { useGlobalAuthContext } from "../../Context/authContext";
 
 const ProfilePage = () => {
-  const { userDataContext } = useGlobalAuthContext();
-  console.table(userDataContext);
+  const { userDataContext, editUserData } = useGlobalAuthContext();
+  console.log(userDataContext);
 
   console.log(userDataContext.email);
   // states
@@ -31,11 +31,19 @@ const ProfilePage = () => {
   useEffect(() => {
     let userGender = userDataContext.gender === 0 ? "Male" : "Female";
     let date = userDataContext.dateOfBirth;
+    let first_name = "";
+    let last_name = "";
+    if (typeof userDataContext.fullName !== "undefined") {
+      let fullName = userDataContext.fullName.split(" ");
+      first_name = fullName[0];
+      if (typeof fullName[1] !== "undefined") last_name = fullName[1];
+    }
+
     setUserData({
       name: {
         value: {
-          firstName: userDataContext.fullName,
-          lastName: userDataContext.fullName,
+          firstName: first_name,
+          lastName: last_name,
         },
         isOpened: false,
       },
@@ -91,6 +99,19 @@ const ProfilePage = () => {
       newUserData[property].value.lastName = fullName[1];
     } else newUserData[property].value = value;
     setUserData(newUserData);
+
+    const tempUserData = {
+      ...userDataContext,
+      fullName:
+        userData.name.value.firstName + " " + userData.name.value.lastName,
+      gender: userData.gender.value,
+      dateOfBirth: userData.dateOfBirth.value,
+      email: userData.email.value,
+      phone: userData.phoneNumber.value,
+      address: userData.address.value,
+    };
+
+    editUserData(tempUserData);
   };
 
   const [selectedValue, setSelectedValue] = useState(userData.gender.value);
@@ -130,6 +151,11 @@ const ProfilePage = () => {
                 firstNameRef.current.value + "%" + lastNameRef.current.value
               );
               handleEditButtonClick("name");
+              console.log(
+                userData.name.value.firstName +
+                  " " +
+                  userData.name.value.lastName
+              );
             }}
           />
         </StyledColumnDiv>

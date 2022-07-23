@@ -46,10 +46,43 @@ const resetPass = (email) => {
   ).then((response) => response.json());
 };
 
+//EDIT USER DATA
+const editUserDataApi = (newUserData) => { 
+
+  const tempUserData = {
+    id:newUserData.id,
+    fullName: newUserData.fullName,
+    email: newUserData.email,
+    phone: newUserData.phone,
+    role: newUserData.role,
+    gender : newUserData.gender,
+    photo: newUserData.photo,
+    dateOfBirth: newUserData.dateOfBirth,
+    address : newUserData.address,
+    isActive: newUserData.isActive,
+  }
+
+  const requestOptions = {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json',
+    Authorization: `Bearer ${localStorage.getItem('token')}`, },
+    body: JSON.stringify(tempUserData),
+  }
+
+  fetch(url,
+    requestOptions
+  ).then((response) => response.json())
+  .then((data)=>console.log(data))
+ 
+  
+};
+
+
 export const APIAuth = {
   register,
   resetPass,
   // getUserDataApi,
   // userData,
   url,
+  editUserDataApi,
 };
