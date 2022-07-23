@@ -20,6 +20,7 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 600;
   }
 `;
+console.log("asd");
 
 function App() {
   return (
@@ -43,9 +44,7 @@ function App() {
             <Route path='/myprofile/notification' element={<Profile />} />
             <Route path='/myprofile/message' element={<Profile />} />
           </Route>
-
-          <Route path="/login" element={<OnBoarding pageName="logIn" />} />
-
+          <Route path='/login' element={<OnBoarding pageName='logIn' />} />
           <Route
             path='/sign-up'
             element={<OnBoarding pageName='createAccount' />}

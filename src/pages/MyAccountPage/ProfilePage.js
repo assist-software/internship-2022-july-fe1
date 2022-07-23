@@ -151,7 +151,7 @@ const ProfilePage = () => {
             options={options}
             styles={customStyles}
             placeholder={
-              <div className='select-placeholder-text'>Select gender</div>
+              <div className='select-placeholder-text'> Select gender </div>
             }
             onChange={handleGenderChange}
             defaultValue={{ label: selectedValue }}
@@ -275,7 +275,7 @@ const ProfilePage = () => {
           {userData.address.value}
         </StyledText>
         <LineBreak />
-      </div>{" "}
+      </div>
     </ProfileContainer>
   );
 };

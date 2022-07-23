@@ -22,7 +22,11 @@
         border-radius: 8px 0px 0px 8px;
         border-right: 0px;
         text-align: center;
+        background-color: #fff;
     }
+    /* .dropDownBtn:hover {
+        outline: none;
+    } */
     
     .textCategory {
         text-decoration: none;
@@ -32,6 +36,15 @@
         font-size: 16px;
         line-height: 22px;
         color: #0241AE;
+        border: 0px;
+    }
+    
+    .myAccountIcons {
+        margin-right: 10px;
+        margin-bottom: 4px;
+        width: 16px;
+        height: 16px;
+        color: #0356E8;
     }
     
     span.textMyAccount {
@@ -93,6 +106,8 @@
     .favouritesBtn {
         width: 150px;
         height: 44px;
+        border: 0px;
+        background-color: #fff;
     }
     
     .userBtn {
@@ -208,4 +223,51 @@
     .carousel {
         display: flex;
         justify-content: space-between;
+    }
+    
+    .textMy {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+        margin-left: 10px;
+    }
+    
+    .offcanvas-body {
+        flex-grow: 1;
+        padding: 13.8rem 1rem;
+        overflow-y: auto;
+        height: 100%;
+    }
+    /* .myAccountIcons {
+        margin-right: 10px;
+        margin-bottom: 4px;
+        width: 16px;
+        height: 16px;
+        color: #0356E8;
+    } */
+    
+    .textMyAccount {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 22px;
+        color: #596274;
+    }
+    
+    .emptyDiv {
+        height: 1px;
+        width: 100%;
+        border-bottom: 1px solid #cececf;
+    }
+    
+    h5 {
+        margin-left: 14px;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 24px;
+        color: #1C1C1E;
+        width: 46px;
+        height: 24px;
     }

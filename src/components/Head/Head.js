@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
+// import Button from 'react-bootstrap/Button';
 import Container from "react-bootstrap/Container";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Dropdown from "react-bootstrap/Dropdown";
@@ -46,7 +46,7 @@ const Head = () => {
                     className='dropDownBtn'
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
                   >
-                    <Dropdown.Toggle variant='default'>
+                    <Dropdown.Toggle variant='light'>
                       <span className='textCategory'>Category </span>
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
@@ -69,16 +69,15 @@ const Head = () => {
                     className='searchInput'
                     aria-label='Search'
                   />
-
                   <FiSearch className='searchIcon'></FiSearch>
                 </div>
                 <div>
-                  <Button variant='outline' className='favouritesBtn'>
+                  <button className='favouritesBtn'>
                     <FiHeart id='headerIcons'></FiHeart>
                     <Link to={"/favourites"} className='colorText'>
                       Favourites
                     </Link>
-                  </Button>
+                  </button>
                 </div>
                 <div>
                   <Dropdown

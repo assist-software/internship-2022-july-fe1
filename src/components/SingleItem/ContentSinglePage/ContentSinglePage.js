@@ -1,15 +1,46 @@
-import React from 'react';
-import Button from 'react-bootstrap/esm/Button';
+import React, { useEffect, useRef, useState } from 'react';
+import '../../SingleItem/ContentSinglePage/ContentSinglePageStyle.css';
 import { FiShare2, FiHeart } from 'react-icons/fi';
-import user1 from '../../assets/images/user1.webp';
-import GoogleMap from '../GoogleMap/GoogleMap';
 
-import { useRef, useState } from 'react';
-import '../SingleItem/SingleItem.css';
+import GoogleMap from '../../GoogleMap/GoogleMap';
+// import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
 
-const ContentSinglePage = () => {
+import { APIData } from '../../../api/APIData';
+import user1 from '../../../assets/images/user1.webp';
+import Button from 'react-bootstrap/esm/Button';
+
+const ContentSinglePage = ({ id }) => {
   const inputRef = useRef(null);
   const [defaultMessage, setDefaultMessage] = useState('');
+  const [cardContent, setCardContent] = useState({});
+
+  const month = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+  const d = new Date(cardContent.createdAt);
+  let year = d.getFullYear();
+  let userMonthJoined = month[d.getMonth()];
+
+  useEffect(() => {
+    id = '6d8b261b-9958-425d-f760-08da6a2f1d50';
+    fetch(`${APIData.url}/listing/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setCardContent(data);
+      });
+  }, []);
 
   const scrollToElement = (e) => {
     e.preventDefault();
@@ -17,7 +48,6 @@ const ContentSinglePage = () => {
     setDefaultMessage(
       'Hello! I would love to purchase your listing. Please reach back to me so that we can set up a meeting to discuss further details. Thanks!',
     );
-    console.log('das');
   };
 
   const sendMessage = (event) => {
@@ -33,34 +63,27 @@ const ContentSinglePage = () => {
   return (
     <div className='contentSinglePage'>
       <div className='infoLabel'>
-        <span className='titleSpan'>Dreamy Treehouse Above Park City</span>
-        <Button className='shareBtn' variant='default' onClick={() => share()}>
+        <span className='titleSpan'>{cardContent.title}</span>
+        <Button id='shareBtn' variant='default' onClick={() => share()}>
           <FiShare2 className='iconShare' />
           Share
         </Button>
       </div>
-      <span className='priceSpan'>123,456 lei</span>
+      <span className='priceSpan'>{cardContent.price} lei </span>
       <div className='infoForm justify-content-between'>
         <div className='descriptionForm '>
           <h4 className='descriptTitle'>Description</h4>
-          <div className='descriptContent'>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat ad doloribus earum,
-            vel ipsa, id magnam quam sequi ipsum et animi omnis! Iste expedita animi ut molestias,
-            dolor atque perspiciatis. Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Totam asperiores nam aliquam reprehenderit recusandae, nulla doloribus debitis ipsa. Cum
-            maiores sapiente voluptatum impedit non qui saepe architecto, atque eveniet? Et. Lorem,
-            ipsum dolor sit amet consectetur adipisicing elit. Itaque, possimus voluptas. Ducimus
-            tempore deserunt architecto dolorum labore quam! Alias tempora corporis asperiores
-            distinctio, eligendi amet saepe quod consequatur cupiditate ut!
-          </div>
+          <div className='descriptContent'>{cardContent.description}</div>
         </div>
         <div className='userForm'>
           <div className='userContent'>
             <img src={user1} alt='UserPhoto' id='userPhoto' />
             <div className='userInfo'>
-              <span className='userName'>Vasile Henderson</span>
+              <span className='userName'>Name</span>
               <div className='pInfo'>
-                <p>Joined in July 2020</p>
+                <p>
+                  Joined in {userMonthJoined} {year}
+                </p>
                 <p>Response rate: 0%</p>
                 <p>Response time: within an hour</p>
               </div>
@@ -79,7 +102,7 @@ const ContentSinglePage = () => {
       <div className='locationContent'>
         <div className='locationForm'>
           <h4>Location</h4>
-          <span className='spanLocation'>City, County</span>
+          <span className='spanLocation'>{cardContent.location}</span>
           <div className='maps'>
             <GoogleMap />
           </div>
@@ -103,6 +126,9 @@ const ContentSinglePage = () => {
           </Button>
         </div>
       </div>
+      {/* <div>
+        <GooglePlacesAutocomplete apiKey='AIzaSyB0C38O6O4IIHFaxHYhLZKF_Uv_0fvsJA4' />
+      </div> */}
     </div>
   );
 };
