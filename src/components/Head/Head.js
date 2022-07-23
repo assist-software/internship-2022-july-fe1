@@ -1,18 +1,22 @@
-import React from 'react';
+import React from "react";
 // import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-import Offcanvas from 'react-bootstrap/Offcanvas';
-import Dropdown from 'react-bootstrap/Dropdown';
-import 'bootstrap/dist/css/bootstrap.css';
-import { FiHeart, FiUser, FiSearch } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import { MdOutlineSecurity, MdOutlineNotificationsNone, MdLogout } from 'react-icons/md';
-import { BiMessageDetail } from 'react-icons/bi';
-import logo from '../../assets/images/assistLogo.png';
+import Container from "react-bootstrap/Container";
+import Offcanvas from "react-bootstrap/Offcanvas";
+import Dropdown from "react-bootstrap/Dropdown";
+import "bootstrap/dist/css/bootstrap.css";
+import { FiHeart, FiUser, FiSearch } from "react-icons/fi";
+import { Link } from "react-router-dom";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import {
+  MdOutlineSecurity,
+  MdOutlineNotificationsNone,
+  MdLogout,
+} from "react-icons/md";
+import { BiMessageDetail } from "react-icons/bi";
+import logo from "../../assets/images/assistLogo.png";
 
-import { useGlobalAuthContext } from '../../Context/authContext';
+import { useGlobalAuthContext } from "../../Context/authContext";
 
 const Head = () => {
   const { logout } = useGlobalAuthContext();
@@ -23,7 +27,7 @@ const Head = () => {
 
   return (
     <>
-      {['lg'].map((expand) => (
+      {["lg"].map((expand) => (
         <Navbar key={expand} expand={expand} className='mb-3 headerComponent'>
           <Container>
             <Navbar.Brand href='/'>
@@ -33,18 +37,28 @@ const Head = () => {
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
               aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
-              placement='end'>
+              placement='end'
+            >
               <Offcanvas.Header closeButton></Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className='justify-content-between'>
-                  <Dropdown className='dropDownBtn' id={`offcanvasNavbarDropdown-expand-${expand}`}>
+                  <Dropdown
+                    className='dropDownBtn'
+                    id={`offcanvasNavbarDropdown-expand-${expand}`}
+                  >
                     <Dropdown.Toggle variant='light'>
                       <span className='textCategory'>Category </span>
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
-                      <Dropdown.Item href='/category/latest'>Latest</Dropdown.Item>
-                      <Dropdown.Item href='/category/Big'>Big houses</Dropdown.Item>
-                      <Dropdown.Item href='/category/Small'>Small houses</Dropdown.Item>
+                      <Dropdown.Item href='/category/latest'>
+                        Latest
+                      </Dropdown.Item>
+                      <Dropdown.Item href='/category/Big'>
+                        Big houses
+                      </Dropdown.Item>
+                      <Dropdown.Item href='/category/Small'>
+                        Small houses
+                      </Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
                 </Nav>
@@ -60,7 +74,7 @@ const Head = () => {
                 <div>
                   <button className='favouritesBtn'>
                     <FiHeart id='headerIcons'></FiHeart>
-                    <Link to={'/favourites'} className='colorText'>
+                    <Link to={"/favourites"} className='colorText'>
                       Favourites
                     </Link>
                   </button>
@@ -69,7 +83,8 @@ const Head = () => {
                   <Dropdown
                     className='userBtn'
                     title='My account'
-                    id={`offcanvasNavbarDropdown-expand-${expand}`}>
+                    id={`offcanvasNavbarDropdown-expand-${expand}`}
+                  >
                     <Dropdown.Toggle variant='default'>
                       <span className='textMyAccount'>
                         <FiUser id='headerIcons' />
@@ -81,17 +96,26 @@ const Head = () => {
                       <Dropdown.Item className='textMyAccount'>
                         <FiUser className='myAccountIcons' />
 
-                        <Link to={'/my-account/profile'}>Profile</Link>
+                        <Link to={"/my-account/profile"}>Profile</Link>
                       </Dropdown.Item>
-                      <Dropdown.Item href='/my-account/login&security' className='textMyAccount'>
+                      <Dropdown.Item
+                        href='/my-account/login&security'
+                        className='textMyAccount'
+                      >
                         <MdOutlineSecurity className='myAccountIcons' />
                         Login & security
                       </Dropdown.Item>
-                      <Dropdown.Item href='/my-account/notifications' className='textMyAccount'>
+                      <Dropdown.Item
+                        href='/my-account/notifications'
+                        className='textMyAccount'
+                      >
                         <MdOutlineNotificationsNone className='myAccountIcons' />
                         Notifications
                       </Dropdown.Item>
-                      <Dropdown.Item href='/my-account/messages' className='textMyAccount'>
+                      <Dropdown.Item
+                        href='/my-account/messages'
+                        className='textMyAccount'
+                      >
                         <BiMessageDetail className='myAccountIcons' />
                         Messages
                       </Dropdown.Item>
@@ -99,7 +123,8 @@ const Head = () => {
                       <Dropdown.Item
                         href='/'
                         onClick={() => handleLogOut()}
-                        className='textMyAccount'>
+                        className='textMyAccount'
+                      >
                         <MdLogout className='myAccountIcons' />
                         Logout
                       </Dropdown.Item>

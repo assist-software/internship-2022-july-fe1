@@ -1,15 +1,15 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { createGlobalStyle } from 'styled-components';
-import OnBoarding from './pages/OnBoarding/OnBoarding';
-import Profile from './pages/Profile/Profile';
-import ProtectedRoutes from './routes/ProtectedRoutes';
-import '../src/App.css';
-import AddNewPage from './pages/AddNewPage/AddNewPage';
-import MyAccountPage from './pages/MyAccountPage/MyAccountPage';
-import Galery from './pages/Galery/Galery';
-import React from 'react';
-import Home from './pages/Home/Home';
-import Head from './components/Head/Head';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { createGlobalStyle } from "styled-components";
+import OnBoarding from "./pages/OnBoarding/OnBoarding";
+import Profile from "./pages/Profile/Profile";
+import ProtectedRoutes from "./routes/ProtectedRoutes";
+import "../src/App.css";
+import AddNewPage from "./pages/AddNewPage/AddNewPage";
+import MyAccountPage from "./pages/MyAccountPage/MyAccountPage";
+import Galery from "./pages/Galery/Galery";
+import React from "react";
+import Home from "./pages/Home/Home";
+import Head from "./components/Head/Head";
 
 const GlobalStyle = createGlobalStyle`
   *{
@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 600;
   }
 `;
-console.log('asd');
+console.log("asd");
 
 function App() {
   return (
@@ -45,13 +45,25 @@ function App() {
             <Route path='/myprofile/message' element={<Profile />} />
           </Route>
           <Route path='/login' element={<OnBoarding pageName='logIn' />} />
-          <Route path='/sign-up' element={<OnBoarding pageName='createAccount' />} />
-          <Route path='/forgot-password' element={<OnBoarding pageName='forgotPassword' />} />
-          <Route path='/reset-password' element={<OnBoarding pageName='resetPassword' />} />
+          <Route
+            path='/sign-up'
+            element={<OnBoarding pageName='createAccount' />}
+          />
+          <Route
+            path='/forgot-password'
+            element={<OnBoarding pageName='forgotPassword' />}
+          />
+          <Route
+            path='/reset-password'
+            element={<OnBoarding pageName='resetPassword' />}
+          />
           {/* add new */} <Route path='/add-new' element={<AddNewPage />} />
           <Route path='/editpost/:id' element={<AddNewPage />} />
           <Route path='/my-account' element={<MyAccountPage />} />
-          <Route path='/my-account/profile' element={<MyAccountPage pageName='Profile' />} />
+          <Route
+            path='/my-account/profile'
+            element={<MyAccountPage pageName='Profile' />}
+          />
           <Route
             path='/my-account/login&security'
             element={<MyAccountPage pageName='Login & security' />}
@@ -60,7 +72,10 @@ function App() {
             path='/my-account/notifications'
             element={<MyAccountPage pageName='Notifications' />}
           />
-          <Route path='/my-account/messages' element={<MyAccountPage pageName='Messages' />} />
+          <Route
+            path='/my-account/messages'
+            element={<MyAccountPage pageName='Messages' />}
+          />
           <Route path='/*' element={<Navigate replace to='/' />} />
         </Routes>
       </BrowserRouter>
