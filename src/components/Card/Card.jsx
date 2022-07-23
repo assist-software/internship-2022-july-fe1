@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import styles from './Card.module.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,7 +7,6 @@ import ImageLogin from '../../assets/images/furniture.png';
 
 import { APIData } from '../../api/APIData';
 import { useGlobalContext } from '../../Context/appContext';
-
 
 const Card = ({
   id,
@@ -25,8 +24,8 @@ const Card = ({
   const [onDeleteClick, setOnDeleteClick] = useState(false);
   const handleOnDeleteClick = () => {
     setOnDeleteClick(!onDeleteClick);
-    console.log(onDeleteClick)
-  }
+    console.log(onDeleteClick);
+  };
 
   const navigate = useNavigate();
   let { state } = useGlobalContext();
@@ -52,7 +51,7 @@ const Card = ({
           e.stopPropagation();
         }}
       />
-      <img className={styles.smallCardImg} src={ImageLogin} alt="" />
+      <img className={styles.smallCardImg} src={ImageLogin} alt='' />
       <div className={styles.smallCardTitle}>{title}</div>
       <div className={styles.smallCardSubTitle}>{location}, Romania</div>
       <div className={styles.smallCardTitle}>{`${price} lei`}</div>
@@ -63,41 +62,57 @@ const Card = ({
     <>
       <div onClick={() => onCardClick()} className={styles.wideCardContainer}>
         <div className={styles.rowElements}>
-        <img className={styles.wideCardImg} src={ImageLogin} alt="" />
-        <div className={styles.wideCardContent}>
-          <div className={styles.wideTitleContainer}>
-            <div className={styles.wideCardTitle}>{title}</div>
-            <div className={styles.wideCardSubtitle}>{location}, Romania</div>
-            <FavoriteBtn
-              isActive={isFavorite}
-              className={styles.wideFavoriteBtnPosition}
-              onClick={(e) => {
-                onFavoriteClick();
-                e.stopPropagation();
-              }}
-            />
+          <img className={styles.wideCardImg} src={ImageLogin} alt='' />
+          <div className={styles.wideCardContent}>
+            <div className={styles.wideTitleContainer}>
+              <div className={styles.wideCardTitle}>{title}</div>
+              <div className={styles.wideCardSubtitle}>{location}, Romania</div>
+              <FavoriteBtn
+                isActive={isFavorite}
+                className={styles.wideFavoriteBtnPosition}
+                onClick={(e) => {
+                  onFavoriteClick();
+                  e.stopPropagation();
+                }}
+              />
+            </div>
+            <div className={styles.wideCardDescription}>{description}</div>
+            <div className={styles.wideCardTitle}>{`${price} lei`}</div>
           </div>
-          <div className={styles.wideCardDescription}>{description}</div>
-          <div className={styles.wideCardTitle}>{`${price} lei`}</div>
-        </div>
         </div>
         <div className={styles.buttonContainer}>
-          <button className={styles.deleteButton} onClick={() => {handleDeleteButton(id);handleOnDeleteClick()}}>Delete</button>
-          <button className={styles.editButton} onClick={() => handleEditButton(id)}>Edit</button>
+          <button
+            className={styles.deleteButton}
+            onClick={() => {
+              handleDeleteButton(id);
+              handleOnDeleteClick();
+            }}
+          >
+            Delete
+          </button>
+          <button
+            className={styles.editButton}
+            onClick={() => handleEditButton(id)}
+          >
+            Edit
+          </button>
         </div>
       </div>
-      {onDeleteClick && 
-      <div className={styles.deleteModalContainer} onClick={()=>handleOnDeleteClick()}>
-        <div className={styles.deleteModalContent}>
-          <header>Delete listing</header>
-          <p>You cannot recover the listing after deleteling it.</p>
-          <div className={styles.deleteModalButtons}>
-            <div className={styles.deleteModalButton}>Delete</div>
-            <div className={styles.deleteModalButton}>Back</div>
+      {onDeleteClick && (
+        <div
+          className={styles.deleteModalContainer}
+          onClick={() => handleOnDeleteClick()}
+        >
+          <div className={styles.deleteModalContent}>
+            <header>Delete listing</header>
+            <p>You cannot recover the listing after deleting it.</p>
+            <div className={styles.deleteModalButtons}>
+              <div className={styles.deleteModalButton}>Delete</div>
+              <div className={styles.backModalButton}>Back</div>
+            </div>
           </div>
         </div>
-      </div>
-}
+      )}
     </>
   );
 

@@ -37,15 +37,15 @@ export const AuthProvider = ({ children }) => {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
     };
-    fetch(
-      `${APIAuth.url}/get/${localStorage.getItem('userId')}`,
-      requestOptions
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        return setUserDataContext(data);
-      });
+    // fetch(
+    //   `${APIAuth.url}/get/${localStorage.getItem('userId')}`,
+    //   requestOptions
+    // )
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     console.log(data);
+    //     return setUserDataContext(data);
+    //   });
   };
 
   const token = () => {
