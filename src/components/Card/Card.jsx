@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import FavoriteBtn from '../FavoriteBtn/FavoriteBtn';
 import ImageLogin from '../../assets/images/furniture.png';
 
-import { APIData } from '../../api/APIData';
 import { useGlobalContext } from '../../Context/appContext';
 
 const Card = ({
@@ -13,7 +12,7 @@ const Card = ({
   displayWide,
   onCardClick,
   onFavoriteClick,
-  // urlImage,
+  urlImage,
   description,
   title,
   location,
@@ -33,16 +32,13 @@ const Card = ({
   };
 
   const navigate = useNavigate();
-  let { state } = useGlobalContext();
+  let { deleteList } = useGlobalContext();
 
   const handleEditButton = (id) => {
-    console.log('edit clicked');
     navigate(`/editpost/${id}`);
   };
   const handleDeleteButton = (id) => {
-    console.log('delete clicked');
-    APIData.deletePost(id);
-    state = state.filter((item) => item.id !== id);
+    deleteList(id);
   };
 
   const renderSmallCard = () => (
@@ -56,7 +52,11 @@ const Card = ({
           e.stopPropagation();
         }}
       />
-      <img className={styles.smallCardImg} src={ImageLogin} alt='' />
+      <img
+        className={styles.smallCardImg}
+        src={urlImage || ImageLogin}
+        alt=''
+      />
       <div className={styles.smallCardTitle}>{title}</div>
       <div className={styles.smallCardSubTitle}>{location}, Romania</div>
       <div className={styles.smallCardTitle}>{`${price} lei`}</div>
@@ -101,10 +101,7 @@ const Card = ({
           </button>
           <button
             className={styles.deleteButton}
-            onClick={() => {
-              handleDeleteButton(id);
-              handleOnDeleteClick();
-            }}
+            onClick={() => handleDeleteButton(id)}
           >
             Delete
           </button>

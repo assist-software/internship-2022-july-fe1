@@ -20,7 +20,8 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 600;
   }
 `;
-console.log("asd");
+
+
 
 function App() {
   return (
@@ -32,8 +33,8 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/category/:galeryname' element={<Galery />} />
           {/* ----------Protected Routed for authenticated user --------------- */}
+          <Route path='/favourites' element={<Galery path={'favourites'} />} />
           <Route element={<ProtectedRoutes />}>
-            <Route path='/favourites' element={<Home />} />
             <Route path='/pending' element={<Home />} />
             <Route path='/mylisting' element={<Home />} />
             <Route path='/mylisting/add' element={<Home />} />
@@ -43,8 +44,29 @@ function App() {
             <Route path='/myprofile/loginsecurity' element={<Profile />} />
             <Route path='/myprofile/notification' element={<Profile />} />
             <Route path='/myprofile/message' element={<Profile />} />
+            <Route path='/add-new' element={<AddNewPage />} />
+            <Route path='/editpost/:id' element={<AddNewPage />} />
+            <Route path='/my-account' element={<MyAccountPage />} />
+            <Route
+              path='/my-account/profile'
+              element={<MyAccountPage pageName='Profile' />}
+            />
+            <Route
+              path='/my-account/login&security'
+              element={<MyAccountPage pageName='Login & security' />}
+            />
+            <Route
+              path='/my-account/notifications'
+              element={<MyAccountPage pageName='Notifications' />}
+            />
+            <Route
+              path='/my-account/messages'
+              element={<MyAccountPage pageName='Messages' />}
+            />
           </Route>
-          <Route path='/login' element={<OnBoarding pageName='logIn' />} />
+
+          <Route path="/login" element={<OnBoarding pageName="logIn" />} />
+
           <Route
             path='/sign-up'
             element={<OnBoarding pageName='createAccount' />}
@@ -57,25 +79,8 @@ function App() {
             path='/reset-password'
             element={<OnBoarding pageName='resetPassword' />}
           />
-          {/* add new */} <Route path='/add-new' element={<AddNewPage />} />
-          <Route path='/editpost/:id' element={<AddNewPage />} />
-          <Route path='/my-account' element={<MyAccountPage />} />
-          <Route
-            path='/my-account/profile'
-            element={<MyAccountPage pageName='Profile' />}
-          />
-          <Route
-            path='/my-account/login&security'
-            element={<MyAccountPage pageName='Login & security' />}
-          />
-          <Route
-            path='/my-account/notifications'
-            element={<MyAccountPage pageName='Notifications' />}
-          />
-          <Route
-            path='/my-account/messages'
-            element={<MyAccountPage pageName='Messages' />}
-          />
+          {/* add new */}
+
           <Route path='/*' element={<Navigate replace to='/' />} />
         </Routes>
       </BrowserRouter>

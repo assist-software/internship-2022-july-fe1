@@ -6,14 +6,14 @@ import { useGlobalContext } from '../../Context/appContext';
 
 const FitlterMultiSelect = (props) => {
   const { name, handleLocationFilter } = props;
-  const { state } = useGlobalContext();
+  const { state, requestOption, setRequestOption } = useGlobalContext();
   let chekingIfLocationExist = [];
   const [selectedLocation, setSelectedLocation] = useState([]);
+  const [locations, setLocations] = useState([]);
 
-  const [locations, setLocations] = useState(state);
-
-  // console.log('state', state);
-  // console.log('locations', locations);
+  useEffect(() => {
+    setLocations(state.map((el) => ({ ...el, checked: false })));
+  }, [state]);
 
   const handleLocationClick = (locationIndex, loc) => {
     const locationClone = [...locations];
@@ -22,8 +22,13 @@ const FitlterMultiSelect = (props) => {
     setLocations(locationClone);
     if (selectedLocation.includes(loc)) {
       const temLocation = selectedLocation.filter((item) => item !== loc);
+      setRequestOption({ ...requestOption, locations: temLocation });
       setSelectedLocation(temLocation);
     } else {
+      setRequestOption({
+        ...requestOption,
+        locations: [...selectedLocation, loc],
+      });
       setSelectedLocation([...selectedLocation, loc]);
     }
   };
@@ -42,15 +47,15 @@ const FitlterMultiSelect = (props) => {
         </Dropdown.Toggle>
         <Dropdown.Menu className="shadow-none">
           <Dropdown.ItemText className={styles.name}>{name}</Dropdown.ItemText>
-          {locations.map((locatio, index) => {
-            if (!chekingIfLocationExist.includes(locatio.location)) {
-              chekingIfLocationExist.push(locatio.location);
+          {locations.map((loc, index) => {
+            if (!chekingIfLocationExist.includes(loc.location)) {
+              chekingIfLocationExist.push(loc.location);
               return (
                 <Dropdown.Item
                   key={index}
                   as="button"
                   onClick={() => {
-                    handleLocationClick(index, locatio.location);
+                    handleLocationClick(index, loc.location);
                   }}
                 >
                   <div className="custom-control custom-checkbox">
@@ -58,10 +63,10 @@ const FitlterMultiSelect = (props) => {
                       type="checkbox"
                       className={styles.customControlInput}
                       id="defaultUnchecked"
-                      checked={locatio.checked}
+                      checked={loc.checked}
                       onChange={() => {}}
                     />
-                    {locatio.location}
+                    {loc.location}
                   </div>
                 </Dropdown.Item>
               );

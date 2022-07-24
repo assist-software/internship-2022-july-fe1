@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 // import styles from './Galery.module.css';
 
 import StyledFormTitle from '../../components/FormTitle/FormTitle';
@@ -9,6 +9,12 @@ import StyledListingButtons from '../../components/ListingButtons/ListingButtons
 
 const Galery = (props) => {
   let { galeryname } = useParams();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  console.log(navigate, location);
+
+  // const fetchDataWithFilter = () => {};
 
   return (
     <>
@@ -24,8 +30,11 @@ const Galery = (props) => {
         {galeryname !== 'favourites' ? (
           <Filter location={true} price={true} order={true} />
         ) : (
-          <Filter location={false} price={false} order={false} />
+          <>
+            <Filter location={true} price={true} order={true} />
+          </>
         )}
+
         <ContentContainer />
       </div>
     </>

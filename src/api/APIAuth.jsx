@@ -46,37 +46,52 @@ const resetPass = (email) => {
   ).then((response) => response.json());
 };
 
-//EDIT USER DATA
-const editUserDataApi = (newUserData) => { 
+// GET ALL DATA OF USER
+// const getUserDataApi = () => {
+//   const requestOptions = {
+//     headers: {
+//       'Content-Type': 'application/json',
+//       Authorization: `Bearer ${localStorage.getItem('token')}`,
+//     },
+//   };
+//   fetch(`${url}/get/${localStorage.getItem('userId')}`, requestOptions)
+//     .then((response) => response.json())
+//     .then((data) => {
+//       console.log('in API', data);
+//       userData = data;
+//       console.log('in fetch userData', userData);
+//       return;
+//     });
+// };
 
+//EDIT USER DATA
+const editUserDataApi = (newUserData) => {
   const tempUserData = {
-    id:newUserData.id,
+    id: newUserData.id,
     fullName: newUserData.fullName,
     email: newUserData.email,
     phone: newUserData.phone,
     role: newUserData.role,
-    gender : newUserData.gender,
+    gender: newUserData.gender,
     photo: newUserData.photo,
     dateOfBirth: newUserData.dateOfBirth,
-    address : newUserData.address,
+    address: newUserData.address,
     isActive: newUserData.isActive,
-  }
+  };
 
   const requestOptions = {
     method: 'PUT',
-    headers: { 'Content-Type': 'application/json',
-    Authorization: `Bearer ${localStorage.getItem('token')}`, },
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    },
     body: JSON.stringify(tempUserData),
-  }
+  };
 
-  fetch(url,
-    requestOptions
-  ).then((response) => response.json())
-  .then((data)=>console.log(data))
- 
-  
+  fetch(url, requestOptions)
+    .then((response) => response.json())
+    .then((data) => console.log(data));
 };
-
 
 export const APIAuth = {
   register,

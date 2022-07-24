@@ -50,15 +50,9 @@ const Head = () => {
                       <span className='textCategory'>Category </span>
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
-                      <Dropdown.Item href='/category/latest'>
-                        Latest
-                      </Dropdown.Item>
-                      <Dropdown.Item href='/category/Big'>
-                        Big houses
-                      </Dropdown.Item>
-                      <Dropdown.Item href='/category/Small'>
-                        Small houses
-                      </Dropdown.Item>
+                      <Dropdown.Item href='/category/latest'>Latest</Dropdown.Item>
+                      <Dropdown.Item href='/category/Big'>Big houses</Dropdown.Item>
+                      <Dropdown.Item href='/category/Small'>Small houses</Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
                 </Nav>
@@ -135,7 +129,8 @@ const Head = () => {
             </Navbar.Offcanvas>
           </Container>
         </Navbar>
-      ))}
+      ))
+      }
     </>
   );
 };
