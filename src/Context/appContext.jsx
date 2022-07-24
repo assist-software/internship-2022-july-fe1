@@ -11,18 +11,8 @@ import { APIData } from '../api/APIData';
 const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
-  // const [initialState, setInitialState] = useState(API.cardsMock);
-  const [initialState, setInitialState] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [state, setState] = useState([]);
   const [displayWide, setDisplayWide] = useState(false);
-
-  //ALL FILTER STATE
-  // const [locationFIlter, setLocationFilter] = useState([]);
-  const [priceFIlter, setPriceFilter] = useState(null);
-  // const [orderFilter, setOrderFIlter] = useState(null);
-
-  // VALUE OF SEARCH
-  // const [searchValue, setSearchValue] = useState(null);
 
   const [requestOption, setRequestOption] = useState({
     id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
@@ -30,19 +20,9 @@ export const AppProvider = ({ children }) => {
     price: null,
     locations: null,
     orderBy: null,
-    pageIndex: currentPage,
+    pageIndex: 1,
     userId: localStorage.getItem('userId'),
   });
-
-  useEffect(() => {
-    setRequestOption({
-      ...requestOption,
-      pageIndex: currentPage,
-      // price: priceFIlter,
-    });
-    // setRequestOption({ ...requestOption, price: priceFIlter });
-    fetchData(requestOption);
-  }, [currentPage, priceFIlter]);
 
   const fetchData = useCallback((optionReq) => {
     const requestOptions = {
@@ -51,11 +31,13 @@ export const AppProvider = ({ children }) => {
       body: JSON.stringify(optionReq),
     };
 
-    // console.log('requestOption', requestOption);
     fetch(`${APIData.url}/listing`, requestOptions)
-      .then((response) => response.json())
+      .then((response) => {
+        if (response.status >= 400) return [];
+        return response.json();
+      })
       .then((data) => {
-        setInitialState(data);
+        setState(data);
       });
   }, []);
 
@@ -68,12 +50,16 @@ export const AppProvider = ({ children }) => {
     APIData.addToFavoriteApi(listingId);
   };
 
-  const state = initialState;
+  //DELETE
+  const deleteList = (id) => {
+    APIData.deletePost(id);
+    setState(state.filter((item) => item.id !== id));
+  };
 
   //BRINGS VALUE TO THE SINGLE PROPS ITEM FROM ALL OBJECTS
   const singleElement = (element) => {
     if (element) {
-      const cloneInitalState = [...initialState];
+      const cloneInitalState = [...state];
       let tempData = [];
       for (let i = 0; i < cloneInitalState.length; i++) {
         if (cloneInitalState[i].hasOwnProperty(element)) {
@@ -96,15 +82,13 @@ export const AppProvider = ({ children }) => {
         ...state,
         state,
         displayWide,
-        setCurrentPage,
-        setPriceFilter,
-        // setSearchValue,
         setRequestOption,
         setDisplayWide,
         singleElement,
         fetchData,
         requestOption,
         addToFavoriteContext,
+        deleteList,
       }}
     >
       {children}

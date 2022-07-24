@@ -1,30 +1,30 @@
-import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 
-import StyledAddPageLabels from "../../components/AddPageLabels/AddPageLabels";
-import ImagePicker from "../../components/ImagePicker/ImagePicker";
-import StyledInputLabel from "../../components/InputLabel/InputLabel";
+import StyledAddPageLabels from '../../components/AddPageLabels/AddPageLabels';
+import ImagePicker from '../../components/ImagePicker/ImagePicker';
+import StyledInputLabel from '../../components/InputLabel/InputLabel';
 import {
   StyledLoginFormInput,
   StyledSmallFormInput,
-} from "../../components/LoginFormInput";
-import StyledPageButton from "../../components/PageButton/PageButton";
-import StyledPageTitle from "../../components/PageTitle/PageTitle";
-import StyledTextarea from "../../components/Textarea/Textarea";
+} from '../../components/LoginFormInput';
+import StyledPageButton from '../../components/PageButton/PageButton';
+import StyledPageTitle from '../../components/PageTitle/PageTitle';
+import StyledTextarea from '../../components/Textarea/Textarea';
 import {
   StyledData,
   StyledRightContent,
   StyledPageContainer,
   StyledPageContent,
-} from "./AddNewPageElements";
-import Select from "react-select";
+} from './AddNewPageElements';
+import Select from 'react-select';
 
-import { APIData } from "../../api/APIData";
+import { APIData } from '../../api/APIData';
 
 const options = [
   // { value: "latest", label: "Latest" },
-  { value: 0, label: "Big houses" },
-  { value: 1, label: "Small houses" },
+  { value: 0, label: 'Big houses' },
+  { value: 1, label: 'Small houses' },
 ];
 
 const customStyles = {
@@ -54,14 +54,13 @@ const AddNewPage = () => {
   const { id } = useParams();
   const [editPost, setEditPost] = useState(false);
 
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState('');
   const [category, setCategory] = useState(1);
   const [price, setPrice] = useState(0);
   const [files, setFiles] = useState([]);
-  const [description, setDescripton] = useState("");
-  const [location, setLocation] = useState("");
-  const [phone, setPhone] = useState("");
-
+  const [description, setDescripton] = useState('');
+  const [location, setLocation] = useState('');
+  const [phone, setPhone] = useState('');
   useEffect(() => {
     if (id) {
       setEditPost(true);
@@ -69,30 +68,39 @@ const AddNewPage = () => {
         .then((getId) => getId.json())
         .then((data) => {
           // console.log(data);
-          setTitle(data.title)
-          setCategory(data.category)
-          setPrice(data.price)
-          setDescripton(data.description)
-          setLocation(data.location)
-          setPhone(data.phoneNumber ? data.phoneNumber : '')
-        })
-    };
-  }, [id])
+          setTitle(data.title);
+          setCategory(data.category);
+          setPrice(data.price);
+          setDescripton(data.description);
+          setLocation(data.location);
+          setPhone(data.phoneNumber ? data.phoneNumber : '');
+        });
+    }
+  }, [id]);
 
   const handleDesciptionChange = (e) => {
     setDescripton(e.target.value);
   };
 
-  const sendFileToAddNewPage = (urlOfImage) => {
-    setFiles(urlOfImage);
-    console.log("in add new", files);
+  const sendFileToAddNewPage = async (urlOfImage) => {
+    let files = urlOfImage.map((file) => {
+      let reader = new FileReader();
+
+      return new Promise((resolve) => {
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+      });
+    });
+
+    const res = await Promise.all(files);
+    setFiles(res.map((value) => value.split('base64,')[1]));
   };
 
   const handleLocation = (e) => {
     let firstLetterUpperAndRestLower = e.target.value;
     setLocation(
       firstLetterUpperAndRestLower.charAt(0).toUpperCase() +
-      firstLetterUpperAndRestLower.slice(1).toLowerCase()
+        firstLetterUpperAndRestLower.slice(1).toLowerCase()
     );
   };
 
@@ -105,9 +113,9 @@ const AddNewPage = () => {
       location: location,
       price: price,
       category: category,
-      authorId: "A5BF21BA-E26B-49E5-C17A-08DA688B8AC2",
+      authorId: 'A5BF21BA-E26B-49E5-C17A-08DA688B8AC2',
       featured: true,
-      images: '',
+      images: files,
       phoneNumber: phone,
       // authorId: localStorage.getItem('userId'),
       updatedAt: '',
@@ -127,22 +135,22 @@ const AddNewPage = () => {
   return (
     <StyledPageContainer>
       <StyledPageContent>
-        <StyledPageTitle text={"Add new"} />
+        <StyledPageTitle text={'Add new'} />
 
         {/* Details */}
         <StyledData>
           <StyledAddPageLabels
-            labelText='Details'
-            paragraphText='Be as thorough as you can.'
+            labelText="Details"
+            paragraphText="Be as thorough as you can."
           />
           <StyledRightContent>
-            <StyledInputLabel text='Title' />
+            <StyledInputLabel text="Title" />
             <StyledLoginFormInput
               required
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
-            <StyledInputLabel text='Category' />
+            <StyledInputLabel text="Category" />
             <Select
               options={options}
               styles={customStyles}
@@ -150,11 +158,11 @@ const AddNewPage = () => {
                 setCategory(e.value);
               }}
               placeholder={
-                <div className='select-placeholder-text'>Select category</div>
+                <div className="select-placeholder-text">Select category</div>
               }
-              defaultValue={{ label: "Big houses" }}
+              defaultValue={{ label: 'Big houses' }}
             />
-            <StyledInputLabel text='Price' />
+            <StyledInputLabel text="Price" />
             <StyledSmallFormInput
               onKeyPress={(event) => {
                 if (!/[0-9]/.test(event.key)) {
@@ -170,8 +178,8 @@ const AddNewPage = () => {
         {/* Photo & videos */}
         <StyledData>
           <StyledAddPageLabels
-            labelText='Photo & videos'
-            paragraphText='Be as thorough as you can.'
+            labelText="Photo & videos"
+            paragraphText="Be as thorough as you can."
           />
           <StyledRightContent>
             <ImagePicker sendFileToAddNewPage={sendFileToAddNewPage} />
@@ -180,11 +188,11 @@ const AddNewPage = () => {
         {/* Description */}
         <StyledData>
           <StyledAddPageLabels
-            labelText='Description'
-            paragraphText='Be as thorough as you can.'
+            labelText="Description"
+            paragraphText="Be as thorough as you can."
           />
           <StyledRightContent>
-            <StyledInputLabel text='Description details' />
+            <StyledInputLabel text="Description details" />
             <StyledTextarea
               value={description}
               onchange={(e) => handleDesciptionChange(e)}
@@ -194,16 +202,16 @@ const AddNewPage = () => {
         {/* Contact info */}
         <StyledData>
           <StyledAddPageLabels
-            labelText='Contact info'
-            paragraphText='Be as thorough as you can.'
+            labelText="Contact info"
+            paragraphText="Be as thorough as you can."
           />
           <StyledRightContent>
-            <StyledInputLabel text='Location' />
+            <StyledInputLabel text="Location" />
             <StyledLoginFormInput
               value={location}
               onChange={(e) => handleLocation(e)}
             />
-            <StyledInputLabel text='Phone number' />
+            <StyledInputLabel text="Phone number" />
             <StyledSmallFormInput
               onKeyPress={(event) => {
                 if (!/[0-9+]/.test(event.key)) {
@@ -215,11 +223,11 @@ const AddNewPage = () => {
             />
           </StyledRightContent>
         </StyledData>
-        <div className='data'>
-          <div className='row'>
-            <StyledPageButton text={"Preview"} color={false} />
+        <div className="data">
+          <div className="row">
+            <StyledPageButton text={'Preview'} color={false} />
             <StyledPageButton
-              text={editPost ? "Edit" : "Publish"}
+              text={editPost ? 'Edit' : 'Publish'}
               color={true}
               onclick={(e) => handleCreateNew(e)}
             />

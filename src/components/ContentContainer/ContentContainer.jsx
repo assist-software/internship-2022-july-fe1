@@ -41,6 +41,7 @@ const ContentContainer = () => {
               onFavoriteClick={() => handleFavButton(item.id)}
               isFavorite={item.isFavorite}
               displayWide={displayWide}
+              urlImage={item.images}
             />
           );
         })}

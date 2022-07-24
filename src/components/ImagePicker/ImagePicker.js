@@ -1,23 +1,21 @@
-import React, { useState } from "react";
-import { useDropzone } from "react-dropzone";
-import { Section } from "./ImagePickerStyle";
-import { BsPlusLg } from "react-icons/bs";
-import { BiTrash } from "react-icons/bi";
-import { nanoid } from "nanoid";
+import React, { useState } from 'react';
+import { useDropzone } from 'react-dropzone';
+import { Section } from './ImagePickerStyle';
+import { BsPlusLg } from 'react-icons/bs';
+import { BiTrash } from 'react-icons/bi';
+import { nanoid } from 'nanoid';
 
 const ImagePicker = ({ sendFileToAddNewPage }) => {
   const [files, setFiles] = useState([]);
 
-
-
   const { getRootProps, getInputProps } = useDropzone({
     accept: {
-      "image/png": [".png"],
-      "image/jpg": [".jpg"],
-      "image/jpeg": [".jpeg"],
+      'image/png': ['.png'],
+      'image/jpg': ['.jpg'],
+      'image/jpeg': ['.jpeg'],
     },
     onDrop: (acceptedFiles) => {
-      setFiles([
+      const newFiles = [
         ...files,
         ...acceptedFiles.map((file) =>
           Object.assign(file, {
@@ -25,9 +23,9 @@ const ImagePicker = ({ sendFileToAddNewPage }) => {
             id: nanoid(),
           })
         ),
-      ]);
-      console.log('aici');
-      sendFileToAddNewPage(files)
+      ];
+      setFiles(newFiles);
+      sendFileToAddNewPage(newFiles);
     },
   });
 
@@ -49,7 +47,7 @@ const ImagePicker = ({ sendFileToAddNewPage }) => {
   return (
     <Section className="container">
       <>{thumbs}</>
-      <div {...getRootProps({ className: "dropzone " })}>
+      <div {...getRootProps({ className: 'dropzone ' })}>
         <input {...getInputProps()} />
         <BsPlusLg />
       </div>

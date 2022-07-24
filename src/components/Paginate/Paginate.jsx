@@ -9,13 +9,12 @@ import {
 import { useGlobalContext } from '../../Context/appContext';
 
 const Paginate = () => {
-  const { setCurrentPage, state } = useGlobalContext();
+  const { requestOption, setRequestOption, state } = useGlobalContext();
   const [pageCount, setPageCount] = useState(1);
 
   useEffect(() => {
     // CALCULATE TOTAL CARDS
     // setPageCount(Math.ceil(state[0].totalListings / 12));
-
     const x = state[0]
       ? setPageCount(Math.ceil(state[0].totalListings / 12))
       : 1;
@@ -23,7 +22,7 @@ const Paginate = () => {
 
   const handlePageClick = (data) => {
     let currentPage = data.selected + 1;
-    setCurrentPage(currentPage);
+    setRequestOption({ ...requestOption, pageIndex: currentPage });
   };
 
   return (
