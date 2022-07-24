@@ -11,7 +11,7 @@ const Galery = (props) => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const fetchDataWithFilter = () => {};
+  // const fetchDataWithFilter = () => {};
 
   return (
     <>
