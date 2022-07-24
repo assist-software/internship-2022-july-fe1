@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledPageContent = styled.div`
   display: flex;
@@ -22,7 +22,6 @@ export const LineBreak = styled.hr`
 `;
 
 export const StyledMyAccountContent = styled.div`
-  /* width: 652px; */
   width: 45vw;
   margin: 0 0 0 100px;
   display: flex;
@@ -53,7 +52,7 @@ export const LoginSecurityContainer = styled.div`
 
   .updatePassword {
     display: ${(props) =>
-      props.accountPassword.currentPassword.isOpened ? "flex" : "none"};
+      props.accountPassword.currentPassword.isOpened ? 'flex' : 'none'};
   }
 `;
 export const ProfileContainer = styled.div`
@@ -61,7 +60,7 @@ export const ProfileContainer = styled.div`
   width: 100%;
   flex-direction: column;
 
-  input[type="date"] {
+  input[type='date'] {
     height: 44px;
     border-radius: 8px;
     padding: 0 10px;
@@ -80,46 +79,46 @@ export const ProfileContainer = styled.div`
     width: 48%;
   }
   .updateName {
-    display: ${(props) => (props.userData.name.isOpened ? "flex" : "none")};
+    display: ${(props) => (props.userData.name.isOpened ? 'flex' : 'none')};
   }
 
   .updateGender {
-    display: ${(props) => (props.userData.gender.isOpened ? "flex" : "none")};
+    display: ${(props) => (props.userData.gender.isOpened ? 'flex' : 'none')};
   }
   .updateDateOfBirth {
     display: ${(props) =>
-      props.userData.dateOfBirth.isOpened ? "flex" : "none"};
+      props.userData.dateOfBirth.isOpened ? 'flex' : 'none'};
   }
   .updateEmail {
-    display: ${(props) => (props.userData.email.isOpened ? "flex" : "none")};
+    display: ${(props) => (props.userData.email.isOpened ? 'flex' : 'none')};
   }
   .updatePhoneNumber {
     display: ${(props) =>
-      props.userData.phoneNumber.isOpened ? "flex" : "none"};
+      props.userData.phoneNumber.isOpened ? 'flex' : 'none'};
   }
   .updateAddress {
-    display: ${(props) => (props.userData.address.isOpened ? "flex" : "none")};
+    display: ${(props) => (props.userData.address.isOpened ? 'flex' : 'none')};
   }
 
   .nameVisibility {
-    display: ${(props) => (props.userData.name.isOpened ? "none" : "flex")};
+    display: ${(props) => (props.userData.name.isOpened ? 'none' : 'flex')};
   }
   .genderVisibility {
-    display: ${(props) => (props.userData.gender.isOpened ? "none" : "flex")};
+    display: ${(props) => (props.userData.gender.isOpened ? 'none' : 'flex')};
   }
   .dateOfBirthVisibility {
     display: ${(props) =>
-      props.userData.dateOfBirth.isOpened ? "none" : "flex"};
+      props.userData.dateOfBirth.isOpened ? 'none' : 'flex'};
   }
   .emailVisibility {
-    display: ${(props) => (props.userData.email.isOpened ? "none" : "flex")};
+    display: ${(props) => (props.userData.email.isOpened ? 'none' : 'flex')};
   }
   .phoneNumberVisibility {
     display: ${(props) =>
-      props.userData.phoneNumber.isOpened ? "none" : "flex"};
+      props.userData.phoneNumber.isOpened ? 'none' : 'flex'};
   }
   .addressVisibility {
-    display: ${(props) => (props.userData.address.isOpened ? "none" : "flex")};
+    display: ${(props) => (props.userData.address.isOpened ? 'none' : 'flex')};
   }
 `;
 

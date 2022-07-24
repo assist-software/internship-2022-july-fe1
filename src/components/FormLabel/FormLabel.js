@@ -1,5 +1,6 @@
-import { Label } from "./FormLabelStyle";
-import React from "react";
+import { Label } from './FormLabelStyle';
+import React from 'react';
+
 const StyledFormLabel = ({ text, valid }) => {
   return <Label valid={valid}> {text} </Label>;
 };
