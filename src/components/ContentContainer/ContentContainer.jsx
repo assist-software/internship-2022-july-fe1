@@ -28,7 +28,7 @@ const ContentContainer = () => {
   return (
     <>
       <section className={!displayWide ? styles.contentContainer : null}>
-        {cardToMap?.map((item, index) => {
+        {cardToMap.map((item, index) => {
           return (
             <Card
               key={item.id}

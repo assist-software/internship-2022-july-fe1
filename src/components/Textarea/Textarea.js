@@ -3,8 +3,7 @@ import { Textarea, TextareaMessage } from "./TextareaStyle";
 
 const StyledTextarea = ({ value, onchange }) => {
   const MIN_CHARS = 100;
-  const [text, setText] = useState("");
-  console.log(setText);
+  const [text] = useState("");
 
   const remaining = `${text.length}/${MIN_CHARS} mandatory characters`;
   return (

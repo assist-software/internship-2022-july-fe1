@@ -17,15 +17,15 @@ export const AppProvider = ({ children }) => {
   const [displayWide, setDisplayWide] = useState(false);
 
   //ALL FILTER STATE
-  const [locationFIlter, setLocationFilter] = useState([]);
+  // const [locationFIlter, setLocationFilter] = useState([]);
   const [priceFIlter, setPriceFilter] = useState(null);
-  const [orderFilter, setOrderFIlter] = useState(null);
+  // const [orderFilter, setOrderFIlter] = useState(null);
 
   // VALUE OF SEARCH
   // const [searchValue, setSearchValue] = useState(null);
 
   const [requestOption, setRequestOption] = useState({
-    // id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
+    id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
     category: null,
     price: null,
     locations: null,
@@ -51,7 +51,7 @@ export const AppProvider = ({ children }) => {
       body: JSON.stringify(optionReq),
     };
 
-    console.log('requestOption', requestOption);
+    // console.log('requestOption', requestOption);
     fetch(`${APIData.url}/listing`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
@@ -61,7 +61,7 @@ export const AppProvider = ({ children }) => {
 
   useEffect(() => {
     fetchData(requestOption);
-  }, [fetchData, requestOption]);
+  }, [requestOption]);
 
   //ADD TO FAVORITE
   const addToFavoriteContext = (listingId) => {

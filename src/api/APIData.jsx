@@ -28,7 +28,13 @@ const addPost = async (item) => {
 
 // DELETE POST
 const deletePost = async (id) => {
-  const deleteOptions = { method: 'DELETE' };
+  const deleteOptions = {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    },
+  };
   const reqUrl = `${url}/listing/${id}`;
   const result = await apiRequest(reqUrl, deleteOptions);
   if (result) console.log(result);

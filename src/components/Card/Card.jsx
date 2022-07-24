@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Card.module.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -20,6 +20,13 @@ const Card = ({
   price,
   isFavorite = false,
 }) => {
+  //State for handle delete item
+  const [onDeleteClick, setOnDeleteClick] = useState(false);
+  const handleOnDeleteClick = () => {
+    setOnDeleteClick(!onDeleteClick);
+    console.log(onDeleteClick);
+  };
+
   const navigate = useNavigate();
   let { state } = useGlobalContext();
 
@@ -51,8 +58,8 @@ const Card = ({
 
   const renderWideCard = () => (
     <>
-      <div onClick={() => onCardClick()} className={styles.wideCardContainer}>
-        <div className={styles.rowElements}>
+      <div className={styles.wideCardContainer}>
+        <div onClick={() => onCardClick()} className={styles.rowElements}>
           <img className={styles.wideCardImg} src={ImageLogin} alt="" />
           <div className={styles.wideCardContent}>
             <div className={styles.wideTitleContainer}>
@@ -86,6 +93,21 @@ const Card = ({
           </button>
         </div>
       </div>
+      {onDeleteClick && (
+        <div
+          className={styles.deleteModalContainer}
+          onClick={() => handleOnDeleteClick()}
+        >
+          <div className={styles.deleteModalContent}>
+            <header>Delete listing</header>
+            <p>You cannot recover the listing after deleting it.</p>
+            <div className={styles.deleteModalButtons}>
+              <div className={styles.deleteModalButton}>Delete</div>
+              <div className={styles.backModalButton}>Back</div>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 

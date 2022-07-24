@@ -21,7 +21,7 @@ const Galery = (props) => {
           showButton={location.pathname === '/' ? true : false}
           func={() => navigate('/add-new')}
         ></StyledFormTitle>
-        {props?.path === 'favourites' ? (
+        {props.path === 'favourites' ? (
           <>
             <Filter location={false} price={false} order={false} />
           </>

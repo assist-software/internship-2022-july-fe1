@@ -99,8 +99,6 @@ const AddNewPage = () => {
   const handleCreateNew = (e) => {
     e.preventDefault();
 
-
-
     let item = {
       title: title,
       description: description,
@@ -111,12 +109,13 @@ const AddNewPage = () => {
       featured: true,
       images: '',
       phoneNumber: phone,
-      userId: localStorage.getItem('userId'),
+      // authorId: localStorage.getItem('userId'),
+      updatedAt: '',
+      status: true,
     };
 
     if (editPost) {
       item = { ...item, id: id, approvedById: null };
-      console.log(" editmode", item);
       APIData.editPost(item, item.id);
       navigate(`/mylisting/${item.id}`);
     } else {

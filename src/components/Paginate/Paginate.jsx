@@ -14,7 +14,11 @@ const Paginate = () => {
 
   useEffect(() => {
     // CALCULATE TOTAL CARDS
-    setPageCount(Math.ceil(state[0]?.totalListings / 12));
+    // setPageCount(Math.ceil(state[0].totalListings / 12));
+
+    const x = state[0]
+      ? setPageCount(Math.ceil(state[0].totalListings / 12))
+      : 1;
   }, [state]);
 
   const handlePageClick = (data) => {

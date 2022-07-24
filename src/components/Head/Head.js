@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import Button from "react-bootstrap/Button";
+import React from "react";
+// import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Dropdown from "react-bootstrap/Dropdown";
@@ -20,11 +20,12 @@ import { useGlobalAuthContext } from '../../Context/authContext';
 
 const Head = () => {
   const { logout } = useGlobalAuthContext()
-  const [isUserLogin, setIsUserLogin] = useState(false)
+  // const [isUserLogin, setIsUserLogin] = useState(false)
 
-  useEffect(() => {
-    { localStorage.getItem('email') ? setIsUserLogin(true) : setIsUserLogin(false) }
-  }, [])
+  // console.log(isUserLogin);
+  // useEffect(() => {
+  //   { localStorage.getItem('email') ? setIsUserLogin(true) : setIsUserLogin(false) }
+  // }, [])
 
   const handleLogOut = () => {
     logout()
@@ -51,7 +52,7 @@ const Head = () => {
                     className='dropDownBtn'
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
                   >
-                    <Dropdown.Toggle variant='default'>
+                    <Dropdown.Toggle variant='light'>
                       <span className='textCategory'>Category </span>
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
@@ -68,16 +69,15 @@ const Head = () => {
                     className='searchInput'
                     aria-label='Search'
                   />
-
                   <FiSearch className='searchIcon'></FiSearch>
                 </div>
                 <div>
-                  <Button variant='outline' className='favouritesBtn'>
+                  <button className='favouritesBtn'>
                     <FiHeart id='headerIcons'></FiHeart>
                     <Link to={"/favourites"} className='colorText'>
                       Favourites
                     </Link>
-                  </Button>
+                  </button>
                 </div>
                 <div>
                   <Dropdown
@@ -96,17 +96,26 @@ const Head = () => {
                       <Dropdown.Item className='textMyAccount'>
                         <FiUser className='myAccountIcons' />
 
-                        <Link to={'/my-account/profile'}>Profile</Link>
+                        <Link to={"/my-account/profile"}>Profile</Link>
                       </Dropdown.Item>
-                      <Dropdown.Item href='/my-account/login&security' className='textMyAccount'>
+                      <Dropdown.Item
+                        href='/my-account/login&security'
+                        className='textMyAccount'
+                      >
                         <MdOutlineSecurity className='myAccountIcons' />
                         Login & security
                       </Dropdown.Item>
-                      <Dropdown.Item href='/my-account/notifications' className='textMyAccount'>
+                      <Dropdown.Item
+                        href='/my-account/notifications'
+                        className='textMyAccount'
+                      >
                         <MdOutlineNotificationsNone className='myAccountIcons' />
                         Notifications
                       </Dropdown.Item>
-                      <Dropdown.Item href='/my-account/messages' className='textMyAccount'>
+                      <Dropdown.Item
+                        href='/my-account/messages'
+                        className='textMyAccount'
+                      >
                         <BiMessageDetail className='myAccountIcons' />
                         Messages
                       </Dropdown.Item>

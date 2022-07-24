@@ -1,0 +1,254 @@
+.infoLabel {
+    margin-top: 40px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 28px;
+    color: #4D5464;
+    display: flex;
+    justify-content: space-between;
+}
+
+.titleSpan {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 28px;
+    /* identical to box height, or 140% */
+    /* Gray/600 */
+    color: #4D5464;
+}
+
+#shareBtn,
+.shareBtnModal {
+    color: #0241AE;
+    background-color: #fff;
+    width: 100px;
+    height: 36px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+    border: 0px;
+}
+
+.iconShare,
+.iconHeart {
+    width: 15px;
+    height: 16px;
+    margin-right: 8px;
+    color: #0241AE;
+}
+
+.priceSpan {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+}
+
+.descriptionForm {
+    width: 100%;
+    height: 100%;
+    max-width: 750px;
+    max-height: 432px;
+    border: 1px solid #E4E7EC;
+    margin-top: 32px;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+.descriptTitle {
+    margin-top: 32px;
+}
+
+.descriptContent {
+    width: 100%;
+    height: 100%;
+    max-width: 750px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+    /* display: flex;
+            align-items: center; */
+    color: #667085;
+    margin-bottom: 32px;
+}
+
+.userForm {
+    margin-top: 32px;
+    margin-left: 30px;
+    width: 100%;
+    max-width: 360px;
+    height: 100%;
+    max-height: 142px;
+    border: 1px solid #E4E7EC;
+    border-radius: 12px;
+}
+
+.infoForm {
+    display: flex;
+    justify-content: space-between;
+}
+
+.userContent {
+    margin: 20px;
+    max-width: 264px;
+    max-height: 102px;
+    width: 100%;
+    height: 100%;
+}
+
+#userPhoto {
+    max-width: 44px;
+    max-height: 44px;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}
+
+.userInfo {
+    display: grid;
+    flex-wrap: wrap;
+    margin-left: 60px;
+    position: relative;
+    bottom: 40px;
+}
+
+.userName {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #1C1C1E;
+}
+
+.pInfo {
+    width: 250px;
+    height: 100px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+    color: #667085;
+}
+
+.purchaseBtn {
+    width: 100%;
+    height: 100%;
+    max-width: 304px;
+    max-height: 44px;
+    margin-top: 20px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+    border-radius: 8px;
+    color: #fff;
+    border: 0px;
+    background-color: #0356E8;
+}
+
+.heartBtn {
+    margin-top: 20px;
+    /* margin-right: 12px; */
+    max-width: 44px;
+    max-height: 44px;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    border: 1px solid #0241AE;
+    color: #0241AE;
+    background-color: #fff;
+}
+
+.buttonsGroup {
+    display: flex;
+    justify-content: space-between;
+}
+
+.locationForm {
+    margin-top: 32px;
+    width: 713px;
+}
+
+.locationContent {
+    width: 100%;
+    height: 100%;
+    max-width: 750px;
+    border: 1px solid #E4E7EC;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+h4 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: #1C1C1E;
+}
+
+.spanLocation {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #667085;
+}
+
+.maps {
+    width: 100%;
+    height: 100%;
+    margin-top: 12px;
+    margin-bottom: 32px;
+    max-width: 713px;
+    max-height: 382px;
+    border-radius: 12px;
+}
+
+.messageForm {
+    margin-top: 32px;
+    width: 100%;
+    max-width: 750px;
+    margin-bottom: 50px;
+}
+
+.messageText {
+    margin-top: 12px;
+    max-width: 750px;
+    max-height: 151px;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    border: 1px solid #667085;
+    padding: 12px 20px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #1C1C1E;
+}
+
+.sendBtn {
+    margin-top: 10px;
+    max-width: 180px;
+    max-height: 44px;
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+    color: #0241AE;
+    border: 1px solid #0241AE;
+    background-color: #fff;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.sendBtnPosition {
+    display: flex;
+    justify-content: flex-end;
+}

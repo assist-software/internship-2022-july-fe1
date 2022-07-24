@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import StyledInputLabel from "../../components/InputLabel/InputLabel";
 import { StyledLoginFormInput } from "../../components/LoginFormInput";
 import StyledPageButton from "../../components/PageButton/PageButton";
@@ -11,17 +11,49 @@ import {
 } from "./MyAccountPageElements";
 import Select from "react-select";
 import React from "react";
+import { useGlobalAuthContext } from "../../Context/authContext";
 
 const ProfilePage = () => {
+  const { userDataContext, editUserData } = useGlobalAuthContext();
+  console.log(userDataContext);
+
+  console.log(userDataContext.email);
   // states
   const [userData, setUserData] = useState({
-    name: { value: { firstName: "Test", lastName: "Test" }, isOpened: false },
-    gender: { value: "Male", isOpened: false },
-    dateOfBirth: { value: "2022-07-15", isOpened: false },
-    email: { value: "test", isOpened: false },
-    phoneNumber: { value: "0000000000", isOpened: false },
-    address: { value: "test", isOpened: false },
+    name: { value: { firstName: "", lastName: "" }, isOpened: false },
+    gender: { value: "", isOpened: false },
+    dateOfBirth: { value: "", isOpened: false },
+    email: { value: "", isOpened: false },
+    phoneNumber: { value: "", isOpened: false },
+    address: { value: "", isOpened: false },
   });
+
+  useEffect(() => {
+    let userGender = userDataContext.gender === 0 ? "Male" : "Female";
+    let date = userDataContext.dateOfBirth;
+    let first_name = "";
+    let last_name = "";
+    if (typeof userDataContext.fullName !== "undefined") {
+      let fullName = userDataContext.fullName.split(" ");
+      first_name = fullName[0];
+      if (typeof fullName[1] !== "undefined") last_name = fullName[1];
+    }
+
+    setUserData({
+      name: {
+        value: {
+          firstName: first_name,
+          lastName: last_name,
+        },
+        isOpened: false,
+      },
+      gender: { value: userGender, isOpened: false },
+      dateOfBirth: { value: date, isOpened: false },
+      email: { value: userDataContext.email, isOpened: false },
+      phoneNumber: { value: userDataContext.phoneNumber, isOpened: false },
+      address: { value: userDataContext.address, isOpened: false },
+    });
+  }, [userDataContext]);
 
   // refs
   const firstNameRef = useRef();
@@ -43,6 +75,7 @@ const ProfilePage = () => {
         break;
       case "email":
         emailRef.current.value = newUserData[property].value;
+        console.log("EMAILREF:" + emailRef.current.value);
         break;
       case "dateOfBirth":
         dateOfBirthRef.current.value = newUserData[property].value;
@@ -66,6 +99,19 @@ const ProfilePage = () => {
       newUserData[property].value.lastName = fullName[1];
     } else newUserData[property].value = value;
     setUserData(newUserData);
+
+    const tempUserData = {
+      ...userDataContext,
+      fullName:
+        userData.name.value.firstName + " " + userData.name.value.lastName,
+      gender: userData.gender.value,
+      dateOfBirth: userData.dateOfBirth.value,
+      email: userData.email.value,
+      phone: userData.phoneNumber.value,
+      address: userData.address.value,
+    };
+
+    editUserData(tempUserData);
   };
 
   const [selectedValue, setSelectedValue] = useState(userData.gender.value);
@@ -74,23 +120,6 @@ const ProfilePage = () => {
   const handleGenderChange = (e) => {
     setSelectedValue(e.label);
   };
-
-  //   //fetch data
-  //   useEffect(() => {
-  //     const url = `https://assist-jully-2022-be1.azurewebsites.net/api/listing`;
-
-  //     const fetchData = async () => {
-  //       try {
-  //         const response = await fetch(url);
-  //         const json = await response.json();
-  //         console.log(json);
-  //       } catch (error) {
-  //         console.log("error", error);
-  //       }
-  //     };
-
-  //     fetchData();
-  // }, []);
 
   return (
     <ProfileContainer userData={userData}>
@@ -122,6 +151,11 @@ const ProfilePage = () => {
                 firstNameRef.current.value + "%" + lastNameRef.current.value
               );
               handleEditButtonClick("name");
+              console.log(
+                userData.name.value.firstName +
+                  " " +
+                  userData.name.value.lastName
+              );
             }}
           />
         </StyledColumnDiv>
@@ -143,7 +177,7 @@ const ProfilePage = () => {
             options={options}
             styles={customStyles}
             placeholder={
-              <div className='select-placeholder-text'>Select gender</div>
+              <div className='select-placeholder-text'> Select gender </div>
             }
             onChange={handleGenderChange}
             defaultValue={{ label: selectedValue }}
@@ -208,6 +242,7 @@ const ProfilePage = () => {
         </StyledColumnDiv>
         <StyledText className='emailVisibility'>
           {userData.email.value}
+          {/* {userDataContext.email} */}
         </StyledText>
         <LineBreak />
       </div>
@@ -266,7 +301,7 @@ const ProfilePage = () => {
           {userData.address.value}
         </StyledText>
         <LineBreak />
-      </div>{" "}
+      </div>
     </ProfileContainer>
   );
 };
