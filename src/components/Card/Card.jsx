@@ -94,6 +94,12 @@ const Card = ({
         </div>
         <div className={styles.buttonContainer}>
           <button
+            className={styles.approveButton}
+            onClick={() => console.log('You hit approve')}
+          >
+            Aprove
+          </button>
+          <button
             className={styles.deleteButton}
             onClick={() => {
               handleDeleteButton(id);

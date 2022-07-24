@@ -55,6 +55,10 @@
   width: 100%;
 }
 
+.wideCardContainer:hover {
+  border: 2px solid #e4e7ec;
+}
+
 .wideCardContainer2 {
   display: flex;
   padding: 12px 0;
@@ -131,13 +135,18 @@
 }
 
 .deleteButton,
-.editButton {
+.editButton,
+.approveButton {
   border: none;
   font-weight: 600;
   font-size: 14px;
   line-height: 22px;
   background-color: white;
   padding: 10px 20px;
+}
+.approveButton {
+  color: #fff;
+  background-color: #0356e8;
 }
 .editButton {
   color: #0241ae;
@@ -149,6 +158,13 @@
 .editButton:hover {
   background-color: #f1f6ff;
   color: #0241ae;
+}
+.approveButton:hover {
+  background: #0241ae;
+}
+
+.approveButton:active {
+  background: #012b74;
 }
 
 .deleteButton:active,
