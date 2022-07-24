@@ -36,7 +36,7 @@ const LogInForm = () => {
       } else {
         setWrongPassword(true)
       }
-    }, 600)
+    }, 1600)
   }
 
   return (

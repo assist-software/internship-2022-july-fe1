@@ -18,6 +18,7 @@ const addPost = async (item) => {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
     },
     body: JSON.stringify(item),
   };
@@ -39,11 +40,30 @@ const editPost = async (item, id) => {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
     },
     body: JSON.stringify(item),
   };
   const reqUrl = `${url}/listing/${id}`;
   const result = await apiRequest(reqUrl, updateOptions);
+  if (result) console.log(result);
+};
+
+//ADD TO FAVORITE
+const addToFavoriteApi = async (id) => {
+  const postOptions = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    },
+  };
+  const result = await apiRequest(
+    `${url}/Favorite/add?UserId=${localStorage.getItem(
+      'userId'
+    )}&ListingId=${id}`,
+    postOptions
+  );
   if (result) console.log(result);
 };
 
@@ -53,4 +73,5 @@ export const APIData = {
   addPost,
   deletePost,
   editPost,
+  addToFavoriteApi,
 };

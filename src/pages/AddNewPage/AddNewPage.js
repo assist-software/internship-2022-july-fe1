@@ -111,6 +111,7 @@ const AddNewPage = () => {
       featured: true,
       images: '',
       phoneNumber: phone,
+      userId: localStorage.getItem('userId'),
     };
 
     if (editPost) {

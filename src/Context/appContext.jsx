@@ -25,7 +25,7 @@ export const AppProvider = ({ children }) => {
   // const [searchValue, setSearchValue] = useState(null);
 
   const [requestOption, setRequestOption] = useState({
-    id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
+    // id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
     category: null,
     price: null,
     locations: null,
@@ -63,6 +63,11 @@ export const AppProvider = ({ children }) => {
     fetchData(requestOption);
   }, [fetchData, requestOption]);
 
+  //ADD TO FAVORITE
+  const addToFavoriteContext = (listingId) => {
+    APIData.addToFavoriteApi(listingId);
+  };
+
   const state = initialState;
 
   //BRINGS VALUE TO THE SINGLE PROPS ITEM FROM ALL OBJECTS
@@ -99,6 +104,7 @@ export const AppProvider = ({ children }) => {
         singleElement,
         fetchData,
         requestOption,
+        addToFavoriteContext,
       }}
     >
       {children}
