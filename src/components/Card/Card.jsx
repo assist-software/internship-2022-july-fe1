@@ -72,6 +72,7 @@ const Card = ({
             ? `${styles.wideCardContainer2}`
             : `${styles.wideCardContainer}`
         }
+        // className={styles.wideCardContainer2}
       >
         <div className={styles.rowElements}>
           <img className={styles.wideCardImg} src={ImageLogin} alt='' />
@@ -117,10 +118,7 @@ const Card = ({
         )}
       </div>
       {onDeleteClick && (
-        <div
-          className={styles.deleteModalContainer}
-          // onClick={() => handleOnDeleteClick()}
-        >
+        <div className={styles.deleteModalContainer}>
           <div className={styles.deleteModalContent}>
             <header>Delete listing</header>
             <p>You cannot recover the listing after deleting it.</p>
