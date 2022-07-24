@@ -25,11 +25,6 @@ export const AuthProvider = ({ children }) => {
     APIAuth.resetPass(email);
   };
 
-  //GET ALL DATA OF USER
-  // const getUserData = () => {
-  //   const x = APIAuth.getUserDataApi();
-  //   console.log('in authContext', x);
-  // };
   const getUserData = () => {
     const requestOptions = {
       headers: {
@@ -48,11 +43,10 @@ export const AuthProvider = ({ children }) => {
       });
   };
 
-
   //USER EDIT DATA
-  const editUserData = (newUserData) =>{
-    APIAuth.editUserDataApi(newUserData)
-  }
+  const editUserData = (newUserData) => {
+    APIAuth.editUserDataApi(newUserData);
+  };
 
   const token = () => {
     return localStorage.getItem('token');

@@ -37,6 +37,7 @@ const MyAccountPage = ({ pageName }) => {
   }, []);
 
   return (
+
     <StyledPageContainer>
       {/* MessageNotifications */}
       <MessageNotifications>
@@ -55,7 +56,7 @@ const MyAccountPage = ({ pageName }) => {
               location.pathname === "/my-account/profile" ? true : false
             }
             pathname='/my-account/profile'
-            // title={userData.title}
+          // title={userData.title}
           />
           <StyledProfileButton
             icon={<MdSecurity />}
