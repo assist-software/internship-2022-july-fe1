@@ -11,8 +11,6 @@ const FitlterMultiSelect = (props) => {
   const [selectedLocation, setSelectedLocation] = useState([]);
 
   const [locations, setLocations] = useState(state);
-
-  console.log('state', state);
   // console.log('locations', locations);
 
   const handleLocationClick = (locationIndex, loc) => {

@@ -32,7 +32,7 @@ const Filter = ({ location, price, order }) => {
   };
 
   useEffect(() => {
-    console.log('ceva se inschimba', locationFIlter, priceFIlter, orderFilter);
+    // console.log('ceva se inschimba', locationFIlter, priceFIlter, orderFilter);
   }, [locationFIlter, priceFIlter, orderFilter]);
 
   return (

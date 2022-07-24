@@ -31,18 +31,16 @@ export const AppProvider = ({ children }) => {
     locations: null,
     orderBy: null,
     pageIndex: currentPage,
+    userId: localStorage.getItem('userId'),
   });
 
   useEffect(() => {
-    console.log('asculta paginate');
-    console.log('currentPage', currentPage);
     setRequestOption({
       ...requestOption,
       pageIndex: currentPage,
-      price: priceFIlter,
+      // price: priceFIlter,
     });
     // setRequestOption({ ...requestOption, price: priceFIlter });
-    console.log('requestOption requestul pt backend', requestOption);
     fetchData(requestOption);
   }, [currentPage, priceFIlter]);
 
@@ -52,10 +50,11 @@ export const AppProvider = ({ children }) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(optionReq),
     };
+
+    console.log('requestOption', requestOption);
     fetch(`${APIData.url}/listing`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
-        console.log('data din fetchData', data);
         setInitialState(data);
       });
   }, []);
