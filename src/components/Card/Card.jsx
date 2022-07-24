@@ -20,6 +20,11 @@ const Card = ({
   price,
   isFavorite = false,
 }) => {
+  //State for handle deleted listing background
+  const [isDeleted, setIsDeleted] = useState(false);
+  const handleDeletedListing = () => {
+    setIsDeleted(true);
+  };
   //State for handle delete item
   const [onDeleteClick, setOnDeleteClick] = useState(false);
   const handleOnDeleteClick = () => {
@@ -60,7 +65,14 @@ const Card = ({
 
   const renderWideCard = () => (
     <>
-      <div onClick={() => onCardClick()} className={styles.wideCardContainer}>
+      <div
+        onClick={() => onCardClick()}
+        className={
+          isDeleted
+            ? `${styles.wideCardContainer2}`
+            : `${styles.wideCardContainer}`
+        }
+      >
         <div className={styles.rowElements}>
           <img className={styles.wideCardImg} src={ImageLogin} alt='' />
           <div className={styles.wideCardContent}>
@@ -97,18 +109,34 @@ const Card = ({
             Edit
           </button>
         </div>
+        {isDeleted && (
+          <p className={styles.deletedListing}>Listing has been deleted</p>
+        )}
       </div>
       {onDeleteClick && (
         <div
           className={styles.deleteModalContainer}
-          onClick={() => handleOnDeleteClick()}
+          // onClick={() => handleOnDeleteClick()}
         >
           <div className={styles.deleteModalContent}>
             <header>Delete listing</header>
             <p>You cannot recover the listing after deleting it.</p>
             <div className={styles.deleteModalButtons}>
-              <div className={styles.deleteModalButton}>Delete</div>
-              <div className={styles.backModalButton}>Back</div>
+              <div
+                className={styles.deleteModalButton}
+                onClick={() => {
+                  handleDeletedListing();
+                  handleOnDeleteClick();
+                }}
+              >
+                Delete
+              </div>
+              <div
+                className={styles.backModalButton}
+                onClick={() => handleOnDeleteClick()}
+              >
+                Back
+              </div>
             </div>
           </div>
         </div>
