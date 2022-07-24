@@ -18,6 +18,7 @@ const Paginate = () => {
     const x = state[0]
       ? setPageCount(Math.ceil(state[0].totalListings / 12))
       : 1;
+    console.log(x);
   }, [state]);
 
   const handlePageClick = (data) => {

@@ -100,7 +100,7 @@ const AddNewPage = () => {
     let firstLetterUpperAndRestLower = e.target.value;
     setLocation(
       firstLetterUpperAndRestLower.charAt(0).toUpperCase() +
-        firstLetterUpperAndRestLower.slice(1).toLowerCase()
+      firstLetterUpperAndRestLower.slice(1).toLowerCase()
     );
   };
 

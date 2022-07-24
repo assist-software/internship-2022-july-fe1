@@ -20,7 +20,6 @@ import UploadImage from "../../components/ProfileImage/UploadImage";
 import StyledMyAccountTitle from "../../components/MyAccountTitle/MyAccountTitle";
 
 import { useGlobalAuthContext } from "../../Context/authContext";
-// import { APIAuth } from "../../api/APIAuth";
 
 const MyAccountPage = ({ pageName }) => {
   const { getUserData } = useGlobalAuthContext();
@@ -36,12 +35,6 @@ const MyAccountPage = ({ pageName }) => {
   useEffect(() => {
     getUserData();
   }, []);
-
-  useEffect(() => {
-    getUserData()
-  }, [])
-
-
 
   return (
 

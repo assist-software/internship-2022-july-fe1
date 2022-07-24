@@ -1,5 +1,5 @@
 import React from "react";
-// import Button from "react-bootstrap/Button";
+// import Button from 'react-bootstrap/Button';
 import Container from "react-bootstrap/Container";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Dropdown from "react-bootstrap/Dropdown";
@@ -16,20 +16,14 @@ import {
 import { BiMessageDetail } from "react-icons/bi";
 import logo from "../../assets/images/assistLogo.png";
 
-import { useGlobalAuthContext } from '../../Context/authContext';
+import { useGlobalAuthContext } from "../../Context/authContext";
 
 const Head = () => {
-  const { logout } = useGlobalAuthContext()
-  // const [isUserLogin, setIsUserLogin] = useState(false)
-
-  // console.log(isUserLogin);
-  // useEffect(() => {
-  //   { localStorage.getItem('email') ? setIsUserLogin(true) : setIsUserLogin(false) }
-  // }, [])
+  const { logout } = useGlobalAuthContext();
 
   const handleLogOut = () => {
-    logout()
-  }
+    logout();
+  };
 
   return (
     <>
@@ -120,7 +114,11 @@ const Head = () => {
                         Messages
                       </Dropdown.Item>
                       <div className='emptyDiv'></div>
-                      <Dropdown.Item href='/' onClick={() => handleLogOut()} className='textMyAccount'>
+                      <Dropdown.Item
+                        href='/'
+                        onClick={() => handleLogOut()}
+                        className='textMyAccount'
+                      >
                         <MdLogout className='myAccountIcons' />
                         Logout
                       </Dropdown.Item>

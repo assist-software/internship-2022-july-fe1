@@ -27,7 +27,7 @@ const Card = ({
   };
 
   const navigate = useNavigate();
-  let { state, deleteList } = useGlobalContext();
+  let { deleteList } = useGlobalContext();
 
   const handleEditButton = (id) => {
     navigate(`/editpost/${id}`);

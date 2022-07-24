@@ -4,7 +4,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import { useGlobalContext } from '../../Context/appContext';
 
 const FilterOrderSelect = (props) => {
-  const { name, handleOrderFilter } = props;
+  const { name } = props;
   const [selectedId, setSelectedId] = useState({});
   const { requestOption, setRequestOption } = useGlobalContext();
 
